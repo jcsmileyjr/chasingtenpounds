@@ -1,8 +1,18 @@
 button {
     color: #252323; /*App official black color*/
-    background-color: #0707f8;/*App official dark blue color*/ 
-    width: 10rem; /*Make the button wider*/
     padding: .4rem; /*Add space between button content and the border*/
     font-weight: bold; /*Make the content darker and bigger*/
     word-spacing: .1rem; /*Add spacing between words in the content*/
 }
+
+.dark {
+    background-color: #0707f8;/*App official dark blue color*/ 
+    width: 10rem; /*Make the button wider*/
+}
+
+.light {
+    background-color: #A3C3F7;/*App official light blue color*/ 
+    width: 15rem; /*Make the button wider*/
+}
+
+

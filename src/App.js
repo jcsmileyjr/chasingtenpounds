@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DarkButton from './components/DarkButton';
+import BlueButton from './components/BlueButton';
 import './App.css';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
   }
   return (
     <div>
-      <DarkButton title="Sign Up" action={test} />
+      <BlueButton title="Sign Up" action={test} buttonType="dark" />
     </div>
   );
 }
