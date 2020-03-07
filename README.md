@@ -1,68 +1,62 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Chasing the 10 lb Monster
 
-## Available Scripts
+![Screen-shot of monster image](./src/assets/images/monster2.png)
 
-In the project directory, you can run:
+### Table of Contents
 
-### `npm start`
+1. Demo Link (Coming soon)
+2. Purpose
+3. Motivation
+4. Objectives
+5. Wireframe
+6. How to Install
+7. Technologies Used
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Purpose:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Chasing the 10 Pound Monster is a "Biggest Loser" style weight loss web app. The objective is to be the first player to lose 10 pounds. Players will enter their weight daily into the web app. The web app will show only the gain or loss, not the actual weight, for players.
 
-### `npm test`
+10 pounds is an attainable, measureable, and visible fitness goal. The best part is it can be done in a short time period. So choose, do you want or need to chase the 10 Pound Monster?
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Motivation:
 
-### `npm run build`
+I work in an office of 25 people. Throughout the year I hosted several biggest loser style challenges using a chalk board to show weekly weigh loss for participants. This arrangement had many pitfalls including failure to get everyone’s weigh-in in a timely manner, weigh-in day on my day off, a participant or myself out of town, and miscalculations in determining weight-loss. I wanted a web-based app that will allow each participant to weigh-in at their own convenient time and place, perfect calculation of weight-loss, and transparency in who won. This would allow me more time to encourage participate to lose weight instead of administration of challenge.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Objectives:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- Allow the user to create an account.
+- Allow an user to create a team and invite players via email to accept/join the challenge.
+- Allow an user to join a team of players if they know the team code.
+- Allow an user to log into the app, input their weight, and see the current weight loss ranking in their team.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### WireFrame:
 
-### `npm run eject`
+![Screen-shot of Wireframe in use](./src/assets/wireframes/landingPage-finalversion.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### How to Install:
+**Prerequisites: Node & Create-React-App
+1. Clone this Repo: Click the green button that says “Clone or Download”. In the window that appears, select the “Clipboard” icon to copy the repo URL to your clipboard.
+2. Open a command terminal and create a directory for the project. 
+3. Type git clone "paste the copy git repo link here". Press enter to run.
+4. Type "npm install" to install dependencies
+5. Type "npm start" to run on localhost http://localhost:3000 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### This app was built with the following technologies:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**React:** JavaScript front-end library for building user interfaces
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Node.js:** Server side development platform created to run JavaScript
 
-## Learn More
+**ExpressJS:** A Node.js web application server framework Create by JC Smiley in May of 2017
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**JavaScript:** Object-oriented programming language for web pages
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**HTML:** Mark-up language for creating web pages
 
-### Code Splitting
+**CSS:** A formatting language for styling web pages
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+**Git-Hub:** Web-based version control repository and Internet hosting service
 
-### Analyzing the Bundle Size
+**Abode XD** A wire-framing tool used to create a mockup/visual of what is to be coded
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+_Create by JC Smiley in March of 2020_
