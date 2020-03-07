@@ -1,16 +1,12 @@
 import React from 'react';
 
-import BlueButton from './components/BlueButton';
+import LandingPageHeader from './components/LandingPageHeader';
 import './App.css';
 
 function App() {
-
-  const test =()=> {
-    alert("Hello World");
-  }
   return (
     <div>
-      <BlueButton title="Sign Up" action={test} buttonType="dark" />
+      <header><LandingPageHeader /></header>
     </div>
   );
 }
