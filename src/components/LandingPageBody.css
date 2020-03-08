@@ -3,7 +3,7 @@
 }
 
 .test2 {
-    margin-top: 2.7rem; /*set whitespace above it and the section above*/
+    margin-top: .7rem; /*set whitespace above it and the section above*/
     /*background-color: aqua;*/
 }
 
@@ -17,6 +17,14 @@ and the next section
     display: flex;/*center elements within container*/
     justify-content: center;/*center elements within container*/
     align-items: center;/*center elements within container*/
+}
+
+/*center contents of a container*/
+.centerContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 
 /*center elements or text*/
@@ -36,9 +44,9 @@ and the next section
 
 /*Set the height of a image and make it less visable under the floating text*/
 .landingBodyImage {
-    height: 60vh;
+    height: 65vh;
     filter: grayscale(10%);
-    opacity: 0.6;
+    opacity: 0.4;
 }
 
 /*bold for paragraph elements hovering over image*/
@@ -50,7 +58,7 @@ and the next section
     letter-spacing: 1.6px;
 }
 
-/**/
+/*styling for CTA header*/
 .CTATitle {
     font-size: 2rem;
     font-weight: bold;

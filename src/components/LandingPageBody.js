@@ -21,14 +21,14 @@ const LandingPageBody = () => {
                         <h2 className="spaceBetweenLetters">The Fastest</h2>
                     </div>
                 </Col>
-                <Col xs={{span:12, order:1}} sm={{order:2}} md={{order:2}} lg={{order:2}} xl={{span: 8,order:2}} className="test2">
+                <Col xs={{span:12, order:1}} sm={{order:2}} md={{order:2}} lg={{order:2}} xl={{span: 8,order:2}} className="centerContent">
                     <p className="CTATitle">Do you want to Chase the <span style={{color:"#FF0000"}}>10 Pound </span>Monster?</p>
                     <p>10 pounds is an attainable, measureable, and visible fitness goal. 
                     The best part is it can be done in a short time period. So choose, do 
                     you want or need to chase the 10 Pound Monster?
                     </p>
                     <div className="centerElements">
-                    <Image src={monster} fluid className="imageStyle"/>
+                        <Image src={monster} fluid className="imageStyle"/>
                     </div>
                     
                 </Col>
