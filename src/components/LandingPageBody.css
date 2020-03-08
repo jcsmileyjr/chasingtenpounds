@@ -1,0 +1,57 @@
+.test11 {
+    background-color: pink;
+}
+
+.test2 {
+    margin-top: 2.7rem; /*set whitespace above it and the section above*/
+    /*background-color: aqua;*/
+}
+
+/*Style the container of a image so its bigger then the
+image {60vh}, all elements are center, and whitespace between it
+and the next section
+*/
+.landingPageBodyImageContainerStyle {
+    /*margin-top: 1rem;set whitespace above it and the section above*/
+    height: 70vh;/*Set a responsive height to the container and bigger then the image*/
+    display: flex;/*center elements within container*/
+    justify-content: center;/*center elements within container*/
+    align-items: center;/*center elements within container*/
+}
+
+/*center elements or text*/
+.centerElements {
+    text-align: center;
+}
+
+/*Center text over a image*/
+.floatingText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+    color:#252323; /*App official black color*/
+
+}
+
+/*Set the height of a image and make it less visable under the floating text*/
+.landingBodyImage {
+    height: 60vh;
+    filter: grayscale(10%);
+    opacity: 0.6;
+}
+
+/*bold for paragraph elements hovering over image*/
+.imageText {
+    font-weight: bold;
+}
+
+.spaceBetweenLetters {
+    letter-spacing: 1.6px;
+}
+
+/**/
+.CTATitle {
+    font-size: 2rem;
+    font-weight: bold;
+}
