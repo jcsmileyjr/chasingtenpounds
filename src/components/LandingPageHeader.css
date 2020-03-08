@@ -1,7 +1,7 @@
 /*Styling for the entire Header. */
 .background {
     background-color:#A3C3F7 ;/*Primary light blue color of app*/
-    /*height: 5rem;*/
+    border-bottom: 1px solid #0707f8;/*App official dark blue color*/ ;
 }
 
 /*Styling for the monster logo*/
@@ -28,10 +28,17 @@
     }
 }
 
-/*Adjust font-size of app title on small to medium screens*/
+/*Adjust font-size of app title on small and medium screens*/
 @media screen and (max-width: 765px) {
     .mobileTitleTextSize {
         font-size:1rem ;
+    }
+}
+
+/*Adjust font-size of app title on large screens*/
+@media screen and (min-width: 766px) and (max-device-width : 1024px) {
+    .TabletTitleTextSize {
+        font-size:1.5rem ;
     }
 }
 

@@ -15,6 +15,15 @@ button {
     width: 10vw; /*Make the button wider*/
 }
 
+.flatButton {
+    border: none;
+}
+
+.floatingButton {
+    box-shadow: 1.1px 1.1px rgb(85, 122, 182); /*dark shadow under the button*/
+    border: 1px solid  navy;/*App official dark blue color*/ 
+}
+
 @media screen and (min-width: 575px) {
     .dark, .light {
         width: 15vw;

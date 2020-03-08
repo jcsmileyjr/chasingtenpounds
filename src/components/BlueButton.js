@@ -8,9 +8,12 @@ import "./BlueButton.css";
 */
 const BlueButton = props => {
     if(props.buttonType === "dark"){
-        return <button type="button" className="dark" onClick={props.action}>{props.title}</button>
+        if(props.flat){
+            return <button type="button" className="dark flatButton" onClick={props.action}>{props.title}</button>
+        }
+        return <button type="button" className="dark floatingButton" onClick={props.action}>{props.title}</button>
     }else{
-        return <button type="button" className="light" onClick={props.action}>{props.title}</button>
+        return <button type="button" className="light floatingButton" onClick={props.action}>{props.title}</button>
     }
 }
 
