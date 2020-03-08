@@ -1,0 +1,33 @@
+button {
+    color: #252323; /*App official black color*/
+    padding: .4rem; /*Add space between button content and the border*/
+    font-weight: bold; /*Make the content darker and bigger*/
+    word-spacing: .1rem; /*Add spacing between words in the content*/
+}
+
+.dark {
+    background-color: #0707f8;/*App official dark blue color*/ 
+    width: 25vw; /*Make the button wider*/
+}
+
+.light {
+    background-color: #A3C3F7;/*App official light blue color*/ 
+    width: 10vw; /*Make the button wider*/
+}
+
+.flatButton {
+    border: none;
+}
+
+.floatingButton {
+    box-shadow: 1.1px 1.1px rgb(85, 122, 182); /*dark shadow under the button*/
+    border: 1px solid  navy;/*App official dark blue color*/ 
+}
+
+@media screen and (min-width: 575px) {
+    .dark, .light {
+        width: 15vw;
+    }
+}
+
+

@@ -1,0 +1,51 @@
+/*Styling for the entire Header. */
+.background {
+    background-color:#A3C3F7 ;/*Primary light blue color of app*/
+    border-bottom: 1px solid #0707f8;/*App official dark blue color*/ ;
+}
+
+/*Styling for the monster logo*/
+.imageStyle {
+    height: 4rem;
+}
+
+/*Color for certain word in the title*/
+.redText {
+    color: red;
+}
+
+/*Styling for all inner elements in the header*/
+.content {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+/*Push Header buttons to the right*/
+@media screen and (min-width: 765px) {
+    .rightAlignButtons {
+        text-align: right;
+    }
+}
+
+/*Adjust font-size of app title on small and medium screens*/
+@media screen and (max-width: 765px) {
+    .mobileTitleTextSize {
+        font-size:1rem ;
+    }
+}
+
+/*Adjust font-size of app title on large screens*/
+@media screen and (min-width: 766px) and (max-device-width : 1024px) {
+    .TabletTitleTextSize {
+        font-size:1.5rem ;
+    }
+}
+
+/*Space between buttons and Logo/Title in mobile view*/
+@media screen and (max-width: 575px) {
+    .paddingBetweenLogoButtons {
+        padding-top: 2vh;
+        padding-bottom: 1vh;
+    }
+}
