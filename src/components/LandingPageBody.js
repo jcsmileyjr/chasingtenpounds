@@ -9,7 +9,7 @@ const LandingPageBody = () => {
     return (
         <Container fluid>
             <Row>
-                <Col xs={{span:12, order:2}} sm={{order:1}} md={{order:1}} lg={{order:1}} xl={{span: 4,order:1}} className="landingPageBodyImageContainerStyle test1">
+                <Col xs={{span:12, order:2}} sm={{order:1}} md={{order:1}} lg={{order:1}} xl={{span: 4,order:1}} className="landingPageBodyImageContainerStyle">
                     <Image src={winnerPic} fluid className="landingBodyImage"/>
                     <div className="floatingText centerElements">
                         <h1>Challenge</h1>
@@ -28,7 +28,8 @@ const LandingPageBody = () => {
                     you want or need to chase the 10 Pound Monster?
                     </p>
                     <div className="centerElements">
-                        <Image src={monster} fluid className="imageStyle"/>
+                        <Image src={monster} fluid className="imageStyle animatedMonster"/>
+                        <h4 className="animatedMonster"><span style={{color:"#FF0000"}}>10</span> lbs</h4>
                     </div>
                     
                 </Col>

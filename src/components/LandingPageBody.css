@@ -1,10 +1,12 @@
-.test11 {
+
+/*LAYOUT TESTING*/
+.test1 {
     background-color: pink;
 }
 
-.test2 {
-    margin-top: .7rem; /*set whitespace above it and the section above*/
-    /*background-color: aqua;*/
+/*LAYOUT TESTING*/
+.test2 {    
+    background-color: aqua;
 }
 
 /*Style the container of a image so its bigger then the
@@ -12,7 +14,6 @@ image {60vh}, all elements are center, and whitespace between it
 and the next section
 */
 .landingPageBodyImageContainerStyle {
-    /*margin-top: 1rem;set whitespace above it and the section above*/
     height: 70vh;/*Set a responsive height to the container and bigger then the image*/
     display: flex;/*center elements within container*/
     justify-content: center;/*center elements within container*/
@@ -54,6 +55,7 @@ and the next section
     font-weight: bold;
 }
 
+/*Space between letters*/
 .spaceBetweenLetters {
     letter-spacing: 1.6px;
 }
@@ -62,4 +64,23 @@ and the next section
 .CTATitle {
     font-size: 2rem;
     font-weight: bold;
+}
+
+/*Designate a image as animated*/
+.animatedMonster {
+    animation: roving 4s ease-in-out infinite;
+}
+
+/*animation of monster image moving back & forth while rotating*/
+@keyframes roving {
+    0%{transform: translateX(-165px) rotate(20deg);}
+    15%{transform: translateX(-165px) rotate(-20deg);}
+    25%{transform: translateX(-165px) rotate(20deg);}
+    35%{transform: translateX(-165px) rotate(-20deg);}
+    50%{transform: translateX(165px) rotate(20deg);}
+    60%{transform: translateX(165px) rotate(-20deg);}
+    70%{transform: translateX(165px) rotate(20deg);}
+    80%{transform: translateX(165px) rotate(-20deg);}
+    90%{transform: translateX(165px) rotate(20deg);}
+    100%{transform: translateX(-165px);}
 }
