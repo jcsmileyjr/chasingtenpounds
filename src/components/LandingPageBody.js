@@ -29,7 +29,6 @@ const LandingPageBody = () => {
                     </p>
                     <div className="centerElements">
                         <Image src={monster} fluid className="imageStyle animatedMonster"/>
-                        <h4 className="animatedMonster"><span style={{color:"#FF0000"}}>10</span> lbs</h4>
                     </div>
                     
                 </Col>

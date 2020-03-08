@@ -47,7 +47,7 @@ and the next section
 .landingBodyImage {
     height: 65vh;
     filter: grayscale(10%);
-    opacity: 0.4;
+    opacity: 0.2;
 }
 
 /*bold for paragraph elements hovering over image*/
@@ -73,14 +73,14 @@ and the next section
 
 /*animation of monster image moving back & forth while rotating*/
 @keyframes roving {
-    0%{transform: translateX(-165px) rotate(20deg);}
-    15%{transform: translateX(-165px) rotate(-20deg);}
-    25%{transform: translateX(-165px) rotate(20deg);}
-    35%{transform: translateX(-165px) rotate(-20deg);}
-    50%{transform: translateX(165px) rotate(20deg);}
-    60%{transform: translateX(165px) rotate(-20deg);}
-    70%{transform: translateX(165px) rotate(20deg);}
-    80%{transform: translateX(165px) rotate(-20deg);}
-    90%{transform: translateX(165px) rotate(20deg);}
-    100%{transform: translateX(-165px);}
+    0%{transform: translateX(-18vw) rotate(18deg);}
+    15%{transform: translateX(-18vw) rotate(-18deg);}
+    25%{transform: translateX(-18vw) rotate(18deg);}
+    35%{transform: translateX(-18vw) rotate(-18deg);}
+    50%{transform: translateX(18vw) rotate(18deg);}
+    60%{transform: translateX(18vw) rotate(-18deg);}
+    70%{transform: translateX(18vw) rotate(18deg);}
+    80%{transform: translateX(18vw) rotate(-18deg);}
+    90%{transform: translateX(18vw) rotate(18deg);}
+    100%{transform: translateX(-18vw);}
 }
