@@ -2,21 +2,21 @@ import React from 'react';
 import {Container, Row, Col, Image} from 'react-bootstrap';
 import "./LandingPageBody.css";
 
-import winnerPic from '../assets/images/winner.png';
 import monster from '../assets/images/monster3.png';
 import winnerVideo from '../assets/images/10MON-old-v1.gif';
+import awardRibbon from '../assets/images/award-ribbon.png';
 
 const LandingPageBody = () => {
     return (
         <Container fluid>
             <Row>
                 <Col xs={{span:12, order:2}} sm={{order:1}} md={{order:1}} lg={{order:1}} xl={{span: 4,order:1}} className="landingPageBodyImageContainerStyle">
-                    <Image src={winnerPic} fluid className="landingBodyImage"/>
+                    <Image src={awardRibbon} fluid className="landingBodyImage"/>
                     <div className="floatingText centerElements">
                         <h1>Challenge</h1>
                         <p className="imageText">Family, Friends, Co-workers</p>
                         <p className="imageText">To who can lose</p>
-                        <h2 style={{color:"#FF0000"}} className="spaceBetweenLetters">
+                        <h2 className="spaceBetweenLetters">
                             10 lbs
                         </h2>
                         <h2 className="spaceBetweenLetters">The Fastest</h2>

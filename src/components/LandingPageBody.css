@@ -47,7 +47,7 @@ and the next section
 .landingBodyImage {
     height: 65vh;
     filter: grayscale(10%);
-    opacity: 0.2;
+    opacity: 0.6;
 }
 
 /*bold for paragraph elements hovering over image*/
