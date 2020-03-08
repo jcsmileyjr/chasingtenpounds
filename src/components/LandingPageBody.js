@@ -4,6 +4,7 @@ import "./LandingPageBody.css";
 
 import winnerPic from '../assets/images/winner.png';
 import monster from '../assets/images/monster3.png';
+import winnerVideo from '../assets/images/10MON-old-v1.gif';
 
 const LandingPageBody = () => {
     return (
@@ -29,8 +30,16 @@ const LandingPageBody = () => {
                     </p>
                     <div className="centerElements">
                         <Image src={monster} fluid className="imageStyle animatedMonster"/>
-                    </div>
-                    
+                    </div>                    
+                </Col>
+            </Row>
+            <Row>
+                <Col xs={12} sm={true} md={true} lg={true} xl={true} className="centerContent">
+                    <p>See who is in</p>
+                    <h2>1st PLACE</h2>
+                </Col>
+                <Col xs={12} sm={true} md={true} lg={true} xl={true} >
+                <Image src={winnerVideo} fluid />
                 </Col>
             </Row>
         </Container>
