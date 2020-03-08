@@ -34,11 +34,11 @@ const LandingPageBody = () => {
                 </Col>
             </Row>
             <Row>
-                <Col xs={12} sm={true} md={true} lg={true} xl={true} className="centerContent">
+                <Col xs={12} sm={true} md={true} lg={true} xl={4} className="centerContent">
                     <p>See who is in</p>
                     <h2>1st PLACE</h2>
                 </Col>
-                <Col xs={12} sm={true} md={true} lg={true} xl={true} >
+                <Col xs={12} sm={true} md={true} lg={true} xl={8} >
                 <Image src={winnerVideo} fluid />
                 </Col>
             </Row>
