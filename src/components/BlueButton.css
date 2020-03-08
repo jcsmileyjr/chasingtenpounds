@@ -7,12 +7,18 @@ button {
 
 .dark {
     background-color: #0707f8;/*App official dark blue color*/ 
-    width: 10rem; /*Make the button wider*/
+    width: 25vw; /*Make the button wider*/
 }
 
 .light {
     background-color: #A3C3F7;/*App official light blue color*/ 
-    width: 15rem; /*Make the button wider*/
+    width: 10vw; /*Make the button wider*/
+}
+
+@media screen and (min-width: 575px) {
+    .dark, .light {
+        width: 15vw;
+    }
 }
 
 
