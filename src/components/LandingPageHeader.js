@@ -18,7 +18,7 @@ const LandingPageHeader = () => {
                 </Col>
                 <Col xs={7} sm={5} md={5} lg={6} xl={6}>
                     <h1 className="mobileTitleTextSize TabletTitleTextSize">
-                        Chasing the <span className="redText">10 lb</span> Monster
+                        Chasing the <span className="redText">10 Pound</span> Monster
                     </h1>
                 </Col>
                 <Col xs={6} sm={true} md={true} lg={true} xl={true} className="rightAlignButtons paddingBetweenLogoButtons">
