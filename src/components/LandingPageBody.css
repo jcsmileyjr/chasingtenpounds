@@ -90,21 +90,24 @@ and the next section
     100%{transform: translateX(-18vw);}
 }
 
+/*Assign height to monster images in section 3*/
 .monsterImage {
     height: 5rem;
 }
 
+/*Assign height for tite of images in section 3*/
 .imageTitle {
     height: 5vh;
 }
 
-/*Adjust font-size of app title on large screens*/
+/*Adjust height of the header above images on landing page section 3 images */
 @media screen and (min-width: 576px) and (max-device-width : 595px) {
     .imageTitle {
         height: 9vh; ;
     }
 }
 
+/*Style the header above images*/
 .stepStyle {
     font-size: 1rem;
     font-weight: bold;
