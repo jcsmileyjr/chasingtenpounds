@@ -4,9 +4,9 @@
     background-color: pink;
 }
 
-/*LAYOUT TESTING*/
-.test2 {    
-    background-color: aqua;
+/*Create space between Rows*/
+.whiteSpaceAboveRow {    
+    margin-top: 4rem;
 }
 
 /*Style the container of a image so its bigger then the
@@ -25,7 +25,7 @@ and the next section
     display: flex;
     flex-direction: column;
     justify-content: center;
-
+    align-items: center;
 }
 
 /*center elements or text*/
@@ -47,7 +47,7 @@ and the next section
 .landingBodyImage {
     height: 65vh;
     filter: grayscale(10%);
-    opacity: 0.2;
+    opacity: 0.6;
 }
 
 /*bold for paragraph elements hovering over image*/
@@ -83,4 +83,17 @@ and the next section
     80%{transform: translateX(18vw) rotate(-18deg);}
     90%{transform: translateX(18vw) rotate(18deg);}
     100%{transform: translateX(-18vw);}
+}
+
+.monsterImage {
+    height: 5rem;
+}
+
+.imageTitle {
+    height: 8vh;
+}
+
+.stepStyle {
+    font-size: 1rem;
+    font-weight: bold;
 }

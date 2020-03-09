@@ -1,21 +1,33 @@
 import React from 'react';
 import {Container, Row, Col, Image} from 'react-bootstrap';
 import "./LandingPageBody.css";
+import BlueButton from '../components/BlueButton';
 
-import winnerPic from '../assets/images/winner.png';
 import monster from '../assets/images/monster3.png';
+import winnerVideo from '../assets/images/10MON-old-v1.gif';
+import awardRibbon from '../assets/images/award-ribbon.png';
+import logInPic from '../assets/images/logIn-old.PNG';
+import weighInPic from '../assets/images/WeighIn-old.PNG';
+import rankingPic from '../assets/images/rank-10mon.PNG';
+import monsterA from '../assets/images/monster-A.png';
+import monsterB from '../assets/images/monster-B.png';
+import monsterParty from '../assets/images/monster-party.png';
 
 const LandingPageBody = () => {
+    /*FOR TESTING ONLY */
+    const test = () =>{
+        alert("hello world");
+    }
     return (
         <Container fluid>
             <Row>
                 <Col xs={{span:12, order:2}} sm={{order:1}} md={{order:1}} lg={{order:1}} xl={{span: 4,order:1}} className="landingPageBodyImageContainerStyle">
-                    <Image src={winnerPic} fluid className="landingBodyImage"/>
+                    <Image src={awardRibbon} fluid className="landingBodyImage"/>
                     <div className="floatingText centerElements">
                         <h1>Challenge</h1>
                         <p className="imageText">Family, Friends, Co-workers</p>
                         <p className="imageText">To who can lose</p>
-                        <h2 style={{color:"#FF0000"}} className="spaceBetweenLetters">
+                        <h2 className="spaceBetweenLetters">
                             10 lbs
                         </h2>
                         <h2 className="spaceBetweenLetters">The Fastest</h2>
@@ -29,8 +41,54 @@ const LandingPageBody = () => {
                     </p>
                     <div className="centerElements">
                         <Image src={monster} fluid className="imageStyle animatedMonster"/>
-                    </div>
-                    
+                    </div>                    
+                </Col>
+            </Row>
+            <Row className="whiteSpaceAboveRow">
+                <Col xs={12} sm={true} md={true} lg={true} xl={4} className="centerContent">
+                    <p>See who is in</p>
+                    <h2>1st PLACE</h2>
+                </Col>
+                <Col xs={12} sm={true} md={true} lg={true} xl={8} >
+                <Image src={winnerVideo} fluid />
+                </Col>
+            </Row>
+            <Row className="whiteSpaceAboveRow">
+                <Col xs={12} className="centerElements">
+                    <h1>Quick & Simple to Use, Only Show Weight Loss</h1>
+                </Col>
+                <Col xs={12} sm={true}>
+                    <Col className="centerElements imageTitle"><p className="stepStyle">Log In</p></Col>
+                    <Col >
+                        <Image src={logInPic} fluid/>
+                    </Col>
+                    <Col className="centerElements">
+                        <Image src={monsterA} fluid className="monsterImage"/>
+                        <p>I'm Ready</p>
+                    </Col>
+                </Col>
+                <Col xs={12} sm={true}>
+                    <Col className="centerElements imageTitle"><p className="stepStyle">Input Your Weight</p></Col>
+                    <Col >
+                        <Image src={weighInPic} fluid/>
+                    </Col>
+                    <Col className="centerElements ">
+                        <Image src={monsterB} fluid className="monsterImage"/>
+                        <p>My Weight went Down, YEAH!!!!!</p>
+                    </Col>
+                </Col>
+                <Col xs={12} sm={true}>
+                    <Col className="centerElements imageTitle"><p className="stepStyle">See Your Rank</p></Col>
+                    <Col >
+                        <Image src={rankingPic} fluid />
+                    </Col>
+                    <Col className="centerElements">
+                        <Image src={monsterParty} fluid className="monsterImage"/>
+                        <p>Y'll Can't Catch Me!!!!!</p>
+                    </Col>
+                </Col>
+                <Col xs={12} className="centerElements">
+                    <BlueButton buttonType="light" action={test} title="Let's get Started" flat={false} />
                 </Col>
             </Row>
         </Container>

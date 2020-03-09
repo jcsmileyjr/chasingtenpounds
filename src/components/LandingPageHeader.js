@@ -6,6 +6,7 @@ import {Container, Row, Col, Image, h1} from 'react-bootstrap';
 import monster from '../assets/images/monster4.png';
 
 const LandingPageHeader = () => {
+    /*FOR TESTING ONLY */
     const test = () =>{
         alert("hello world");
     }
