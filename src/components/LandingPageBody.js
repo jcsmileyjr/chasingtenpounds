@@ -62,7 +62,7 @@ const LandingPageBody = () => {
                     <Col className="centerElements">
                         <Image src={logInPic} fluid/>
                     </Col>
-                    <Col className="centerElements">
+                    <Col className="centerElements minorWhiteSpace">
                         <Image src={monsterA} fluid className="monsterImage"/>
                         <p>I'm Ready</p>
                     </Col>
@@ -72,7 +72,7 @@ const LandingPageBody = () => {
                     <Col className="centerElements">
                         <Image src={weighInPic} fluid/>
                     </Col>
-                    <Col className="centerElements ">
+                    <Col className="centerElements minorWhiteSpace">
                         <Image src={monsterB} fluid className="monsterImage"/>
                         <p>My Weight went Down, YEAH!!!!!</p>
                     </Col>
@@ -82,13 +82,42 @@ const LandingPageBody = () => {
                     <Col className="centerElements">
                         <Image src={rankingPic} fluid />
                     </Col>
-                    <Col className="centerElements">
+                    <Col className="centerElements minorWhiteSpace">
                         <Image src={monsterParty} fluid className="monsterImage"/>
                         <p>Y'll Can't Catch Me!!!!!</p>
                     </Col>
                 </Col>
                 <Col xs={12} className="centerElements">
                     <BlueButton buttonType="light" action={test} title="Let's get Started" flat={false} />
+                </Col>
+            </Row>
+            <Row className="whiteSpaceAboveRow">
+                <Col xs={12} className="centerElements">
+                    <h3>Create a team name and send the challenge to your team for a weight loss match</h3>
+                </Col>
+                <Col xs={12} className="centerElements">
+                    <BlueButton buttonType="light" action={test} title="Create a Team" flat={false} />
+                </Col>
+                <Col xs={12} sm={true} className="minorWhiteSpace">
+                    <Col className="centerElements imageTitle" >Step 1: Sign Up</Col>
+                    <Col className="centerElements">
+                        <Image src={monsterA} fluid className="monsterImage"/>
+                        <p>I'm Ready</p>                    
+                    </Col>
+                </Col>
+                <Col xs={12} sm={true} className="minorWhiteSpace">
+                    <Col className="centerElements imageTitle" >Step 1: Sign Up</Col>
+                    <Col className="centerElements">
+                        <Image src={monsterA} fluid className="monsterImage"/>
+                        <p>I'm Ready</p>                    
+                    </Col>
+                </Col>
+                <Col xs={12} sm={true} className="minorWhiteSpace">
+                    <Col className="centerElements imageTitle" >Step 1: Sign Up</Col>
+                    <Col className="centerElements">
+                        <Image src={monsterA} fluid className="monsterImage"/>
+                        <p>I'm Ready</p>                    
+                    </Col>
                 </Col>
             </Row>
         </Container>

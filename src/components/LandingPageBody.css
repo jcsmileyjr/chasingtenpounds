@@ -9,6 +9,11 @@
     margin-top: 4rem;
 }
 
+/*Minor whitespace above buttons, monsters, any element */
+.minorWhiteSpace {
+    margin-top: 1rem;
+}
+
 /*Style the container of a image so its bigger then the
 image {60vh}, all elements are center, and whitespace between it
 and the next section
@@ -90,7 +95,14 @@ and the next section
 }
 
 .imageTitle {
-    height: 8vh;
+    height: 5vh;
+}
+
+/*Adjust font-size of app title on large screens*/
+@media screen and (min-width: 576px) and (max-device-width : 595px) {
+    .imageTitle {
+        height: 9vh; ;
+    }
 }
 
 .stepStyle {
