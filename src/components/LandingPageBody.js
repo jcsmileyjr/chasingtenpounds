@@ -7,7 +7,7 @@ import winnerVideo from '../assets/images/10MON-old-v1.gif';
 import awardRibbon from '../assets/images/award-ribbon.png';
 import logInPic from '../assets/images/logIn-old.PNG';
 import weighInPic from '../assets/images/WeighIn-old.PNG';
-import rankingPic from '../assets/images/10MON5.png';
+import rankingPic from '../assets/images/rank-10mon.PNG';
 import monsterA from '../assets/images/monster-A.png';
 import monsterB from '../assets/images/monster-B.png';
 import monsterParty from '../assets/images/monster-party.png';
@@ -53,8 +53,8 @@ const LandingPageBody = () => {
                     <h1>Quick & Simple to Use, Only Show Weight Loss</h1>
                 </Col>
                 <Col xs={12} sm={true}>
-                    <Col className="centerElements"><h4>Step #1: Log In</h4></Col>
-                    <Col>
+                    <Col className="centerElements imageTitle"><h4>Step #1: Log In</h4></Col>
+                    <Col >
                         <Image src={logInPic} fluid/>
                     </Col>
                     <Col className="centerElements">
@@ -63,19 +63,19 @@ const LandingPageBody = () => {
                     </Col>
                 </Col>
                 <Col xs={12} sm={true}>
-                    <Col className="centerElements"><h4>Step #2: Input Weight</h4></Col>
-                    <Col>
+                    <Col className="centerElements imageTitle"><h4>Step #2: Input Weight</h4></Col>
+                    <Col >
                         <Image src={weighInPic} fluid/>
                     </Col>
-                    <Col className="centerElements">
+                    <Col className="centerElements ">
                         <Image src={monsterB} fluid className="monsterImage"/>
                         <p>My Weight went Down, YEAH!!!!!</p>
                     </Col>
                 </Col>
                 <Col xs={12} sm={true}>
-                    <Col className="centerElements"><h4>Step #3: See Your Rank</h4></Col>
+                    <Col className="centerElements imageTitle"><h4>Step #3: See Your Rank</h4></Col>
                     <Col >
-                        <Image src={rankingPic} fluid className="monsterPartyHeight"/>
+                        <Image src={rankingPic} fluid />
                     </Col>
                     <Col className="centerElements">
                         <Image src={monsterParty} fluid className="monsterImage"/>
