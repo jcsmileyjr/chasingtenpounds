@@ -8,6 +8,9 @@ import awardRibbon from '../assets/images/award-ribbon.png';
 import logInPic from '../assets/images/logIn-old.PNG';
 import weighInPic from '../assets/images/WeighIn-old.PNG';
 import rankingPic from '../assets/images/10MON5.png';
+import monsterA from '../assets/images/monster-A.png';
+import monsterB from '../assets/images/monster-B.png';
+import monsterParty from '../assets/images/monster-party.png';
 
 const LandingPageBody = () => {
     return (
@@ -54,21 +57,30 @@ const LandingPageBody = () => {
                     <Col>
                         <Image src={logInPic} fluid/>
                     </Col>
-                    <Col>Lo</Col>
+                    <Col className="centerElements">
+                        <Image src={monsterA} fluid className="monsterImage"/>
+                        <p>I'm Ready</p>
+                    </Col>
                 </Col>
                 <Col xs={12} sm={true}>
                     <Col className="centerElements"><h4>Step #2: Input Weight</h4></Col>
                     <Col>
                         <Image src={weighInPic} fluid/>
                     </Col>
-                    <Col>Lo</Col>
+                    <Col className="centerElements">
+                        <Image src={monsterB} fluid className="monsterImage"/>
+                        <p>My Weight went Down, YEAH!!!!!</p>
+                    </Col>
                 </Col>
                 <Col xs={12} sm={true}>
                     <Col className="centerElements"><h4>Step #3: See Your Rank</h4></Col>
-                    <Col>
-                        <Image src={rankingPic} fluid/>
+                    <Col >
+                        <Image src={rankingPic} fluid className="monsterPartyHeight"/>
                     </Col>
-                    <Col>Lo</Col>
+                    <Col className="centerElements">
+                        <Image src={monsterParty} fluid className="monsterImage"/>
+                        <p>Y'll Can't Catch Me!!!!!</p>
+                    </Col>
                 </Col>
             </Row>
         </Container>
