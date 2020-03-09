@@ -1,6 +1,7 @@
 import React from 'react';
 import {Container, Row, Col, Image} from 'react-bootstrap';
 import "./LandingPageBody.css";
+import BlueButton from '../components/BlueButton';
 
 import monster from '../assets/images/monster3.png';
 import winnerVideo from '../assets/images/10MON-old-v1.gif';
@@ -13,6 +14,10 @@ import monsterB from '../assets/images/monster-B.png';
 import monsterParty from '../assets/images/monster-party.png';
 
 const LandingPageBody = () => {
+    /*FOR TESTING ONLY */
+    const test = () =>{
+        alert("hello world");
+    }
     return (
         <Container fluid>
             <Row>
@@ -81,6 +86,9 @@ const LandingPageBody = () => {
                         <Image src={monsterParty} fluid className="monsterImage"/>
                         <p>Y'll Can't Catch Me!!!!!</p>
                     </Col>
+                </Col>
+                <Col xs={12} className="centerElements">
+                    <BlueButton buttonType="light" action={test} title="Let's get Started" flat={false} />
                 </Col>
             </Row>
         </Container>
