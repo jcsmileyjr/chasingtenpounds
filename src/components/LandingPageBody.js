@@ -53,7 +53,7 @@ const LandingPageBody = () => {
                     <h1>Quick & Simple to Use, Only Show Weight Loss</h1>
                 </Col>
                 <Col xs={12} sm={true}>
-                    <Col className="centerElements imageTitle"><h4>Step #1: Log In</h4></Col>
+                    <Col className="centerElements imageTitle"><p className="stepStyle">Log In</p></Col>
                     <Col >
                         <Image src={logInPic} fluid/>
                     </Col>
@@ -63,7 +63,7 @@ const LandingPageBody = () => {
                     </Col>
                 </Col>
                 <Col xs={12} sm={true}>
-                    <Col className="centerElements imageTitle"><h4>Step #2: Input Weight</h4></Col>
+                    <Col className="centerElements imageTitle"><p className="stepStyle">Input Your Weight</p></Col>
                     <Col >
                         <Image src={weighInPic} fluid/>
                     </Col>
@@ -73,7 +73,7 @@ const LandingPageBody = () => {
                     </Col>
                 </Col>
                 <Col xs={12} sm={true}>
-                    <Col className="centerElements imageTitle"><h4>Step #3: See Your Rank</h4></Col>
+                    <Col className="centerElements imageTitle"><p className="stepStyle">See Your Rank</p></Col>
                     <Col >
                         <Image src={rankingPic} fluid />
                     </Col>

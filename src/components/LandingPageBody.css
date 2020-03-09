@@ -90,5 +90,10 @@ and the next section
 }
 
 .imageTitle {
-    height: 12vh;
+    height: 8vh;
+}
+
+.stepStyle {
+    font-size: 1rem;
+    font-weight: bold;
 }
