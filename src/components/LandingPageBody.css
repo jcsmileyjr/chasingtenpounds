@@ -4,9 +4,9 @@
     background-color: pink;
 }
 
-/*LAYOUT TESTING*/
-.test2 {    
-    background-color: aqua;
+/*Create space between Rows*/
+.whiteSpaceAboveRow {    
+    margin-top: 4rem;
 }
 
 /*Style the container of a image so its bigger then the

@@ -5,6 +5,9 @@ import "./LandingPageBody.css";
 import monster from '../assets/images/monster3.png';
 import winnerVideo from '../assets/images/10MON-old-v1.gif';
 import awardRibbon from '../assets/images/award-ribbon.png';
+import logInPic from '../assets/images/logIn-old.PNG';
+import weighInPic from '../assets/images/WeighIn-old.PNG';
+import rankingPic from '../assets/images/10MON5.png';
 
 const LandingPageBody = () => {
     return (
@@ -33,13 +36,39 @@ const LandingPageBody = () => {
                     </div>                    
                 </Col>
             </Row>
-            <Row>
+            <Row className="whiteSpaceAboveRow">
                 <Col xs={12} sm={true} md={true} lg={true} xl={4} className="centerContent">
                     <p>See who is in</p>
                     <h2>1st PLACE</h2>
                 </Col>
                 <Col xs={12} sm={true} md={true} lg={true} xl={8} >
                 <Image src={winnerVideo} fluid />
+                </Col>
+            </Row>
+            <Row className="whiteSpaceAboveRow">
+                <Col xs={12} className="centerElements">
+                    <h1>Quick & Simple to Use, Only Show Weight Loss</h1>
+                </Col>
+                <Col xs={12} sm={true}>
+                    <Col className="centerElements"><h4>Step #1: Log In</h4></Col>
+                    <Col>
+                        <Image src={logInPic} fluid/>
+                    </Col>
+                    <Col>Lo</Col>
+                </Col>
+                <Col xs={12} sm={true}>
+                    <Col className="centerElements"><h4>Step #2: Input Weight</h4></Col>
+                    <Col>
+                        <Image src={weighInPic} fluid/>
+                    </Col>
+                    <Col>Lo</Col>
+                </Col>
+                <Col xs={12} sm={true}>
+                    <Col className="centerElements"><h4>Step #3: See Your Rank</h4></Col>
+                    <Col>
+                        <Image src={rankingPic} fluid/>
+                    </Col>
+                    <Col>Lo</Col>
                 </Col>
             </Row>
         </Container>
