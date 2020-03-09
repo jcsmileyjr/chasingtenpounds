@@ -59,7 +59,7 @@ const LandingPageBody = () => {
                 </Col>
                 <Col xs={12} sm={true}>
                     <Col className="centerElements imageTitle"><p className="stepStyle">Log In</p></Col>
-                    <Col >
+                    <Col className="centerElements">
                         <Image src={logInPic} fluid/>
                     </Col>
                     <Col className="centerElements">
@@ -69,7 +69,7 @@ const LandingPageBody = () => {
                 </Col>
                 <Col xs={12} sm={true}>
                     <Col className="centerElements imageTitle"><p className="stepStyle">Input Your Weight</p></Col>
-                    <Col >
+                    <Col className="centerElements">
                         <Image src={weighInPic} fluid/>
                     </Col>
                     <Col className="centerElements ">
@@ -79,7 +79,7 @@ const LandingPageBody = () => {
                 </Col>
                 <Col xs={12} sm={true}>
                     <Col className="centerElements imageTitle"><p className="stepStyle">See Your Rank</p></Col>
-                    <Col >
+                    <Col className="centerElements">
                         <Image src={rankingPic} fluid />
                     </Col>
                     <Col className="centerElements">
