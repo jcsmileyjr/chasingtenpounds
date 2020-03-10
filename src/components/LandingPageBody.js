@@ -52,6 +52,7 @@ const LandingPageBody = () => {
                 <Col xs={12} sm={true} md={true} lg={true} xl={4} className="centerContent">
                     <p>See who is in</p>
                     <h2>1st PLACE</h2>
+                    <BlueButton buttonType="light" action={test} title="Sign Up Today" flat={false}  />                    
                 </Col>
                 <Col xs={12} sm={true} md={true} lg={true} xl={8} >
                 <Image src={winnerVideo} fluid />
