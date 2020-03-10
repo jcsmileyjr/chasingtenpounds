@@ -67,7 +67,7 @@ const LandingPageBody = () => {
                         <Image src={logInPic} fluid/>
                     </Col>
                     <Col className="centerElements minorWhiteSpace">
-                        <Image src={monsterA} fluid className="monsterImage"/>
+                        <Image src={monsterA} fluid className="monsterImage spinningMonster"/>
                         <p>I'm Ready</p>
                     </Col>
                 </Col>
@@ -77,7 +77,7 @@ const LandingPageBody = () => {
                         <Image src={weighInPic} fluid/>
                     </Col>
                     <Col className="centerElements minorWhiteSpace">
-                        <Image src={monsterB} fluid className="monsterImage"/>
+                        <Image src={monsterB} fluid className="monsterImage spinningMonster"/>
                         <p>My Weight went Down, YEAH!!!!!</p>
                     </Col>
                 </Col>
@@ -87,7 +87,7 @@ const LandingPageBody = () => {
                         <Image src={rankingPic} fluid />
                     </Col>
                     <Col className="centerElements minorWhiteSpace">
-                        <Image src={monsterParty} fluid className="monsterImage"/>
+                        <Image src={monsterParty} fluid className="monsterImage spinningMonster"/>
                         <p>Ya'll Can't Catch Me!!!!!</p>
                     </Col>
                 </Col>
