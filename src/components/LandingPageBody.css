@@ -9,6 +9,11 @@
     margin-top: 4rem;
 }
 
+/*Minor whitespace above buttons, monsters, any element */
+.minorWhiteSpace {
+    margin-top: 1rem;
+}
+
 /*Style the container of a image so its bigger then the
 image {60vh}, all elements are center, and whitespace between it
 and the next section
@@ -66,7 +71,7 @@ and the next section
     font-weight: bold;
 }
 
-/*Designate a image as animated*/
+/*Designate a image as moving back and forth animation */
 .animatedMonster {
     animation: roving 4s ease-in-out infinite;
 }
@@ -77,23 +82,65 @@ and the next section
     15%{transform: translateX(-18vw) rotate(-18deg);}
     25%{transform: translateX(-18vw) rotate(18deg);}
     35%{transform: translateX(-18vw) rotate(-18deg);}
-    50%{transform: translateX(18vw) rotate(18deg);}
-    60%{transform: translateX(18vw) rotate(-18deg);}
-    70%{transform: translateX(18vw) rotate(18deg);}
-    80%{transform: translateX(18vw) rotate(-18deg);}
-    90%{transform: translateX(18vw) rotate(18deg);}
-    100%{transform: translateX(-18vw);}
+    50%{transform: translateX(13vw) rotate(18deg);}
+    60%{transform: translateX(13vw) rotate(-18deg);}
+    70%{transform: translateX(13vw) rotate(18deg);}
+    80%{transform: translateX(13vw) rotate(-18deg);}
+    90%{transform: translateX(13vw) rotate(18deg);}
+    100%{transform: translateX(-13vw);}
 }
 
+/*Designate a image as spinning animation*/
+.spinningMonster {
+    animation: spinning 3s linear infinite;
+}
+
+/*animatin of monster image rotating */
+@keyframes spinning {
+	0% {
+		transform: rotateY(0);
+	}
+	100% {
+		transform: rotateY(360deg);
+	}
+}
+
+/*Assign height to monster images in section 3*/
 .monsterImage {
     height: 5rem;
 }
 
+/*Assign height for tite of images in section 3*/
 .imageTitle {
-    height: 8vh;
+    height: 5vh;
 }
 
+/*Adjust height of the header above images on landing page section 3 images */
+@media screen and (min-width: 576px) and (max-device-width : 595px) {
+    .imageTitle {
+        height: 9vh; ;
+    }
+}
+
+/*Adjust height of the header above images on landing page section 4 images */
+@media screen and (min-width: 576px) and (max-device-width : 836px) {
+    .section4ImageTitle {
+        height: 12vh; ;
+    }
+}
+
+/*Style the header above images*/
 .stepStyle {
     font-size: 1rem;
     font-weight: bold;
+}
+
+.centerMonsterImages {
+    display: flex;/*center elements within container*/
+    justify-content: center;/*center elements within container*/
+    align-items: center;/*center elements within container*/
+}
+
+.primaryMonsterStyle {
+    height: 8rem;
 }

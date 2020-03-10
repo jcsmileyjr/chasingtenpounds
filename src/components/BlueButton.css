@@ -12,21 +12,30 @@ button {
 
 .light {
     background-color: #A3C3F7;/*App official light blue color*/ 
-    width: 10vw; /*Make the button wider*/
+    width: 90%; /*Make the button wider*/
 }
 
+/*Button has no button or shadow*/
 .flatButton {
     border: none;
 }
 
+/*Give a button a shadow and border*/
 .floatingButton {
     box-shadow: 1.1px 1.1px rgb(85, 122, 182); /*dark shadow under the button*/
     border: 1px solid  navy;/*App official dark blue color*/ 
 }
 
+/* For screens 575 or higher
+- light buttons is about 1/3 width of screen
+- dark buttons are longer 
+*/
 @media screen and (min-width: 575px) {
-    .dark, .light {
+    .dark {
         width: 15vw;
+    }
+    .light {
+        width: 33%;
     }
 }
 

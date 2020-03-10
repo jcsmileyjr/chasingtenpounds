@@ -11,12 +11,16 @@ import weighInPic from '../assets/images/WeighIn-old.PNG';
 import rankingPic from '../assets/images/rank-10mon.PNG';
 import monsterA from '../assets/images/monster-A.png';
 import monsterB from '../assets/images/monster-B.png';
+import monsterC from '../assets/images/monster-C.png';
+import monsterD from '../assets/images/monster-D.png';
+import monsterE from '../assets/images/monster-E.png';
+import monsterF from '../assets/images/monster-F.png';
 import monsterParty from '../assets/images/monster-party.png';
 
 const LandingPageBody = () => {
     /*FOR TESTING ONLY */
     const test = () =>{
-        alert("hello world");
+        alert("WIP: Testing that the button works!");
     }
     return (
         <Container fluid>
@@ -40,7 +44,7 @@ const LandingPageBody = () => {
                     you want or need to chase the 10 Pound Monster?
                     </p>
                     <div className="centerElements">
-                        <Image src={monster} fluid className="imageStyle animatedMonster"/>
+                        <Image src={monster} fluid className="primaryMonsterStyle animatedMonster"/>
                     </div>                    
                 </Col>
             </Row>
@@ -59,36 +63,68 @@ const LandingPageBody = () => {
                 </Col>
                 <Col xs={12} sm={true}>
                     <Col className="centerElements imageTitle"><p className="stepStyle">Log In</p></Col>
-                    <Col >
+                    <Col className="centerElements">
                         <Image src={logInPic} fluid/>
                     </Col>
-                    <Col className="centerElements">
-                        <Image src={monsterA} fluid className="monsterImage"/>
+                    <Col className="centerElements minorWhiteSpace">
+                        <Image src={monsterA} fluid className="monsterImage spinningMonster"/>
                         <p>I'm Ready</p>
                     </Col>
                 </Col>
                 <Col xs={12} sm={true}>
                     <Col className="centerElements imageTitle"><p className="stepStyle">Input Your Weight</p></Col>
-                    <Col >
+                    <Col className="centerElements">
                         <Image src={weighInPic} fluid/>
                     </Col>
-                    <Col className="centerElements ">
-                        <Image src={monsterB} fluid className="monsterImage"/>
+                    <Col className="centerElements minorWhiteSpace">
+                        <Image src={monsterB} fluid className="monsterImage spinningMonster"/>
                         <p>My Weight went Down, YEAH!!!!!</p>
                     </Col>
                 </Col>
                 <Col xs={12} sm={true}>
                     <Col className="centerElements imageTitle"><p className="stepStyle">See Your Rank</p></Col>
-                    <Col >
+                    <Col className="centerElements">
                         <Image src={rankingPic} fluid />
                     </Col>
-                    <Col className="centerElements">
-                        <Image src={monsterParty} fluid className="monsterImage"/>
-                        <p>Y'll Can't Catch Me!!!!!</p>
+                    <Col className="centerElements minorWhiteSpace">
+                        <Image src={monsterParty} fluid className="monsterImage spinningMonster"/>
+                        <p>Ya'll Can't Catch Me!!!!!</p>
                     </Col>
                 </Col>
                 <Col xs={12} className="centerElements">
                     <BlueButton buttonType="light" action={test} title="Let's get Started" flat={false} />
+                </Col>
+            </Row>
+            <Row className="whiteSpaceAboveRow">
+                <Col xs={12} className="centerContent">
+                    <h3 style={{width:"80vw", textAlign:"center"}} >Create a team name and send the challenge to your team for a weight loss match</h3>
+                </Col>
+                <Col xs={12} className="centerElements minorWhiteSpace">
+                    <BlueButton buttonType="light" action={test} title="Create a Team" flat={false} />
+                </Col>
+                <Col xs={12} sm={true} className="minorWhiteSpace">
+                    <Col className="centerElements imageTitle section4ImageTitle"><p className="stepStyle">Step 1: Sign Up</p></Col>
+                    <Col className="centerElements">
+                        <Image src={monsterA} fluid className="monsterImage"/>
+                        <p>I'm Ready</p>                    
+                    </Col>
+                </Col>
+                <Col xs={12} sm={true} className="minorWhiteSpace">
+                    <Col className="centerElements imageTitle section4ImageTitle"><p className="stepStyle">Step 2: Join or Create a Team</p></Col>
+                    <Col className="centerMonsterImages">
+                        <Image src={monsterA} fluid className="monsterImage"/>
+                        <Image src={monsterC} fluid className="monsterImage"/>                                            
+                    </Col>
+                    <Col><p className="centerElements">Join the FUN!!!</p></Col>
+                </Col>
+                <Col xs={12} sm={true} className="minorWhiteSpace">
+                    <Col className="centerElements imageTitle section4ImageTitle"><p className="stepStyle">Step 3: See Who's Winning</p></Col>
+                    <Col className="centerMonsterImages">
+                        <Image src={monsterD} fluid className="monsterImage"/>
+                        <Image src={monsterE} fluid className="monsterImage"/>
+                        <Image src={monsterF} fluid className="monsterImage"/>                                            
+                    </Col>
+                    <Col><p className="centerElements">.....Ready, Set, GO!!!!!</p></Col>
                 </Col>
             </Row>
         </Container>
