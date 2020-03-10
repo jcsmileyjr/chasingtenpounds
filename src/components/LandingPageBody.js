@@ -2,6 +2,7 @@ import React from 'react';
 import {Container, Row, Col, Image} from 'react-bootstrap';
 import "./LandingPageBody.css";
 import BlueButton from '../components/BlueButton';
+import ImagesMonster from '../components/Image&Monsters';
 
 import monster from '../assets/images/monster3.png';
 import winnerVideo from '../assets/images/10MON-old-v1.gif';
@@ -16,6 +17,7 @@ import monsterD from '../assets/images/monster-D.png';
 import monsterE from '../assets/images/monster-E.png';
 import monsterF from '../assets/images/monster-F.png';
 import monsterParty from '../assets/images/monster-party.png';
+import ImagesMonsters from '../components/Image&Monsters';
 
 const LandingPageBody = () => {
     /*FOR TESTING ONLY */
@@ -60,36 +62,9 @@ const LandingPageBody = () => {
                 <Col xs={12} className="centerElements">
                     <h1>Quick & Simple to Use, Only Show Weight Loss</h1>
                 </Col>
-                <Col xs={12} sm={true}>
-                    <Col className="centerElements imageTitle"><p className="stepStyle">Log In</p></Col>
-                    <Col className="centerElements">
-                        <Image src={logInPic} fluid/>
-                    </Col>
-                    <Col className="centerElements minorWhiteSpace">
-                        <Image src={monsterA} fluid className="monsterImage spinningMonster"/>
-                        <p>I'm Ready</p>
-                    </Col>
-                </Col>
-                <Col xs={12} sm={true}>
-                    <Col className="centerElements imageTitle"><p className="stepStyle">Input Your Weight</p></Col>
-                    <Col className="centerElements">
-                        <Image src={weighInPic} fluid/>
-                    </Col>
-                    <Col className="centerElements minorWhiteSpace">
-                        <Image src={monsterB} fluid className="monsterImage spinningMonster"/>
-                        <p>My Weight went Down, YEAH!!!!!</p>
-                    </Col>
-                </Col>
-                <Col xs={12} sm={true}>
-                    <Col className="centerElements imageTitle"><p className="stepStyle">See Your Rank</p></Col>
-                    <Col className="centerElements">
-                        <Image src={rankingPic} fluid />
-                    </Col>
-                    <Col className="centerElements minorWhiteSpace">
-                        <Image src={monsterParty} fluid className="monsterImage spinningMonster"/>
-                        <p>Ya'll Can't Catch Me!!!!!</p>
-                    </Col>
-                </Col>
+                <ImagesMonsters monster={monsterA} pic={logInPic} textA="Log In" textB="I'm Ready" />
+                <ImagesMonsters monster={monsterB} pic={weighInPic} textA="Input Your Weight" textB="My Weight went Down, YEAH!!!!!" />
+                <ImagesMonsters monster={monsterParty} pic={rankingPic} textA="See Your Rank" textB="Ya'll Can't Catch Me!!!!!" />
                 <Col xs={12} className="centerElements">
                     <BlueButton buttonType="light" action={test} title="Let's get Started" flat={false} />
                 </Col>
