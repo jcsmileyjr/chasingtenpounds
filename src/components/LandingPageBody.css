@@ -107,8 +107,21 @@ and the next section
     }
 }
 
+/*Adjust height of the header above images on landing page section 4 images */
+@media screen and (min-width: 576px) and (max-device-width : 836px) {
+    .section4ImageTitle {
+        height: 12vh; ;
+    }
+}
+
 /*Style the header above images*/
 .stepStyle {
     font-size: 1rem;
     font-weight: bold;
+}
+
+.centerMonsterImages {
+    display: flex;/*center elements within container*/
+    justify-content: center;/*center elements within container*/
+    align-items: center;/*center elements within container*/
 }
