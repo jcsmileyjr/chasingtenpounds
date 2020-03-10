@@ -2,7 +2,6 @@ import React from 'react';
 import {Container, Row, Col, Image} from 'react-bootstrap';
 import "./LandingPageBody.css";
 import BlueButton from '../components/BlueButton';
-import ImagesMonster from '../components/Image&Monsters';
 
 import monster from '../assets/images/monster3.png';
 import winnerVideo from '../assets/images/10MON-old-v1.gif';
@@ -18,6 +17,7 @@ import monsterE from '../assets/images/monster-E.png';
 import monsterF from '../assets/images/monster-F.png';
 import monsterParty from '../assets/images/monster-party.png';
 import ImagesMonsters from '../components/Image&Monsters';
+import MonsterSteps from '../components/MonsterSteps';
 
 const LandingPageBody = () => {
     /*FOR TESTING ONLY */
@@ -76,30 +76,9 @@ const LandingPageBody = () => {
                 <Col xs={12} className="centerElements minorWhiteSpace">
                     <BlueButton buttonType="light" action={test} title="Create a Team" flat={false} />
                 </Col>
-                <Col xs={12} sm={true} className="minorWhiteSpace">
-                    <Col className="centerElements imageTitle section4ImageTitle"><p className="stepStyle">Step 1: Sign Up</p></Col>
-                    <Col className="centerElements">
-                        <Image src={monsterA} fluid className="monsterImage"/>
-                        <p>I'm Ready</p>                    
-                    </Col>
-                </Col>
-                <Col xs={12} sm={true} className="minorWhiteSpace">
-                    <Col className="centerElements imageTitle section4ImageTitle"><p className="stepStyle">Step 2: Join or Create a Team</p></Col>
-                    <Col className="centerMonsterImages">
-                        <Image src={monsterA} fluid className="monsterImage"/>
-                        <Image src={monsterC} fluid className="monsterImage"/>                                            
-                    </Col>
-                    <Col><p className="centerElements">Join the FUN!!!</p></Col>
-                </Col>
-                <Col xs={12} sm={true} className="minorWhiteSpace">
-                    <Col className="centerElements imageTitle section4ImageTitle"><p className="stepStyle">Step 3: See Who's Winning</p></Col>
-                    <Col className="centerMonsterImages">
-                        <Image src={monsterD} fluid className="monsterImage"/>
-                        <Image src={monsterE} fluid className="monsterImage"/>
-                        <Image src={monsterF} fluid className="monsterImage"/>                                            
-                    </Col>
-                    <Col><p className="centerElements">.....Ready, Set, GO!!!!!</p></Col>
-                </Col>
+                <MonsterSteps monster1={monsterA} textA="Step 1: Sign Up" textB="I'm Ready" />
+                <MonsterSteps monster1={monsterA} monster2={monsterC} textA="Step 2: Join or Create a Team" textB="Join the FUN!!!" />
+                <MonsterSteps monster1={monsterD} monster2={monsterE} monster3={monsterF} textA="Step 3: See Who's Winning" textB=".....Ready, Set, GO!!!!!" />
             </Row>
         </Container>
     );
