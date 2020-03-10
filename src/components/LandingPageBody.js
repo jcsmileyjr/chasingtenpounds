@@ -31,9 +31,7 @@ const LandingPageBody = () => {
                         <h1>Challenge</h1>
                         <p className="imageText">Family, Friends, Co-workers</p>
                         <p className="imageText">To who can lose</p>
-                        <h2 className="spaceBetweenLetters">
-                            10 lbs
-                        </h2>
+                        <h2 className="spaceBetweenLetters">10 lbs</h2>
                         <h2 className="spaceBetweenLetters">The Fastest</h2>
                     </div>
                 </Col>
@@ -55,7 +53,7 @@ const LandingPageBody = () => {
                     <BlueButton buttonType="light" action={test} title="Sign Up Today" flat={false}  />                    
                 </Col>
                 <Col xs={12} sm={true} md={true} lg={true} xl={8} >
-                <Image src={winnerVideo} fluid />
+                    <Image src={winnerVideo} fluid />
                 </Col>
             </Row>
             <Row className="whiteSpaceAboveRow">
