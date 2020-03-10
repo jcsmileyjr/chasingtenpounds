@@ -20,7 +20,7 @@ import monsterParty from '../assets/images/monster-party.png';
 const LandingPageBody = () => {
     /*FOR TESTING ONLY */
     const test = () =>{
-        alert("hello world");
+        alert("WIP: Testing that the button works!");
     }
     return (
         <Container fluid>
@@ -44,7 +44,7 @@ const LandingPageBody = () => {
                     you want or need to chase the 10 Pound Monster?
                     </p>
                     <div className="centerElements">
-                        <Image src={monster} fluid className="imageStyle animatedMonster"/>
+                        <Image src={monster} fluid className="primaryMonsterStyle animatedMonster"/>
                     </div>                    
                 </Col>
             </Row>

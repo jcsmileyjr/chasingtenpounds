@@ -82,12 +82,12 @@ and the next section
     15%{transform: translateX(-18vw) rotate(-18deg);}
     25%{transform: translateX(-18vw) rotate(18deg);}
     35%{transform: translateX(-18vw) rotate(-18deg);}
-    50%{transform: translateX(18vw) rotate(18deg);}
-    60%{transform: translateX(18vw) rotate(-18deg);}
-    70%{transform: translateX(18vw) rotate(18deg);}
-    80%{transform: translateX(18vw) rotate(-18deg);}
-    90%{transform: translateX(18vw) rotate(18deg);}
-    100%{transform: translateX(-18vw);}
+    50%{transform: translateX(13vw) rotate(18deg);}
+    60%{transform: translateX(13vw) rotate(-18deg);}
+    70%{transform: translateX(13vw) rotate(18deg);}
+    80%{transform: translateX(13vw) rotate(-18deg);}
+    90%{transform: translateX(13vw) rotate(18deg);}
+    100%{transform: translateX(-13vw);}
 }
 
 /*Designate a image as spinning animation*/
@@ -139,4 +139,8 @@ and the next section
     display: flex;/*center elements within container*/
     justify-content: center;/*center elements within container*/
     align-items: center;/*center elements within container*/
+}
+
+.primaryMonsterStyle {
+    height: 8rem;
 }
