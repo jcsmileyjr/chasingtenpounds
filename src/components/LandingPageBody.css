@@ -1,6 +1,6 @@
 /*Create space between Rows*/
 .whiteSpaceAboveRow {    
-    margin-top: 4rem;
+    padding-top: 4rem;
 }
 
 /*Minor whitespace above buttons, monsters, any element */
@@ -137,4 +137,12 @@ and the next section
 
 .primaryMonsterStyle {
     height: 8rem;
+}
+
+.pinkBG {
+    background-color: #FAF2DB;
+}
+
+.blueBG {
+    background-color: #E6E9FF;
 }

@@ -6,17 +6,10 @@ import BlueButton from '../components/BlueButton';
 import monster from '../assets/images/monster3.png';
 import winnerVideo from '../assets/images/10MON-old-v1.gif';
 import awardRibbon from '../assets/images/award-ribbon.png';
-import logInPic from '../assets/images/logIn-old.PNG';
-import weighInPic from '../assets/images/WeighIn-old.PNG';
-import rankingPic from '../assets/images/rank-10mon.PNG';
 import monsterA from '../assets/images/monster-A.png';
 import monsterB from '../assets/images/monster-B.png';
 import monsterC from '../assets/images/monster-C.png';
-import monsterD from '../assets/images/monster-D.png';
-import monsterE from '../assets/images/monster-E.png';
-import monsterF from '../assets/images/monster-F.png';
 import monsterParty from '../assets/images/monster-party.png';
-import ImagesMonsters from '../components/Image&Monsters';
 import MonsterSteps from '../components/MonsterSteps';
 
 const LandingPageBody = () => {
@@ -48,7 +41,7 @@ const LandingPageBody = () => {
                     </div>                    
                 </Col>
             </Row>
-            <Row className="whiteSpaceAboveRow">
+            <Row className="whiteSpaceAboveRow pinkBG">
                 <Col xs={12} sm={true} md={true} lg={true} xl={4} className="centerContent">
                 <h2 className="centerElements">Quick & Simple to Use, Only Show Weight Loss</h2>
                     <BlueButton buttonType="light" action={test} title="Sign Up Today" flat={false}  />                    
@@ -57,7 +50,7 @@ const LandingPageBody = () => {
                     <Image src={winnerVideo} fluid />
                 </Col>
             </Row>
-            <Row className="whiteSpaceAboveRow">
+            <Row className="whiteSpaceAboveRow blueBG">
                 <Col xs={12} className="centerContent">
                     <h3 style={{width:"80vw", textAlign:"center"}} >Create a team name and send the challenge to your team for a weight loss match</h3>
                 </Col>
