@@ -1,5 +1,5 @@
 button {
-    color: #252323; /*App official black color*/
+    /*color: #252323; App official black color*/
     padding: .4rem; /*Add space between button content and the border*/
     font-weight: bold; /*Make the content darker and bigger*/
     word-spacing: .1rem; /*Add spacing between words in the content*/
@@ -8,11 +8,14 @@ button {
 .dark {
     background-color: #0707f8;/*App official dark blue color*/ 
     width: 25vw; /*Make the button wider*/
+    color: white; /*App official black color*/
 }
 
 .light {
     background-color: #A3C3F7;/*App official light blue color*/ 
     width: 90%; /*Make the button wider*/
+    color: #252323; /*App official black color*/
+    margin-bottom: 3rem;
 }
 
 /*Button has no button or shadow*/
@@ -36,6 +39,7 @@ button {
     }
     .light {
         width: 33%;
+        margin-bottom: 1rem;
     }
 }
 

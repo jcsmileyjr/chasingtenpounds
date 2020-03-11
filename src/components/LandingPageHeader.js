@@ -14,18 +14,15 @@ const LandingPageHeader = () => {
     return (
         <Container fluid={true} className="background">
             <Row className="content">
-                <Col xs={5} sm={2} md={2} lg={true} xl={true}>
+                <Col xs={4} sm={2} md={2} lg={true} xl={true}>
                     <Image src={monster} fluid className="imageStyle"/>
                 </Col>
-                <Col xs={7} sm={5} md={5} lg={6} xl={6}>
+                <Col xs={8} sm={5} md={5} lg={6} xl={6}>
                     <h1 className="mobileTitleTextSize TabletTitleTextSize">
                         Chasing the <span className="redText">10 Pound</span> Monster
                     </h1>
                 </Col>
-                <Col xs={6} sm={true} md={true} lg={true} xl={true} className="rightAlignButtons paddingBetweenLogoButtons">
-                    <BlueButton buttonType="dark" action={test} title="Sign Up" flat={true} />
-                </Col>
-                <Col xs={6} sm={true} md={true} lg={true} xl={true} className="rightAlignButtons">
+                <Col xs={12} sm={true} md={true} lg={true} xl={true} className="rightAlignButtons">
                     <BlueButton buttonType="dark" action={test} title="Log In" />
                 </Col>
             </Row>
