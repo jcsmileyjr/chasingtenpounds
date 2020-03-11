@@ -5,7 +5,7 @@ import BlueButton from './BlueButton';
 import {Container, Row, Col, Image, h1} from 'react-bootstrap';
 import monster from '../assets/images/monster4.png';
 
-const LandingPageHeader = () => {
+const LandingPageHeader = (props) => {
     /*FOR TESTING ONLY */
     const test = () =>{
         alert("hello world");
@@ -22,9 +22,16 @@ const LandingPageHeader = () => {
                         Chasing the <span className="redText">10 Pound</span> Monster
                     </h1>
                 </Col>
-                <Col xs={12} sm={true} md={true} lg={true} xl={true} className="rightAlignButtons">
-                    <BlueButton buttonType="dark" action={test} title="Log In" />
-                </Col>
+                {props.type === "landing" && 
+                    <Col xs={12} sm={true} md={true} lg={true} xl={true} className="rightAlignButtons">
+                        <BlueButton buttonType="dark" action={test} title="Log In" />
+                    </Col>
+                }{props.type === "login" && 
+                    <Col xs={12} sm={true} md={true} lg={true} xl={true} className="pageTitleStyle">
+                        <h2>{props.text}</h2>
+                    </Col>
+                }
+                
             </Row>
         </Container>
     );

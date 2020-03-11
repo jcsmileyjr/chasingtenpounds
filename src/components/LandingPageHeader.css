@@ -22,9 +22,15 @@
 }
 
 /*Push Header buttons to the right*/
-    .rightAlignButtons {
-        text-align: right;
-    }
+.rightAlignButtons {
+    text-align: right;
+}
+
+/*Push Header buttons to the right*/
+.pageTitleStyle {
+    text-align: center;
+    letter-spacing: .2rem;
+}
 
 /*Adjust font-size of app title on small and medium screens*/
 @media screen and (max-width: 765px) {

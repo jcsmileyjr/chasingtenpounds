@@ -4,7 +4,7 @@ import LogInHeader from '../components/LandingPageHeader';
 const LogIn = () => {
     return(
         <div>
-            <LogInHeader />
+            <LogInHeader type="login" text="Log In"/>
             <LogInPageBody />
         </div>
     );
