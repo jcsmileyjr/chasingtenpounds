@@ -1,11 +1,16 @@
 /*Create space between Rows*/
 .whiteSpaceAboveRow {    
-    margin-top: 4rem;
+    padding-top: 4rem;
 }
 
 /*Minor whitespace above buttons, monsters, any element */
 .minorWhiteSpace {
     margin-top: 1rem;
+}
+
+/*adding more space to hide primary monster white background showing in next section */
+.hideMonsterBug {
+    padding-bottom: 1rem;
 }
 
 /*Style the container of a image so its bigger then the
@@ -137,4 +142,13 @@ and the next section
 
 .primaryMonsterStyle {
     height: 8rem;
+    border-radius: 25px;
+}
+
+.pinkBG {
+    background-color: #FAF2DB;
+}
+
+.blueBG {
+    background-color: #E6E9FF;
 }

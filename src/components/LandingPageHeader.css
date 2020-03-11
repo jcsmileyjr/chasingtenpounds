@@ -22,11 +22,9 @@
 }
 
 /*Push Header buttons to the right*/
-@media screen and (min-width: 765px) {
     .rightAlignButtons {
         text-align: right;
     }
-}
 
 /*Adjust font-size of app title on small and medium screens*/
 @media screen and (max-width: 765px) {

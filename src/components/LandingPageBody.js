@@ -6,17 +6,10 @@ import BlueButton from '../components/BlueButton';
 import monster from '../assets/images/monster3.png';
 import winnerVideo from '../assets/images/10MON-old-v1.gif';
 import awardRibbon from '../assets/images/award-ribbon.png';
-import logInPic from '../assets/images/logIn-old.PNG';
-import weighInPic from '../assets/images/WeighIn-old.PNG';
-import rankingPic from '../assets/images/rank-10mon.PNG';
-import monsterA from '../assets/images/monster-A.png';
-import monsterB from '../assets/images/monster-B.png';
-import monsterC from '../assets/images/monster-C.png';
-import monsterD from '../assets/images/monster-D.png';
-import monsterE from '../assets/images/monster-E.png';
-import monsterF from '../assets/images/monster-F.png';
-import monsterParty from '../assets/images/monster-party.png';
-import ImagesMonsters from '../components/Image&Monsters';
+import monsterA from '../assets/images/monster-A1.png';
+import monsterB from '../assets/images/monster-B1.png';
+import monsterC from '../assets/images/monster-C1.png';
+import monsterParty from '../assets/images/monster-party1.png';
 import MonsterSteps from '../components/MonsterSteps';
 
 const LandingPageBody = () => {
@@ -26,7 +19,7 @@ const LandingPageBody = () => {
     }
     return (
         <Container fluid>
-            <Row>
+            <Row className="hideMonsterBug">
                 <Col xs={{span:12, order:2}} sm={{order:1}} md={{order:1}} lg={{order:1}} xl={{span: 4,order:1}} className="landingPageBodyImageContainerStyle">
                     <Image src={awardRibbon} fluid className="landingBodyImage"/>
                     <div className="floatingText centerElements">
@@ -48,37 +41,25 @@ const LandingPageBody = () => {
                     </div>                    
                 </Col>
             </Row>
-            <Row className="whiteSpaceAboveRow">
+            <Row className="whiteSpaceAboveRow pinkBG">
                 <Col xs={12} sm={true} md={true} lg={true} xl={4} className="centerContent">
-                    <p>See who is in</p>
-                    <h2>1st PLACE</h2>
+                <h2 className="centerElements">Quick & Simple to Use, Only Show Weight Loss</h2>
                     <BlueButton buttonType="light" action={test} title="Sign Up Today" flat={false}  />                    
                 </Col>
                 <Col xs={12} sm={true} md={true} lg={true} xl={8} >
                     <Image src={winnerVideo} fluid />
                 </Col>
             </Row>
-            <Row className="whiteSpaceAboveRow">
-                <Col xs={12} className="centerElements">
-                    <h1>Quick & Simple to Use, Only Show Weight Loss</h1>
-                </Col>
-                <ImagesMonsters monster={monsterA} pic={logInPic} textA="Log In" textB="I'm Ready" />
-                <ImagesMonsters monster={monsterB} pic={weighInPic} textA="Input Your Weight" textB="My Weight went Down, YEAH!!!!!" />
-                <ImagesMonsters monster={monsterParty} pic={rankingPic} textA="See Your Rank" textB="Ya'll Can't Catch Me!!!!!" />
-                <Col xs={12} className="centerElements">
-                    <BlueButton buttonType="light" action={test} title="Let's get Started" flat={false} />
-                </Col>
-            </Row>
-            <Row className="whiteSpaceAboveRow">
+            <Row className="whiteSpaceAboveRow blueBG">
                 <Col xs={12} className="centerContent">
                     <h3 style={{width:"80vw", textAlign:"center"}} >Create a team name and send the challenge to your team for a weight loss match</h3>
                 </Col>
                 <Col xs={12} className="centerElements minorWhiteSpace">
-                    <BlueButton buttonType="light" action={test} title="Create a Team" flat={false} />
+                    <BlueButton buttonType="light" action={test} title="Sign Up" flat={false} />
                 </Col>
                 <MonsterSteps monster1={monsterA} textA="Step 1: Sign Up" textB="I'm Ready" />
-                <MonsterSteps monster1={monsterA} monster2={monsterC} textA="Step 2: Join or Create a Team" textB="Join the FUN!!!" />
-                <MonsterSteps monster1={monsterD} monster2={monsterE} monster3={monsterF} textA="Step 3: See Who's Winning" textB=".....Ready, Set, GO!!!!!" />
+                <MonsterSteps monster1={monsterB} monster2={monsterC} textA="Step 2: Join or Create a Team" textB="Join the FUN!!!" />
+                <MonsterSteps monster1={monsterParty}  textA="Step 3: See Who's Winning" textB=".....Ready, Set, GO!!!!!" />
             </Row>
         </Container>
     );
