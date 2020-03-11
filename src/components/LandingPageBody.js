@@ -6,10 +6,10 @@ import BlueButton from '../components/BlueButton';
 import monster from '../assets/images/monster3.png';
 import winnerVideo from '../assets/images/10MON-old-v1.gif';
 import awardRibbon from '../assets/images/award-ribbon.png';
-import monsterA from '../assets/images/monster-A.png';
-import monsterB from '../assets/images/monster-B.png';
-import monsterC from '../assets/images/monster-C.png';
-import monsterParty from '../assets/images/monster-party.png';
+import monsterA from '../assets/images/monster-A1.png';
+import monsterB from '../assets/images/monster-B1.png';
+import monsterC from '../assets/images/monster-C1.png';
+import monsterParty from '../assets/images/monster-party1.png';
 import MonsterSteps from '../components/MonsterSteps';
 
 const LandingPageBody = () => {
