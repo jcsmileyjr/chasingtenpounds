@@ -19,7 +19,7 @@ const LandingPageBody = () => {
     }
     return (
         <Container fluid>
-            <Row>
+            <Row className="hideMonsterBug">
                 <Col xs={{span:12, order:2}} sm={{order:1}} md={{order:1}} lg={{order:1}} xl={{span: 4,order:1}} className="landingPageBodyImageContainerStyle">
                     <Image src={awardRibbon} fluid className="landingBodyImage"/>
                     <div className="floatingText centerElements">

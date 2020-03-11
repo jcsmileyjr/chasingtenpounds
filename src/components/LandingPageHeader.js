@@ -17,7 +17,7 @@ const LandingPageHeader = () => {
                 <Col xs={4} sm={2} md={2} lg={true} xl={true}>
                     <Image src={monster} fluid className="imageStyle"/>
                 </Col>
-                <Col xs={8} sm={5} md={5} lg={6} xl={6}>
+                <Col xs={8} sm={5} md={6} lg={6} xl={6}>
                     <h1 className="mobileTitleTextSize TabletTitleTextSize">
                         Chasing the <span className="redText">10 Pound</span> Monster
                     </h1>

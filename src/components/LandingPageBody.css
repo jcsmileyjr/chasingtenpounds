@@ -8,6 +8,11 @@
     margin-top: 1rem;
 }
 
+/*adding more space to hide primary monster white background showing in next section */
+.hideMonsterBug {
+    padding-bottom: 1rem;
+}
+
 /*Style the container of a image so its bigger then the
 image {60vh}, all elements are center, and whitespace between it
 and the next section
@@ -137,6 +142,7 @@ and the next section
 
 .primaryMonsterStyle {
     height: 8rem;
+    border-radius: 25px;
 }
 
 .pinkBG {
