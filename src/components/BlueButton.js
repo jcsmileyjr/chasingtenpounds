@@ -12,7 +12,14 @@ const BlueButton = props => {
             return <button type="button" className="dark flatButton" onClick={props.action}>{props.title}</button>
         }
         return <button type="button" className="dark floatingButton" onClick={props.action}>{props.title}</button>
+    }else if(props.wide){
+        if(props.wide){
+            return <button type="button" className="light floatingButton wideButton" onClick={props.action}>{props.title}</button>
+        }
     }else{
+        if(props.flat){
+            return <button type="button" className="light flatButton" onClick={props.action}>{props.title}</button>
+        }        
         return <button type="button" className="light floatingButton" onClick={props.action}>{props.title}</button>
     }
 }

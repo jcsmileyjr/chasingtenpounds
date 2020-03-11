@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LandingPage from './pages/LandingPage';
+/*import LandingPage from './pages/LandingPage';*/
 import LogInPage from './pages/LogInPage';
 import './App.css';
 
