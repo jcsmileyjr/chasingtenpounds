@@ -1,8 +1,9 @@
 import React from 'react';
-import {Container, Row, Col, Form} from 'react-bootstrap';
+import {Container, Row, Col, Form, Image} from 'react-bootstrap';
 
 import './LogInPageBody.css';
 import BlueButton from '../components/BlueButton';
+import monsterQuote from '../assets/images/monsterQuote.png';
 
 
 const LogInPageBody = () => {
@@ -33,6 +34,14 @@ const LogInPageBody = () => {
                 </Col>
                 <Col xs={12} sm={{ span: 8, offset: 2 }} className="centerElements">
                     <BlueButton buttonType="light" action={test} title="Create an Account" flat={true} wide={true}/>
+                </Col>
+                <Col xs={12}>
+                    <p className="quoteTitleStyle">Inspirational Quote</p>
+                    <p className="centerElement quote">I ate healthy and exercised today. I better wake up Skinny!!!</p>
+                    <article style={{textAlign: "right", marginTop: "-1rem"}}>
+                        <Image src={monsterQuote} fluid className="quoteMonster" />
+                    </article>
+                    
                 </Col>
             </Row>
         </Container>
