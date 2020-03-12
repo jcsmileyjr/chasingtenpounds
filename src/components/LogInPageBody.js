@@ -19,6 +19,7 @@ const LogInPageBody = () => {
                         <Form.Group controlId="UserEmail">
                             <Form.Label>Email</Form.Label>
                             <Form.Control type="email" placeholder="Enter email" required />
+                            <Form.Text>Ex. something@something.com</Form.Text>
                         </Form.Group>
                         <Form.Group controlId="UserPassword">
                             <Form.Label>Password</Form.Label>
