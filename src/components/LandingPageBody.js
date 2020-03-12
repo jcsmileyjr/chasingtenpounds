@@ -12,6 +12,7 @@ import monsterC from '../assets/images/monster-C1.png';
 import monsterParty from '../assets/images/monster-party1.png';
 import MonsterSteps from '../components/MonsterSteps';
 
+/*Landing page that a guest will first see */
 const LandingPageBody = () => {
     /*FOR TESTING ONLY */
     const test = () =>{

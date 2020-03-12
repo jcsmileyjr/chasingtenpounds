@@ -6,7 +6,7 @@ import LandingPageFooter from '../components/LandingPageFooter';
 const LandingPage = () => {
     return(
         <div>
-            <LandingPageHeader />
+            <LandingPageHeader type="landing" />
             <LandingPageBody />
             <LandingPageFooter />
         </div>

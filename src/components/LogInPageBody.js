@@ -12,7 +12,7 @@ const LogInPageBody = () => {
     }
     return(
         <Container fluid={true} >            
-            <Row className="centerContent">                
+            <Row className="centerForm">                
                 <Col xs={12} sm={{ span: 8, offset: 2 }}>
                     <Form>
                         <Form.Group controlId="UserEmail">

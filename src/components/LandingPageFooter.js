@@ -2,6 +2,7 @@ import React from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 import "./LandingPageFooter.css"
 
+/*Standard footer for the app */
 const LandingPageFooter = () => {
     return(
         <Container fluid className="footer">
