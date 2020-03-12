@@ -17,11 +17,14 @@ const LogInPageBody = () => {
                     <Form>
                         <Form.Group controlId="UserEmail">
                             <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
+                            <Form.Control type="email" placeholder="Enter email" required />
                         </Form.Group>
                         <Form.Group controlId="UserPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="text" placeholder="Enter password" />
+                            <Form.Control type="password" placeholder="Enter password" required />
+                        </Form.Group>
+                        <Form.Group id="formGridCheckbox">
+                            <Form.Check type="checkbox" label="Show Password" />
                         </Form.Group>
                     </Form>
                 </Col>
