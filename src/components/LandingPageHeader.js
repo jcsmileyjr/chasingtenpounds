@@ -17,7 +17,7 @@ const LandingPageHeader = (props) => {
                 </Col>
                 <Col xs={8} sm={5} md={6} lg={6} xl={6}>
                     <Link to="/">
-                        <h1 className="mobileTitleTextSize TabletTitleTextSize">
+                        <h1 className="mobileTitleTextSize TabletTitleTextSize textColor">
                             Chasing the <span className="redText">10 Pound</span> Monster
                         </h1>
                     </Link>

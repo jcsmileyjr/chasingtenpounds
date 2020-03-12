@@ -53,3 +53,8 @@
         padding-bottom: 1vh;
     }
 }
+
+/*Black color for app title. Fixes a bug where the routing <Link> turn the color to blue*/
+.textColor {
+    color: #252323; /*App official black color*/
+}
