@@ -43,4 +43,9 @@ button {
     }
 }
 
+/*Specific buttons that need a wide width on wide screens*/
+.wideButton {
+    width: 90%; /*Make the button wider*/
+}
+
 

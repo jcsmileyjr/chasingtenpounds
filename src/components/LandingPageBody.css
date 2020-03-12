@@ -140,15 +140,19 @@ and the next section
     align-items: center;/*center elements within container*/
 }
 
+/*Styles for the big monster image on in section 1*/
 .primaryMonsterStyle {
     height: 8rem;
     border-radius: 25px;
 }
 
+/*Background styling for the center section*/
 .pinkBG {
     background-color: #FAF2DB;
+    padding-bottom: 1rem;
 }
 
+/*background styling for the bottom section*/
 .blueBG {
     background-color: #E6E9FF;
 }

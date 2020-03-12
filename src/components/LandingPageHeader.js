@@ -1,15 +1,13 @@
 import React from 'react';
 import './LandingPageHeader.css';
+import { Link } from "react-router-dom";
 
 import BlueButton from './BlueButton';
 import {Container, Row, Col, Image, h1} from 'react-bootstrap';
 import monster from '../assets/images/monster4.png';
 
-const LandingPageHeader = () => {
-    /*FOR TESTING ONLY */
-    const test = () =>{
-        alert("hello world");
-    }
+//This is a generic header for the landing page and non-login pages like Login and Sign-up
+const LandingPageHeader = (props) => {
 
     return (
         <Container fluid={true} className="background">
@@ -18,13 +16,22 @@ const LandingPageHeader = () => {
                     <Image src={monster} fluid className="imageStyle"/>
                 </Col>
                 <Col xs={8} sm={5} md={6} lg={6} xl={6}>
-                    <h1 className="mobileTitleTextSize TabletTitleTextSize">
-                        Chasing the <span className="redText">10 Pound</span> Monster
-                    </h1>
+                    <Link to="/">
+                        <h1 className="mobileTitleTextSize TabletTitleTextSize textColor">
+                            Chasing the <span className="redText">10 Pound</span> Monster
+                        </h1>
+                    </Link>
                 </Col>
-                <Col xs={12} sm={true} md={true} lg={true} xl={true} className="rightAlignButtons">
-                    <BlueButton buttonType="dark" action={test} title="Log In" />
-                </Col>
+                {props.type === "landing" && 
+                    <Col xs={12} sm={true} md={true} lg={true} xl={true} className="rightAlignButtons">
+                        <Link to="/logIn"><BlueButton buttonType="dark" title="Log In" /></Link>
+                    </Col>
+                }{props.type === "login" && 
+                    <Col xs={12} sm={true} md={true} lg={true} xl={true} className="pageTitleStyle">
+                        <h2>{props.text}</h2>
+                    </Col>
+                }
+                
             </Row>
         </Container>
     );

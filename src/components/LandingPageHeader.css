@@ -22,9 +22,15 @@
 }
 
 /*Push Header buttons to the right*/
-    .rightAlignButtons {
-        text-align: right;
-    }
+.rightAlignButtons {
+    text-align: right;
+}
+
+/*Push Header buttons to the right*/
+.pageTitleStyle {
+    text-align: center;
+    letter-spacing: .2rem;
+}
 
 /*Adjust font-size of app title on small and medium screens*/
 @media screen and (max-width: 765px) {
@@ -46,4 +52,9 @@
         padding-top: 2vh;
         padding-bottom: 1vh;
     }
+}
+
+/*Black color for app title. Fixes a bug where the routing <Link> turn the color to blue*/
+.textColor {
+    color: #252323; /*App official black color*/
 }
