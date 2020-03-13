@@ -33,18 +33,11 @@ const SignUpPageBody = () => {
                             <Form.Label>Initial Weight</Form.Label>
                             <Form.Control type="number" placeholder="Enter weight" required />
                         </Form.Group>
-                        <Form.Group controlId="UserInitialWeight">
-                            <Form.Label>Which Team will you Join</Form.Label>
-                            <Form.Control type="text" placeholder="Enter team name or Create a Team" required />
-                        </Form.Group>
                     </Form>
                 </Col>
                 <Col xs={12} sm={{ span: 6, offset: 3 }} className="centerElements whiteSpaceAbove">
                     <Link to="/signUp">
                         <BlueButton buttonType="light" action={test} title="Create Account" flat={true} wide={true}/>
-                    </Link>
-                    <Link to="/signUp">
-                        <BlueButton buttonType="light" action={test} title="Create a Team" flat={false} wide={true}/>
                     </Link>
                 </Col>
             </Row>
