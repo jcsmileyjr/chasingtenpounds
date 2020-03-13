@@ -26,10 +26,17 @@
     text-align: right;
 }
 
-/*Push Header buttons to the right*/
-.pageTitleStyle {
+/*On non-authenticated pages, style the page title*/
+.loginPageTitleStyle {
     text-align: center;
     letter-spacing: .2rem;
+}
+
+/*On authenticated pages, style the page title*/
+.authPageTitleStyle {
+    text-align: right;
+    letter-spacing: .2rem;
+    text-decoration: underline;
 }
 
 /*Adjust font-size of app title on small and medium screens*/
@@ -57,4 +64,9 @@
 /*Black color for app title. Fixes a bug where the routing <Link> turn the color to blue*/
 .textColor {
     color: #252323; /*App official black color*/
+}
+
+
+.menu {
+    height: 3rem;
 }

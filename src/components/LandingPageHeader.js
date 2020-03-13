@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import BlueButton from './BlueButton';
 import {Container, Row, Col, Image, h1} from 'react-bootstrap';
 import monster from '../assets/images/monster4.png';
+import menu from '../assets/images/menu3.png';
 
 //This is a generic header for the landing page and non-login pages like Login and Sign-up
 const LandingPageHeader = (props) => {
@@ -27,9 +28,18 @@ const LandingPageHeader = (props) => {
                         <Link to="/logIn"><BlueButton buttonType="dark" title="Log In" /></Link>
                     </Col>
                 }{props.type === "login" && 
-                    <Col xs={12} sm={true} md={true} lg={true} xl={true} className="pageTitleStyle">
-                        <h2>{props.text}</h2>
+                    <Col xs={12} sm={true} md={true} lg={true} xl={true} className="loginPageTitleStyle">
+                        <h2 className="textColor">{props.text}</h2>
                     </Col>
+                }{props.type === "authenticated" && 
+                
+                    <Col xs={9} sm={true} md={3} lg={3} xl={3}>
+                        <h2 className="authPageTitleStyle textColor">{props.text}</h2>
+                    </Col>
+                }{props.type === "authenticated" && 
+                    <Col xs={3} sm={true} md={true} lg={true} xl={true} className="rightAlignButtons">
+                        <Image src={menu} fluid className="menu"/>
+                    </Col>                
                 }
                 
             </Row>

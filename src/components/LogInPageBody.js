@@ -32,7 +32,9 @@ const LogInPageBody = () => {
                     </Form>
                 </Col>
                 <Col xs={12} sm={{ span: 8, offset: 2 }} className="centerElements">
-                    <BlueButton buttonType="light" action={test} title="Log In" flat={false} wide={true}/>
+                    <Link to="/weighIn">
+                        <BlueButton buttonType="light" action={test} title="Log In" flat={false} wide={true}/>
+                    </Link>
                 </Col>
                 <Col xs={12} sm={{ span: 8, offset: 2 }} className="centerElements">
                     <Link to="/signUp">
