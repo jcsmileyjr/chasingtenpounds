@@ -1,0 +1,11 @@
+/*Add whitespace above an element */
+.whiteSpaceAbove {
+    margin-top: 1.5rem;
+}
+
+.blueBorder {
+    border: 1px #A3C3F7  solid;/*Primary light blue color of app*/
+    padding-left: 10px;
+    padding-right: 10px
+}
+

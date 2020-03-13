@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import {Container, Row, Col, Image} from 'react-bootstrap';
 import "./LandingPageBody.css";
 import BlueButton from '../components/BlueButton';
@@ -16,7 +17,7 @@ import MonsterSteps from '../components/MonsterSteps';
 const LandingPageBody = () => {
     /*FOR TESTING ONLY */
     const test = () =>{
-        alert("WIP: Testing that the button works!");
+        console.log("WIP: Testing that the button works!");
     }
     return (
         <Container fluid>
@@ -45,7 +46,9 @@ const LandingPageBody = () => {
             <Row className="whiteSpaceAboveRow pinkBG">
                 <Col xs={12} sm={true} md={true} lg={true} xl={4} className="centerContent">
                 <h2 className="centerElements">Quick & Simple to Use, Only Show Weight Loss</h2>
-                    <BlueButton buttonType="light" action={test} title="Sign Up Today" flat={false}  />                    
+                    <Link to="/signUp">
+                        <BlueButton buttonType="light" action={test} title="Sign Up Today" flat={false}  /> 
+                    </Link>
                 </Col>
                 <Col xs={12} sm={true} md={true} lg={true} xl={8} >
                     <Image src={winnerVideo} fluid />
@@ -56,7 +59,9 @@ const LandingPageBody = () => {
                     <h3 style={{width:"80vw", textAlign:"center"}} >Create a team name and send the challenge to your team for a weight loss match</h3>
                 </Col>
                 <Col xs={12} className="centerElements minorWhiteSpace">
-                    <BlueButton buttonType="light" action={test} title="Sign Up" flat={false} />
+                    <Link to="/signUp">
+                        <BlueButton buttonType="light" action={test} title="Sign Up" flat={false} />
+                    </Link>
                 </Col>
                 <MonsterSteps monster1={monsterA} textA="Step 1: Sign Up" textB="I'm Ready" />
                 <MonsterSteps monster1={monsterB} monster2={monsterC} textA="Step 2: Join or Create a Team" textB="Join the FUN!!!" />
