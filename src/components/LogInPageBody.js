@@ -39,7 +39,7 @@ const LogInPageBody = () => {
                         <BlueButton buttonType="light" action={test} title="Create an Account" flat={true} wide={true}/>
                     </Link>
                 </Col>
-                <Col xs={12}>
+                <Col xs={12} sm={{ span: 8, offset: 2 }}>
                     <p className="quoteTitleStyle">Inspirational Quote</p>
                     <p className="centerElement quote">I ate healthy and exercised today. I better wake up Skinny!!!</p>
                     <article style={{textAlign: "right", marginTop: "-1rem"}}>
