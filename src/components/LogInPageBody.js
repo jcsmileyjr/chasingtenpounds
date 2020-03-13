@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import {Container, Row, Col, Form, Image} from 'react-bootstrap';
 
 import './LogInPageBody.css';
@@ -9,7 +10,7 @@ import monsterQuote from '../assets/images/monsterQuote.png';
 const LogInPageBody = () => {
     /*FOR TESTING ONLY */
     const test = () =>{
-        alert("WIP: Testing that the button works!");
+        console.log("WIP: Testing that the button works!");
     }
     return(
         <Container fluid={true} >            
@@ -34,9 +35,11 @@ const LogInPageBody = () => {
                     <BlueButton buttonType="light" action={test} title="Log In" flat={false} wide={true}/>
                 </Col>
                 <Col xs={12} sm={{ span: 8, offset: 2 }} className="centerElements">
-                    <BlueButton buttonType="light" action={test} title="Create an Account" flat={true} wide={true}/>
+                    <Link to="/signUp">
+                        <BlueButton buttonType="light" action={test} title="Create an Account" flat={true} wide={true}/>
+                    </Link>
                 </Col>
-                <Col xs={12}>
+                <Col xs={12} sm={{ span: 8, offset: 2 }}>
                     <p className="quoteTitleStyle">Inspirational Quote</p>
                     <p className="centerElement quote">I ate healthy and exercised today. I better wake up Skinny!!!</p>
                     <article style={{textAlign: "right", marginTop: "-1rem"}}>
