@@ -47,7 +47,7 @@ const LandingPageBody = () => {
                 <Col xs={12} sm={true} md={true} lg={true} xl={4} className="centerContent">
                 <h2 className="centerElements">Quick & Simple to Use, Only Show Weight Loss</h2>
                     <Link to="/signUp">
-                        <BlueButton buttonType="light" action={test} title="Sign Up Today" flat={false}  /> 
+                        <BlueButton buttonType="light" action={test} title="Sign Up Today" flat={false} wide={true}  /> 
                     </Link>
                 </Col>
                 <Col xs={12} sm={true} md={true} lg={true} xl={8} >
