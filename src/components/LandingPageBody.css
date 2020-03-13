@@ -156,3 +156,8 @@ and the next section
 .blueBG {
     background-color: #E6E9FF;
 }
+
+a {
+    width: 100%;
+    text-align: center;
+}
