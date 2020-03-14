@@ -5,6 +5,7 @@ import {Container, Row, Col, Form, Image} from 'react-bootstrap';
 import './LogInPageBody.css';
 import BlueButton from '../components/BlueButton';
 import monsterQuote from '../assets/images/monsterQuote.png';
+import Footer from '../components/LandingPageFooter';
 
 const LogInPageBody = () => {
     /*FOR TESTING ONLY */
@@ -12,8 +13,8 @@ const LogInPageBody = () => {
         console.log("WIP: Testing that the button works!");
     }
     return(
-        <Container fluid={true} >            
-            <Row className="centerForm">                
+        <Container fluid={true} className="logInPageLayout">            
+            <Row className="logInBody">                
                 <Col xs={12} sm={{ span: 8, offset: 2 }}>
                     <Form>
                         <Form.Group controlId="UserEmail">
@@ -48,6 +49,7 @@ const LogInPageBody = () => {
                     </article>                    
                 </Col>
             </Row>
+            <Row><Footer /></Row>
         </Container>
     );
 }
