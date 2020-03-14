@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import {Container, Row, Col, Form, Image} from 'react-bootstrap';
+import {Container, Row, Col, Form} from 'react-bootstrap';
 
 import './LogInPageBody.css';
 import BlueButton from '../components/BlueButton';
-import monsterQuote from '../assets/images/monsterQuote.png';
-
+import Footer from '../components/LandingPageFooter';
+import QuoteMonster from './QuoteMonster';
 
 const LogInPageBody = () => {
     /*FOR TESTING ONLY */
@@ -13,9 +13,9 @@ const LogInPageBody = () => {
         console.log("WIP: Testing that the button works!");
     }
     return(
-        <Container fluid={true} >            
-            <Row className="centerForm">                
-                <Col xs={12} sm={{ span: 8, offset: 2 }}>
+        <Container fluid={true} className="logInPageLayout">            
+            <Row className="logInBody">                
+                <Col xs={12} sm={{ span: 8, offset: 2 }} md={{ span: 6, offset: 3 }}>
                     <Form>
                         <Form.Group controlId="UserEmail">
                             <Form.Label>Email</Form.Label>
@@ -31,23 +31,19 @@ const LogInPageBody = () => {
                         </Form.Group>
                     </Form>
                 </Col>
-                <Col xs={12} sm={{ span: 8, offset: 2 }} className="centerElements">
-                    <BlueButton buttonType="light" action={test} title="Log In" flat={false} wide={true}/>
+                <Col xs={12} sm={{ span: 8, offset: 2 }} md={{ span: 6, offset: 3 }} className="centerElements">
+                    <Link to="/weighIn">
+                        <BlueButton buttonType="light" action={test} title="Log In" flat={false} wide={true}/>
+                    </Link>
                 </Col>
-                <Col xs={12} sm={{ span: 8, offset: 2 }} className="centerElements">
+                <Col xs={12} sm={{ span: 8, offset: 2 }} md={{ span: 6, offset: 3 }} className="centerElements">
                     <Link to="/signUp">
                         <BlueButton buttonType="light" action={test} title="Create an Account" flat={true} wide={true}/>
                     </Link>
                 </Col>
-                <Col xs={12} sm={{ span: 8, offset: 2 }}>
-                    <p className="quoteTitleStyle">Inspirational Quote</p>
-                    <p className="centerElement quote">I ate healthy and exercised today. I better wake up Skinny!!!</p>
-                    <article style={{textAlign: "right", marginTop: "-1rem"}}>
-                        <Image src={monsterQuote} fluid className="quoteMonster" />
-                    </article>
-                    
-                </Col>
+                <QuoteMonster />
             </Row>
+            <Row><Footer /></Row>
         </Container>
     );
 }

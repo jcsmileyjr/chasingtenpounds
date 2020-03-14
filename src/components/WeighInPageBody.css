@@ -1,5 +1,14 @@
+.weighInTitle {
+    text-align: center;
+    letter-spacing: .2rem;
+}
 
-.logInBody {
+.weighInWhiteSpaceAbove {
+    margin-top: 2rem;
+    width: 80%;
+}
+
+.weighInBody {
     flex:1 0 auto;/*Help push the footer down*/
     min-height:auto;/*Help push the footer down*/
     display: flex;/*center the elements*/
@@ -7,7 +16,7 @@
 } 
 
 
-.logInPageLayout {
+.weighInPageLayout {
     display: flex;
     flex-direction: column;
     min-height: 90vh;
@@ -16,12 +25,7 @@
 /* For screens 575 or higher change the height to affect the footer
 */
 @media screen and (max-width: 575px) {
-    .logInPageLayout {
+    .weighInPageLayout {
         min-height: 78vh;
     }
-}
-
-/*center a text*/
-.centerElements {
-    text-align: center;
 }

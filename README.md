@@ -29,7 +29,7 @@ I work in an office of 25 people. Throughout the year I hosted several biggest l
 - Allow an user to join a team of players if they know the team code.
 - Allow an user to log into the app, input their weight, and see the current weight loss ranking in their team.
 
-### WireFrame:
+### Landing Page WireFrame:
 
 ![Screen-shot of Wireframe in use](./src/assets/wireframes/landingPage-finalversion.png)
 
@@ -44,6 +44,8 @@ I work in an office of 25 people. Throughout the year I hosted several biggest l
 ### This app was built with the following technologies:
 
 **React:** JavaScript front-end library for building user interfaces
+
+**React-Router:** Standard routing library for React
 
 **Node.js:** Server side development platform created to run JavaScript
 
