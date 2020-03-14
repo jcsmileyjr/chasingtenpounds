@@ -1,0 +1,14 @@
+/*Assign height to monster quoting motivation text*/
+.quoteMonster {
+    height: 4rem;
+}
+
+/*Style the title for the inspirational quote*/
+.quoteTitleStyle {
+    text-decoration: underline;
+    text-align: center;
+}
+
+.quote {
+    font-style: italic;
+}
