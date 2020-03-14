@@ -9,19 +9,22 @@ const WeighInPageBody = () => {
         console.log("WIP: Testing that the button works!");
     }
     return (
-        <Container className="weighInCenterForm">
-            <Row >
-                <Col xs={12} sm={{ span: 8, offset: 2 }}>
-                <h2 className="weighInTitle">Type in Today's Weight</h2>
+        <Container fluid={true} className="weighInCenterForm">
+            <Row className="weighInBody">
+                <Col xs={12} >
+                    <h2 className="weighInTitle">Type in Today's Weight</h2>
                 </Col>
-                <Col xs={12} sm={{ span: 6, offset: 3 }} className="centerElements weighInWhiteSpaceAbove">
+                <Col xs={12} className="centerElements weighInWhiteSpaceAbove">
                     <Form.Group controlId="UserPassword">
                         <Form.Control type="number" placeholder="Type in your weight" required />
                     </Form.Group>
                 </Col>
-                <Col xs={12} sm={{ span: 6, offset: 3 }} className="centerElements weighInWhiteSpaceAbove">
-                <BlueButton buttonType="light" action={test} title="Submit New Weight" flat={true} wide={true}/>
+                <Col xs={12} className="centerElements weighInWhiteSpaceAbove">
+                    <BlueButton buttonType="light" action={test} title="Submit New Weight" flat={true} wide={true}/>
                 </Col>
+            </Row>
+            <Row className="weighInFooter">
+                <Col>Hello</Col>
             </Row>  
         </Container>
     );
