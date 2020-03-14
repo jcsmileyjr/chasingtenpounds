@@ -1,34 +1,22 @@
-.weighInTitle {
-    text-align: center;
-    letter-spacing: .2rem;
+/*Style for entire page so Footer will fit below it*/
+.authPageLayout {
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
 }
 
-.weighInWhiteSpaceAbove {
-    margin-top: 2rem;
-}
-
-.weighInBody {
+/*Center the elements in the body of the web page*/
+.authPageBody {
     flex:1 0 auto;/*Help push the footer down*/
     min-height:auto;/*Help push the footer down*/
     display: flex;/*center the elements*/
     align-content: center;/*center the elements*/
 } 
 
-
-.weighInPageLayout {
-    display: flex;
-    flex-direction: column;
-    min-height: 90vh;
-}
-
 /* For screens 575 or higher change the height to affect the footer
 */
 @media screen and (max-width: 575px) {
-    .weighInPageLayout {
+    .authPageLayout {
         min-height: 78vh;
     }
-}
-
-.line {
-    border: 1px solid #0707f8;/*App official dark blue color*/ ;
 }
