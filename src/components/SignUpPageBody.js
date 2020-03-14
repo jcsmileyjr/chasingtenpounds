@@ -36,7 +36,7 @@ const SignUpPageBody = () => {
                     </Form>
                 </Col>
                 <Col xs={12} sm={{ span: 6, offset: 3 }} className="centerElements whiteSpaceAbove">
-                    <Link to="/signUp">
+                    <Link to="/team">
                         <BlueButton buttonType="light" action={test} title="Create Account" flat={true} wide={true}/>
                     </Link>
                 </Col>

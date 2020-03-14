@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import BlueButton from './BlueButton';
 import {Container, Row, Col, Image, h1} from 'react-bootstrap';
 import monster from '../assets/images/monster4.png';
-import menu from '../assets/images/menu3.png';
 
 //This is a generic header for the landing page and non-login pages like Login and Sign-up
 const LandingPageHeader = (props) => {
