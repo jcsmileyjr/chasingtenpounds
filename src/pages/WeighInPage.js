@@ -1,6 +1,6 @@
 import React from 'react'
 
-import WeighInHeader from '../components/LandingPageHeader';
+import WeighInHeader from '../components/AuthUserHeader';
 import WeighInPageBody from '../components/WeighInPageBody';
 
 const WeighInPage = () => {

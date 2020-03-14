@@ -34,7 +34,7 @@
 
 /*On authenticated pages, style the page title*/
 .authPageTitleStyle {
-    text-align: right;
+    text-align: center;
     letter-spacing: .2rem;
     text-decoration: underline;
 }
