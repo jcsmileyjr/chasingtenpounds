@@ -9,17 +9,23 @@
 }
 
 .weighInBody {
-    height:80vh;
+    flex:1 0 auto;/*Help push the footer down*/
+    min-height:auto;/*Help push the footer down*/
+    display: flex;/*center the elements*/
+    align-content: center;/*center the elements*/
+} 
+
+
+.weighInPageLayout {
     display: flex;
-    justify-content: center;
-    align-content: center;
-    background-color: pink;
+    flex-direction: column;
+    min-height: 90vh;
 }
 
-/*Display the forms in the center of the page */
-@media screen and (min-width: 576px) {
-    .weighInCenterFormNOTUSED {
-        margin: 0 auto;
-        width: 80%; 
+/* For screens 575 or higher change the height to affect the footer
+*/
+@media screen and (max-width: 575px) {
+    .weighInPageLayout {
+        min-height: 78vh;
     }
 }
