@@ -45,8 +45,7 @@ const LogInPageBody = () => {
                     <p className="centerElement quote">I ate healthy and exercised today. I better wake up Skinny!!!</p>
                     <article style={{textAlign: "right", marginTop: "-1rem"}}>
                         <Image src={monsterQuote} fluid className="quoteMonster" />
-                    </article>
-                    
+                    </article>                    
                 </Col>
             </Row>
         </Container>

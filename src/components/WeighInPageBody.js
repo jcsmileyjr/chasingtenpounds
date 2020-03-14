@@ -1,8 +1,9 @@
 import React from 'react';
 import './WeighInPageBody.css'
-import {Container, Row, Col, Form} from 'react-bootstrap';
+import {Container, Row, Col, Form, Image} from 'react-bootstrap';
 import BlueButton from '../components/BlueButton';
 import Footer from '../components/LandingPageFooter';
+import monsterQuote from '../assets/images/monsterQuote.png';
 
 const WeighInPageBody = () => {
     /*FOR TESTING ONLY */
@@ -22,6 +23,13 @@ const WeighInPageBody = () => {
                 </Col>
                 <Col xs={12} sm={{ span: 6, offset: 3 }} md={{ span: 4, offset: 4 }} className="centerElements weighInWhiteSpaceAbove">
                     <BlueButton buttonType="light" action={test} title="Submit New Weight" flat={true} wide={true}/>
+                </Col>
+                <Col xs={12} sm={{ span: 6, offset: 3 }} md={{ span: 4, offset: 4 }}>
+                    <p className="quoteTitleStyle">Inspirational Quote</p>
+                    <p className="centerElement quote">I ate healthy and exercised today. I better wake up Skinny!!!</p>
+                    <article style={{textAlign: "right", marginTop: "-1rem"}}>
+                        <Image src={monsterQuote} fluid className="quoteMonster" />
+                    </article>                    
                 </Col>
             </Row>
             <Row>
