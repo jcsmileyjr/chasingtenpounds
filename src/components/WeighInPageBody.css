@@ -1,0 +1,18 @@
+.weighInTitle {
+    text-align: center;
+    letter-spacing: .2rem;
+}
+
+.weighInWhiteSpaceAbove {
+    margin-top: 2rem;
+}
+
+/*Display the forms in the center of the page */
+@media screen and (min-width: 576px) {
+    .weighInCenterForm {
+        position: absolute;
+        left: 50%;
+        top: 60%;
+        transform: translate(-50%, -50%);
+    }
+}

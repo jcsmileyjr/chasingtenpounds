@@ -6,7 +6,6 @@ import './LogInPageBody.css';
 import BlueButton from '../components/BlueButton';
 import monsterQuote from '../assets/images/monsterQuote.png';
 
-
 const LogInPageBody = () => {
     /*FOR TESTING ONLY */
     const test = () =>{
