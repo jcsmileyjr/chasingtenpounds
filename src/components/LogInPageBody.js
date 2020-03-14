@@ -15,7 +15,7 @@ const LogInPageBody = () => {
     return(
         <Container fluid={true} className="logInPageLayout">            
             <Row className="logInBody">                
-                <Col xs={12} sm={{ span: 8, offset: 2 }}>
+                <Col xs={12} sm={{ span: 8, offset: 2 }} md={{ span: 6, offset: 3 }}>
                     <Form>
                         <Form.Group controlId="UserEmail">
                             <Form.Label>Email</Form.Label>
@@ -31,12 +31,12 @@ const LogInPageBody = () => {
                         </Form.Group>
                     </Form>
                 </Col>
-                <Col xs={12} sm={{ span: 8, offset: 2 }} className="centerElements">
+                <Col xs={12} sm={{ span: 8, offset: 2 }} md={{ span: 6, offset: 3 }} className="centerElements">
                     <Link to="/weighIn">
                         <BlueButton buttonType="light" action={test} title="Log In" flat={false} wide={true}/>
                     </Link>
                 </Col>
-                <Col xs={12} sm={{ span: 8, offset: 2 }} className="centerElements">
+                <Col xs={12} sm={{ span: 8, offset: 2 }} md={{ span: 6, offset: 3 }} className="centerElements">
                     <Link to="/signUp">
                         <BlueButton buttonType="light" action={test} title="Create an Account" flat={true} wide={true}/>
                     </Link>
