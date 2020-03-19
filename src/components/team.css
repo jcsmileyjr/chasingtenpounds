@@ -1,0 +1,20 @@
+.teamPageBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightAlign {
+    text-align: right;
+}
+
+.rowContentStyle {
+    font-size: 3vw;
+    width: 100%;
+}
+
+.teamTitle {
+    font-weight: bold;
+    text-align: left;
+}

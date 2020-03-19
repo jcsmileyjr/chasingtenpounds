@@ -1,0 +1,32 @@
+.rankingPageBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.rightAlign {
+    text-align: right;
+}
+
+.fontSize {
+    font-size: 3vw;
+}
+
+.teamTitle {
+    font-weight: bold;
+    text-align: left;
+}
+
+.blueBorder {
+    border: 1px solid #A3C3F7;/*App official light blue color*/ 
+}
+
+
+/* For screens 575 or higher change the height to affect the footer
+*/
+@media screen and (min-width: 575px) {
+    .fontSize {
+        font-size: 2vw;
+    }
+}
