@@ -52,14 +52,14 @@ const LandingPageBody = () => {
                 <Col xs={12} className="centerContent">
                     <h3 style={{width:"80vw", textAlign:"center"}} >Create a team name and send the challenge to your team for a weight loss match</h3>
                 </Col>
+                <MonsterSteps monster1={monsterA} textA="Step 1: Sign Up" textB="I'm Ready" />
+                <MonsterSteps monster1={monsterB} monster2={monsterC} textA="Step 2: Join or Create a Team" textB="Join the FUN!!!" />
+                <MonsterSteps monster1={monsterParty}  textA="Step 3: See Who's Winning" textB=".....Ready, Set, GO!!!!!" />
                 <Col xs={12} className="centerElements minorWhiteSpace">
                     <Link to="/signUp">
                         <BlueButton buttonType="light" action={test} title="Sign Up" flat={false} />
                     </Link>
                 </Col>
-                <MonsterSteps monster1={monsterA} textA="Step 1: Sign Up" textB="I'm Ready" />
-                <MonsterSteps monster1={monsterB} monster2={monsterC} textA="Step 2: Join or Create a Team" textB="Join the FUN!!!" />
-                <MonsterSteps monster1={monsterParty}  textA="Step 3: See Who's Winning" textB=".....Ready, Set, GO!!!!!" />
             </Row>
         </Container>
     );
