@@ -46,11 +46,18 @@
     }
 }
 
-/*Adjust font-size of app title on large screens*/
+/*Adjust font-size of app and page title on large screens*/
 @media screen and (min-width: 766px) and (max-device-width : 1024px) {
     .TabletTitleTextSize {
         font-size:1.5rem ;
     }
+
+    h2 {font-size: 1.2rem;}/*adjust page title size*/
+}
+
+/*Adjust font-size of page title on medium screens*/
+@media screen and (min-width: 576px) and (max-device-width : 766px) {
+    h2 {font-size: 1rem;}/*adjust page title size*/
 }
 
 /*Space between buttons and Logo/Title in mobile view*/
