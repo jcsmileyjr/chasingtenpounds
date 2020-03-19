@@ -1,0 +1,28 @@
+.rankingPageBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.rightAlign {
+    text-align: right;
+}
+
+.fontSize {
+    font-size: 3vw;
+}
+
+.teamTitle {
+    font-weight: bold;
+    text-align: left;
+}
+
+
+/* For screens 575 or higher change the height to affect the footer
+*/
+@media screen and (min-width: 575px) {
+    .fontSize {
+        font-size: 2vw;
+    }
+}

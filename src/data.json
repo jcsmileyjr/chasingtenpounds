@@ -1,0 +1,44 @@
+[
+  {
+    "teamName": "Greatest Generation",
+    "currentWeek": 13,
+    "players": [
+      {
+        "playerName": "Pappa Smurf",
+        "weightLoss": 10.5,
+        "winner": true
+      },
+      {
+        "playerName": "Roger Rabbit",
+        "weightLoss": 8.6,
+        "winner": false
+      },
+      {
+        "playerName": "Donald Duck",
+        "weightLoss": 5.4,
+        "winner": false
+      }
+    ]
+  },
+  {
+    "teamName": "Jones Family",
+    "currentWeek": 1,
+    "players": [
+      {
+        "playerName": "Pappa Smurf",
+        "weightLoss": 2.3,
+        "winner": false
+      },
+      {
+        "playerName": "Mammy Tina",
+        "weightLoss": 2.2,
+        "winner": false
+      },
+      {
+        "playerName": "Buck",
+        "weightLoss": 1.8,
+        "winner": false
+      }
+    ]
+  }
+]

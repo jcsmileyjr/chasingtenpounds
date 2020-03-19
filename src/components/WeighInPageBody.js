@@ -4,6 +4,7 @@ import {Container, Row, Col, Form} from 'react-bootstrap';
 import BlueButton from '../components/BlueButton';
 import Footer from '../components/LandingPageFooter';
 import QuoteMonster from './QuoteMonster';
+import { Link } from "react-router-dom";
 
 const WeighInPageBody = () => {
     /*FOR TESTING ONLY */
@@ -22,7 +23,9 @@ const WeighInPageBody = () => {
                     </Form.Group>
                 </Col>
                 <Col xs={12} sm={{ span: 6, offset: 3 }} md={{ span: 4, offset: 4 }} className="centerElements weighInWhiteSpaceAbove">
-                    <BlueButton buttonType="light" action={test} title="Submit New Weight" flat={true} wide={true}/>
+                    <Link to="/ranking">
+                        <BlueButton buttonType="light" action={test} title="Submit New Weight" flat={true} wide={true}/>
+                    </Link>
                 </Col>
                 <QuoteMonster />
             </Row>
