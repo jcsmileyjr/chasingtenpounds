@@ -75,7 +75,7 @@ and the next section
 
 /*Designate a image as moving back and forth animation */
 .animatedMonster {
-    animation: roving 4s ease-in-out infinite;
+    animation: roving 4s ease-in-out 3;
     margin-top: 10px;
 }
 
@@ -95,7 +95,7 @@ and the next section
 
 /*Designate a image as spinning animation*/
 .spinningMonster {
-    animation: spinning 3s linear infinite;
+    animation: spinning 3s linear 5;
 }
 
 /*animatin of monster image rotating */
