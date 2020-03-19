@@ -7,9 +7,9 @@ const Team = (props) => {
   return (
     <Container fluid className="teamPageBody">
       <Row className="rowContentStyle">
-        <Col xs={6}>Team: Greatest Generation</Col>
+        <Col xs={6}>{props.teamName}</Col>
         <Col xs={6} className="rightAlign">
-          Week 12
+            {props.currentWeek}
         </Col>
       </Row>
       <Row className="rowContentStyle teamTitle blueBorder">
@@ -18,20 +18,20 @@ const Team = (props) => {
         <Col xs={5}>Total Weight Loss</Col>
         <Col xs={true}></Col>
       </Row>
-      <TeamMember />
-      <TeamMember />
-      <TeamMember />
+      <TeamMember rank={props.rank} player={props.player} weightLoss={props.weightLoss} winner={props.winner} />
+      <TeamMember rank={props.rank} player={props.player} weightLoss={props.weightLoss} winner={props.winner} />
+      <TeamMember rank={props.rank} player={props.player} weightLoss={props.weightLoss} winner={props.winner} />
     </Container>
   );
 };
 
-const TeamMember = () => {
+const TeamMember = (props) => {
   return (
     <Row className="rowContentStyle blueBorder">
-      <Col xs={2}>1</Col>
-      <Col xs={4}>Old Man Wayne</Col>
-      <Col xs={3}>10 lbs</Col>
-      <Col xs={true}>Winner</Col>
+      <Col xs={2}>{props.rank}</Col>
+      <Col xs={4}>{props.player}</Col>
+      <Col xs={3}>{props.weightLoss} lbs</Col>
+      <Col xs={true}>{props.winner && "winner"}</Col>
     </Row>
   );
 };

@@ -9,7 +9,13 @@ import Footer from "../components/LandingPageFooter";
 const RankingPageBody = () => {
   return (
     <main>
-      <Team />
+      <Team teamName="Greatest Generation"
+            currentWeek="12"
+            rank="1"
+            player="Old Man"
+            weightLoss="10"
+            winner= {true}
+      />
     </main>
   );
 };
