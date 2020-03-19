@@ -1,22 +1,26 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
 import "./authPageLayout.css";
 import './rankingPageBody.css';
 
 import Team from './Team'
-import Footer from "../components/LandingPageFooter";
+//import Footer from "../components/LandingPageFooter";
+import data from '../data.json';
 
 const RankingPageBody = () => {
   return (
     <main>
-      <Team teamName="Greatest Generation"
-            currentWeek="12"
-            rank="1"
-            player="Old Man"
-            weightLoss="10"
-            winner= {true}
-      />
+        {data.map((team,index) => {
+          return (
+            <Team teamName={team.teamName}
+                  currentWeek={team.currentWeek}
+                  players = {team.players}
+                  key={index}                  
+            />
+          );
+          
+        })}
     </main>
+    
   );
 };
 

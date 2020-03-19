@@ -5,7 +5,13 @@
     align-items: center;
 }
 
-.rightAlign {
+.alignTeamTitle {
+    text-align: left;/*Needed to override Bootstrap css*/
+    padding-left: 0;
+}
+
+.alignWeekTitle {
+    padding-right: 0;/*Needed to override Bootstrap css*/
     text-align: right;
 }
 
@@ -17,4 +23,22 @@
 .teamTitle {
     font-weight: bold;
     text-align: left;
+}
+
+.spaceBetweenTeams {
+    margin-bottom: 5vh;
+}
+
+.teamMemberStyle {
+    background-color:rgb(226, 234, 247);
+    color:black;
+}
+
+.teamMemberStyle:nth-of-type(even){
+    background-color: #5c5c77;
+    color:white;
+}
+
+.rankStyle {
+    padding-left:5px;
 }
