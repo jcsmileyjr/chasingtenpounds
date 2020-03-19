@@ -1,6 +1,7 @@
 .weighInTitle {
     text-align: center;
     letter-spacing: .2rem;
+    margin-bottom:-15px;/*fix bug where title was far from input field*/
 }
 
 .weighInWhiteSpaceAbove {

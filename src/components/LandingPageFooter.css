@@ -1,6 +1,7 @@
 .footerText {
     font-size: 1rem;
-    text-align: center;    
+    text-align: center;   
+
 }
 
 .footerWord {
@@ -9,7 +10,10 @@
 
 .footer {
     background-color:#A3C3F7 ;
+    padding-top:1rem;
 }
+
+
 
 
 

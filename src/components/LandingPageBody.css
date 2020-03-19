@@ -50,8 +50,6 @@ and the next section
 /*Set the height of a image and make it less visable under the floating text*/
 .landingBodyImage {
     height: 65vh;
-    filter: grayscale(10%);
-    opacity: 0.6;
 }
 
 /*bold for paragraph elements hovering over image*/
@@ -70,9 +68,15 @@ and the next section
     font-weight: bold;
 }
 
+.limitChars {
+    max-width: 75ch;
+    margin: 0 auto;
+}
+
 /*Designate a image as moving back and forth animation */
 .animatedMonster {
-    animation: roving 4s ease-in-out infinite;
+    animation: roving 4s ease-in-out 3;
+    margin-top: 10px;
 }
 
 /*animation of monster image moving back & forth while rotating*/
@@ -91,7 +95,7 @@ and the next section
 
 /*Designate a image as spinning animation*/
 .spinningMonster {
-    animation: spinning 3s linear infinite;
+    animation: spinning 3s linear 5;
 }
 
 /*animatin of monster image rotating */

@@ -23,18 +23,12 @@ const LandingPageBody = () => {
         <Container fluid>
             <Row className="hideMonsterBug">
                 <Col xs={{span:12, order:2}} sm={{order:1}} md={{order:1}} lg={{order:1}} xl={{span: 4,order:1}} className="landingPageBodyImageContainerStyle">
-                    <Image src={awardRibbon} fluid className="landingBodyImage"/>
-                    <div className="floatingText centerElements">
-                        <h1>Challenge</h1>
-                        <p className="imageText">Family, Friends, Co-workers</p>
-                        <p className="imageText">To who can lose</p>
-                        <h2 className="spaceBetweenLetters">10 lbs</h2>
-                        <h2 className="spaceBetweenLetters">The Fastest</h2>
-                    </div>
+                    <Image src={awardRibbon} fluid className="landingBodyImage"/>                    
                 </Col>
                 <Col xs={{span:12, order:1}} sm={{order:2}} md={{order:2}} lg={{order:2}} xl={{span: 8,order:2}} className="centerContent">
-                    <p className="CTATitle">Do you want to Chase the <span style={{color:"#FF0000"}}>10 Pound </span>Monster?</p>
-                    <p>10 pounds is an attainable, measureable, and visible fitness goal. 
+                    <h1>Do you want to Chase the <span style={{color:"#FF0000"}}>10 Pound </span>Monster?</h1>
+                    <p>Challenge Family, Friends, & Co-Workers to see who can <span style={{color:"#FF0000", fontWeight:500}}>lose 10 lbs the Fastest.</span></p>
+                    <p className="limitChars">10 pounds is an attainable, measureable, and visible fitness goal. 
                     The best part is it can be done in a short time period. So choose, do 
                     you want or need to chase the 10 Pound Monster?
                     </p>
@@ -58,14 +52,14 @@ const LandingPageBody = () => {
                 <Col xs={12} className="centerContent">
                     <h3 style={{width:"80vw", textAlign:"center"}} >Create a team name and send the challenge to your team for a weight loss match</h3>
                 </Col>
+                <MonsterSteps monster1={monsterA} textA="Step 1: Sign Up" textB="I'm Ready" />
+                <MonsterSteps monster1={monsterB} monster2={monsterC} textA="Step 2: Join or Create a Team" textB="Join the FUN!!!" />
+                <MonsterSteps monster1={monsterParty}  textA="Step 3: See Who's Winning" textB=".....Ready, Set, GO!!!!!" />
                 <Col xs={12} className="centerElements minorWhiteSpace">
                     <Link to="/signUp">
                         <BlueButton buttonType="light" action={test} title="Sign Up" flat={false} />
                     </Link>
                 </Col>
-                <MonsterSteps monster1={monsterA} textA="Step 1: Sign Up" textB="I'm Ready" />
-                <MonsterSteps monster1={monsterB} monster2={monsterC} textA="Step 2: Join or Create a Team" textB="Join the FUN!!!" />
-                <MonsterSteps monster1={monsterParty}  textA="Step 3: See Who's Winning" textB=".....Ready, Set, GO!!!!!" />
             </Row>
         </Container>
     );
