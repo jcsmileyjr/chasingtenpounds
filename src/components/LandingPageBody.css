@@ -68,9 +68,15 @@ and the next section
     font-weight: bold;
 }
 
+.limitChars {
+    max-width: 75ch;
+    margin: 0 auto;
+}
+
 /*Designate a image as moving back and forth animation */
 .animatedMonster {
     animation: roving 4s ease-in-out infinite;
+    margin-top: 10px;
 }
 
 /*animation of monster image moving back & forth while rotating*/
