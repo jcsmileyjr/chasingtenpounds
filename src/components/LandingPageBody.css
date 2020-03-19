@@ -50,8 +50,6 @@ and the next section
 /*Set the height of a image and make it less visable under the floating text*/
 .landingBodyImage {
     height: 65vh;
-    filter: grayscale(10%);
-    opacity: 0.6;
 }
 
 /*bold for paragraph elements hovering over image*/
