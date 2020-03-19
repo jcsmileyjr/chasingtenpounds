@@ -26,7 +26,7 @@ const LandingPageBody = () => {
                     <Image src={awardRibbon} fluid className="landingBodyImage"/>                    
                 </Col>
                 <Col xs={{span:12, order:1}} sm={{order:2}} md={{order:2}} lg={{order:2}} xl={{span: 8,order:2}} className="centerContent">
-                    <p className="CTATitle">Do you want to Chase the <span style={{color:"#FF0000"}}>10 Pound </span>Monster?</p>
+                    <h1>Do you want to Chase the <span style={{color:"#FF0000"}}>10 Pound </span>Monster?</h1>
                     <p>Challenge Family, Friends, & Co-Workers to see who can <span style={{color:"#FF0000", fontWeight:500}}>lose 10 lbs the Fastest.</span></p>
                     <p className="limitChars">10 pounds is an attainable, measureable, and visible fitness goal. 
                     The best part is it can be done in a short time period. So choose, do 
