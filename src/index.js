@@ -4,8 +4,20 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Auth0Provider } from '@auth0/auth0-react';
+const domainId = process.env.REACT_APP_AUTH0_DOMAIN;
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <Auth0Provider
+    domain= {domainId}
+    clientId={clientId}
+    redirectUri={window.location.origin}
+  >
+    <App />
+  </Auth0Provider>    
+
+, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

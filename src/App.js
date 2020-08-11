@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 
 import LandingPage from './pages/LandingPage1';
@@ -8,18 +8,47 @@ import WeighInPage from './pages/WeighInPage';
 import TeamPage from './pages/TeamPage'
 import RankingPage from './pages/RankingPage';
 import './App.css';
+import { useAuth0 } from '@auth0/auth0-react';
 
-function App() {
+
+ const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const {isAuthenticated, loginWithRedirect, user} = useAuth0();
+
+  useEffect(() => {
+    checkIfAuthenticated();
+  });
+
+  const checkIfAuthenticated = () => {
+    if(isAuthenticated){
+      setIsLoggedIn(true);
+    }
+    console.log(isLoggedIn);
+    console.log(user);
+  }
+
+  const logUserIn = async () => {
+    loginWithRedirect();
+  }
+
   return (
     <Router>
-      <div>
-        <Route exact path="/" render={props => <LandingPage />} />
-        <Route path="/logIn" render={props => <LogInPage />} />
-        <Route path="/signUp" render={props => <SignUpPage />} />
-        <Route path="/weighIn" render={props => <WeighInPage />} />
-        <Route path="/team" render={props => <TeamPage />} /> 
-        <Route path="/ranking" render={props => <RankingPage />} />
-    </div>
+        <div>
+          <Route exact path="/" render={props => <LandingPage logUser={() =>logUserIn()} />} />
+          <Route path="/logIn" render={props => <LogInPage />} />
+          <Route path="/signUp" render={props => <SignUpPage />} /> 
+          {isLoggedIn &&
+            <div>
+          <Route path="/weighIn" render={props => <WeighInPage />} />
+          <Route path="/team" render={props => <TeamPage />} /> 
+          <Route path="/ranking" render={props => <RankingPage />} />
+            </div>
+
+          }           
+  
+ 
+      </div>
   </Router>
   );
 }

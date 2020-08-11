@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import {Container, Row, Col, Form} from 'react-bootstrap';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import './LogInPageBody.css';
 import BlueButton from '../components/BlueButton';
@@ -12,6 +13,11 @@ const LogInPageBody = () => {
     const test = () =>{
         console.log("WIP: Testing that the button works!");
     }
+
+    const {
+        loginWithRedirect,
+      } = useAuth0();
+
     return(
         <Container fluid={true} className="logInPageLayout">            
             <Row className="logInBody">                
@@ -33,7 +39,7 @@ const LogInPageBody = () => {
                 </Col>
                 <Col xs={12} sm={{ span: 8, offset: 2 }} md={{ span: 6, offset: 3 }} className="centerElements">
                     <Link to="/weighIn">
-                        <BlueButton buttonType="light" action={test} title="Log In" flat={false} wide={true}/>
+                        <BlueButton buttonType="light" action={loginWithRedirect} title="Log In" flat={false} wide={true}/>
                     </Link>
                 </Col>
                 <Col xs={12} sm={{ span: 8, offset: 2 }} md={{ span: 6, offset: 3 }} className="centerElements">

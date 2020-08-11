@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import {Container, Row, Col, Form} from 'react-bootstrap';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import './SignUpPageBody.css';
 import BlueButton from '../components/BlueButton';
@@ -11,24 +12,14 @@ const SignUpPageBody = () => {
     const test = () =>{
         console.log("WIP: Testing that the button works!");
     }
+
+    const {user} = useAuth0();
     return(
         <Container fluid={true} >            
             <Row className="whiteSpaceAbove">                
                 <Col xs={12} sm={{ span: 6, offset: 3 }}>
                     <Form className="blueBorder">
-                        <Form.Group controlId="UserEmail">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" required />
-                            <Form.Text>Ex. something@something.com</Form.Text>
-                        </Form.Group>
-                        <Form.Group controlId="UserPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Enter password" required />
-                        </Form.Group>
-                        <Form.Group controlId="UserVerifyPassword">
-                            <Form.Label>Verify Password</Form.Label>
-                            <Form.Control type="password" placeholder="Re-enter password" required />
-                        </Form.Group>
+                        <h1>Hello {user.name}</h1>
                         <Form.Group controlId="UserInitialWeight">
                             <Form.Label>Initial Weight</Form.Label>
                             <Form.Control type="number" placeholder="Enter weight" required />
