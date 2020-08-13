@@ -20,6 +20,7 @@ import { useAuth0 } from '@auth0/auth0-react';
     checkIfAuthenticated();
   });
 
+  // Check if the user is authenenticated every time the page is loaded, if so logs user information and true/false
   const checkIfAuthenticated = () => {
     if(isAuthenticated){
       setIsLoggedIn(true);
@@ -28,6 +29,7 @@ import { useAuth0 } from '@auth0/auth0-react';
     console.log(user);
   }
 
+  // Use Auth0 to log in the user
   const logUserIn = async () => {
     loginWithRedirect();
   }

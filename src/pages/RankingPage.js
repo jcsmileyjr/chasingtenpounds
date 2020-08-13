@@ -1,5 +1,4 @@
 import React from "react";
-import { withAuthenticationRequired } from '@auth0/auth0-react';
 
 import Header from "../components/AuthUserHeader";
 import RankingPageBody from '../components/RankingPageBody';
@@ -13,6 +12,4 @@ const RankingPage = () => {
   );
 };
 
-export default withAuthenticationRequired(RankingPage, {
-  onRedirecting: () => <div>Redirecting you to the login page...</div>,
-});
+export default RankingPage
