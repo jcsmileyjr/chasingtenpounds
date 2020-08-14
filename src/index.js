@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom'
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
@@ -14,8 +15,10 @@ ReactDOM.render(
     clientId={clientId}
     redirectUri={window.location.origin}
   >
-    <App />
-  </Auth0Provider>    
+    <Router>
+      <App />
+    </Router>
+  </Auth0Provider>
 
 , document.getElementById('root'));
 
