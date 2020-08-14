@@ -8,7 +8,6 @@ import monster from '../assets/images/monster4.png';
 
 //This is a generic header for the landing page and non-login pages like Login and Sign-up
 const LandingPageHeader = (props) => {
-
     return (
         <Container fluid={true} className="background">
             <Row className="content">
@@ -24,7 +23,9 @@ const LandingPageHeader = (props) => {
                 </Col>
                 {props.type === "landing" && 
                     <Col xs={12} sm={true} md={true} lg={true} xl={true} className="rightAlignButtons">
-                        <Link to="/logIn"><BlueButton buttonType="dark" title="Log In" /></Link>
+                        
+                            <BlueButton buttonType="dark" action={props.logUser} title="Log In" />
+                        
                     </Col>
                 }{props.type === "login" && 
                     <Col xs={12} sm={true} md={true} lg={true} xl={true} className="loginPageTitleStyle">

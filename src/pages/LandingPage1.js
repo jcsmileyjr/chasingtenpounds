@@ -3,10 +3,10 @@ import LandingPageHeader from '../components/LandingPageHeader';
 import LandingPageBody from '../components/LandingPageBody';
 import LandingPageFooter from '../components/LandingPageFooter';
 
-const LandingPage = () => {
+const LandingPage = (props) => {
     return(
         <div>
-            <LandingPageHeader type="landing" />
+            <LandingPageHeader type="landing" logUser={props.logUser} />
             <LandingPageBody />
             <LandingPageFooter />
         </div>

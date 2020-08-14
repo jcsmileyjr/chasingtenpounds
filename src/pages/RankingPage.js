@@ -12,4 +12,4 @@ const RankingPage = () => {
   );
 };
 
-export default RankingPage;
+export default RankingPage
