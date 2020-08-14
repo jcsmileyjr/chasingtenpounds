@@ -20,10 +20,7 @@ const App = () => {
     if (isAuthenticated) {
       setIsLoggedIn(true);
       history.push("/weighIn");
-    } else {
-      setIsLoggedIn(false);
-      history.push('/signUp')
-    }
+    } 
     console.log(isLoggedIn);
     console.log(user);
   }, [isAuthenticated, isLoggedIn, user, history]);
