@@ -9,6 +9,8 @@ import RankingPage from './pages/RankingPage';
 import './App.css';
 import { useAuth0 } from '@auth0/auth0-react';
 
+import Users from './data.js';
+
 // Dummy data of saved email addresses
 const savedUsers = [
   'jcsmileyjr@gmail.com',
@@ -34,8 +36,19 @@ const App = () => {
 
   // Method to check if a user is already sign up for the service with an saved email address. 
   const isSavedUser = (value) => {
-    const ifValid = savedUsers.includes(value);
+    const ifValid = checkIfSignedUp(value);
     return ifValid ? history.push('/weighIn'): history.push('/signUp');
+  }
+
+  const checkIfSignedUp = (value) => {
+    let signedUp = false;
+    Users.forEach((player) => {
+      if(player.email === value){
+        signedUp = true;
+      }
+    })
+    console.log(`checkifSignedUp ran and the answer is ${signedUp}`);
+    return signedUp;
   }
 
   return (
