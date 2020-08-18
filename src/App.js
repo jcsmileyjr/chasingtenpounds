@@ -11,12 +11,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 import Users from './data.js';
 
-// Dummy data of saved email addresses
-const savedUsers = [
-  'jcsmileyjr@gmail.com',
-  'jsmiley@bellsouth.net'
-]
-
 const App = () => {
   const history = useHistory()
 
@@ -25,8 +19,9 @@ const App = () => {
   // Check if the user is authenenticated every time the page is loaded, if so logs user information and true/false
   useEffect(() => {
     if (isAuthenticated) {
-      isSavedUser(user.email);
+      isAuthenticatedUser(user.email);
     } 
+    organizeTeamData('jcsmileyjr@gmail.com');
   }, );
 
   // Use Auth0 to log in the user
@@ -34,10 +29,17 @@ const App = () => {
     loginWithRedirect();
   }
 
-  // Method to check if a user is already sign up for the service with an saved email address. 
-  const isSavedUser = (value) => {
+  /**
+   * Simuating Login API call to serverless function that make database call for all data once a user is authenticated. Then: check if the user is a valid. 
+   * If not, send to sign-up by returning false
+   * If valid:
+   * 1. Organize data into an array of teams of players based on teams the current player is competing with and return
+   * 2. Pass that data into global data (local storage or React Context)
+  */
+  const isAuthenticatedUser = (value) => {
     const ifValid = checkIfSignedUp(value);
-    return ifValid ? history.push('/weighIn'): history.push('/signUp');
+    organizeTeamData(value);
+    //return ifValid ? history.push('/weighIn'): history.push('/signUp');
   }
 
   const checkIfSignedUp = (value) => {
@@ -49,6 +51,28 @@ const App = () => {
     })
     console.log(`checkifSignedUp ran and the answer is ${signedUp}`);
     return signedUp;
+  }
+
+  // Based on the current user, organized by their teams
+  const organizeTeamData = (userEmail) => {
+    let displayTeams = []; // Array of teams
+    let playerTeams = []; // Names of the team the player is on
+    const currentUser = Users.find(player => player.email === userEmail); // Find current player from database of players
+    
+    playerTeams = currentUser.teams; // Get current player array of teams
+
+    // Create array of array of players by team name
+    playerTeams.forEach(team => {
+      let teamOfPlayers = [];
+      Users.forEach(player => {
+        const checkIfOnSameTeam = player.teams.includes(team);
+        if(checkIfOnSameTeam){
+          teamOfPlayers.push(player);
+        }
+      });
+      displayTeams.push(teamOfPlayers);// Add teams of players to array of teams
+    })
+    console.log(displayTeams);
   }
 
   return (

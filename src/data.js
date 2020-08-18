@@ -7,9 +7,8 @@ const Users = [
         email:"jcsmileyjr@gmail.com",
         name:"JC Smiley",
         teams:[
-            'Code Connector',
+            'MGC',
             'Smiley Family',
-            'MGC'
         ],
         startWeight: 200,
         weightLoss: 2.4,
@@ -20,8 +19,18 @@ const Users = [
         email:"jsmiley@bellsouth.net",
         name:"JC Smiley Sr.",
         teams:[
-            'Smiley Family',
-            'Jehovah Witness'
+            'Smiley Family'
+        ],
+        startWeight: 160,
+        weightLoss: 3.6,
+        winner: false,
+        lastUpdate: '8/10/2020'
+    },
+    {
+        email:"bHadley.mgc.state.ms.us",
+        name:"Beckett Hadley",
+        teams:[
+            'MGC'
         ],
         startWeight: 160,
         weightLoss: 3.6,
