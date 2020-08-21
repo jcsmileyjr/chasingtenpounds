@@ -11,8 +11,8 @@ const StateProvider = ( { children } ) => {
         const newState = action.payload;
         console.log(newState);
         return newState;
-      case 'TEST':
-        console.log('Testing State');
+      case 'UPDATEWEIGHT':
+        console.log(action.payload);
         break;
       default:
         return initialState
