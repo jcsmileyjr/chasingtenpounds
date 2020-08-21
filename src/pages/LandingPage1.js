@@ -6,7 +6,7 @@ import LandingPageFooter from '../components/LandingPageFooter';
 const LandingPage = (props) => {
     return(
         <div>
-            <LandingPageHeader type="landing" logUser={props.logUser} />
+            <LandingPageHeader type="landing" />
             <LandingPageBody />
             <LandingPageFooter />
         </div>
