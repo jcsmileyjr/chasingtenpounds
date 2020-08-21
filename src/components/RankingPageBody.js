@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import React, {useContext} from "react";
 import "./authPageLayout.css";
 import './rankingPageBody.css';
 
@@ -8,10 +8,6 @@ import { store } from '../Context/store';
 const RankingPageBody = () => {
   const globalState = useContext(store);
   const { state } = globalState;
-
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
 
   return (
     <main>

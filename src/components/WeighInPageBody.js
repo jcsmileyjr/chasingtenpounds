@@ -17,15 +17,12 @@ const WeighInPageBody = () => {
 
     /*FOR TESTING ONLY */
     const test = () =>{
-        console.log("WIP: Testing that the button works!");
         dispatch({type:'UPDATEWEIGHT',payload: newWeight}); // 
     }
 
     // Update the user weight in the component state, global state, and database
     const updateWeight = (e) => {
         setNewWeight(e.target.value);
-        console.log(newWeight);
-        
     }
 
 

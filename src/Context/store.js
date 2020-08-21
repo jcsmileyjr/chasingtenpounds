@@ -13,7 +13,7 @@ const StateProvider = ( { children } ) => {
         return newState;
       case 'UPDATEWEIGHT':
         console.log(action.payload);
-        break;
+        return [...state];
       default:
         return initialState
     };
