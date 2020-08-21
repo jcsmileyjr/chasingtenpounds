@@ -21,15 +21,15 @@ const App = () => {
 
   // Check if the user is authenenticated every time the page is loaded, if so logs user information and true/false
   /**
-   * Simuating Login API call to serverless function that make database call for all data once a user is authenticated. Then: check if the user is a valid. 
+   * Simuating Login API call to serverless function that make database call for all data once a user is authenticated. 
+   * Check if the user is a valid. 
    * If not, send to sign-up by returning false
    * If valid:
    * 1. Organize data into an array of teams of players based on teams the current player is competing with and return
-   * 2. Pass that data into global data (local storage or React Context)
+   * 2. Pass that data into global data React Context
   */
   useEffect(() => {
     if (isAuthenticated) {
-      //isAuthenticatedUser(user.email);
       const ifValid = checkIfSignedUp(user.email);
       const data = organizeTeamData(user.email);
       dispatch({type:'UPDATE',payload: data}); 
@@ -37,6 +37,7 @@ const App = () => {
     } 
   }, [isAuthenticated, user, dispatch, history]);
 
+  // Method to check if the user.email from auth0 is matches an email in our database (current is a demo database)
   const checkIfSignedUp = (value) => {
     let signedUp = false;
     Users.forEach((player) => {
@@ -44,11 +45,10 @@ const App = () => {
         signedUp = true;
       }
     })
-    console.log(`checkifSignedUp ran and the answer is ${signedUp}`);
     return signedUp;
   }
 
-  // Based on the current user, organized by their teams
+  // Based on the current user, organize the data by their teams
   const organizeTeamData = (userEmail) => {
     let displayTeams = []; // Array of teams
     let playerTeams = []; // Names of the team the player is on
