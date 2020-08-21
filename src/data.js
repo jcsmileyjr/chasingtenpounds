@@ -5,7 +5,7 @@
 const Users = [
     {
         email:"jcsmileyjr@gmail.com",
-        name:"JC Smiley",
+        playerName:"JC Smiley",
         teams:[
             'MGC',
             'Smiley Family',
@@ -17,7 +17,7 @@ const Users = [
     },
     {
         email:"jsmiley@bellsouth.net",
-        name:"JC Smiley Sr.",
+        playerName:"JC Smiley Sr.",
         teams:[
             'Smiley Family'
         ],
@@ -28,7 +28,7 @@ const Users = [
     },
     {
         email:"bHadley.mgc.state.ms.us",
-        name:"Beckett Hadley",
+        playerName:"Beckett Hadley",
         teams:[
             'MGC'
         ],
@@ -43,7 +43,7 @@ const Users = [
      * 
     {
         email:"",
-        name:"",
+        playerName:"",
         teams:[
             ''
         ],
