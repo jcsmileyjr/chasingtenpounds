@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useContext} from 'react';
 import {Route, useHistory} from "react-router-dom";
 import LandingPage from './pages/LandingPage1';
 import LogInPage from './pages/LogInPage';
@@ -9,20 +9,30 @@ import RankingPage from './pages/RankingPage';
 import './App.css';
 import { useAuth0 } from '@auth0/auth0-react';
 
+import { store } from './Context/store';
 import Users from './data.js';
 
 const App = () => {
   const history = useHistory()
+  const globalState = useContext(store);
+  const { dispatch } = globalState;
 
-  const {isAuthenticated, loginWithRedirect, user} = useAuth0();
+  const {isAuthenticated, loginWithRedirect, user, logout} = useAuth0();
 
   // Check if the user is authenenticated every time the page is loaded, if so logs user information and true/false
   useEffect(() => {
     if (isAuthenticated) {
-      isAuthenticatedUser(user.email);
+      //isAuthenticatedUser(user.email);
+      const ifValid = checkIfSignedUp(user.email);
+      const data = organizeTeamData(user.email);
+      dispatch({type:'TEST',payload: data});
+      
     } 
-    organizeTeamData('jcsmileyjr@gmail.com');
-  }, );
+    
+    //const data = organizeTeamData('jcsmileyjr@gmail.com');
+    //dispatch({type:'UPDATE1',payload: data});
+    //console.log(globalState);
+  }, [isAuthenticated, user, dispatch]);
 
   // Use Auth0 to log in the user
   const logUserIn = () => {
@@ -38,7 +48,8 @@ const App = () => {
   */
   const isAuthenticatedUser = (value) => {
     const ifValid = checkIfSignedUp(value);
-    organizeTeamData(value);
+    const data = organizeTeamData(value);
+    dispatch({type:'TEST',payload: data});
     //return ifValid ? history.push('/weighIn'): history.push('/signUp');
   }
 
@@ -73,6 +84,7 @@ const App = () => {
       displayTeams.push(teamOfPlayers);// Add teams of players to array of teams
     })
     console.log(displayTeams);
+    return displayTeams;
   }
 
   return (
