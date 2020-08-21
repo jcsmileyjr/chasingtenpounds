@@ -30,13 +30,14 @@ const App = () => {
   */
   useEffect(() => {
     if (isAuthenticated) {
-      const ifValid = checkIfSignedUp(user.email);
-      const data = organizeTeamData(user.email);
-      dispatch({type:'UPDATE',payload: data}); 
-      return ifValid ? history.push('/weighIn'): history.push('/signUp');     
+      const ifValid = checkIfSignedUp(user.email); // TODO: SHOULD BE IN THE LOGIN API FUNCTION
+      const data = organizeTeamData(user.email); // TODO: SHOULD BE IN THE LOGIN API FUNCTION, 
+      dispatch({type:'LOGIN',payload: data}); // When the data has returned, update the Context global state with data
+      return ifValid ? history.push('/weighIn'): history.push('/signUp'); // Route user to weighIn screen if signedUp else to sign up screen     
     } 
   }, [isAuthenticated, user, dispatch, history]);
 
+  // TODO: SHOULD BE IN THE LOGIN API FUNCTION
   // Method to check if the user.email from auth0 is matches an email in our database (current is a demo database)
   const checkIfSignedUp = (value) => {
     let signedUp = false;
@@ -48,6 +49,7 @@ const App = () => {
     return signedUp;
   }
 
+  // TODO: SHOULD BE IN THE LOGIN API FUNCTION
   // Based on the current user, organize the data by their teams
   const organizeTeamData = (userEmail) => {
     let displayTeams = []; // Array of teams

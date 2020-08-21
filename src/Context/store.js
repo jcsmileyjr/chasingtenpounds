@@ -7,7 +7,7 @@ const { Provider } = store;
 const StateProvider = ( { children } ) => {
   const [state, dispatch] = useReducer((state, action) => {
     switch(action.type) {
-      case 'UPDATE':
+      case 'LOGIN':
         const newState = action.payload;
         console.log(newState);
         return newState;
