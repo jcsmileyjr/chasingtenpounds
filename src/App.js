@@ -33,7 +33,7 @@ const App = () => {
       const ifValid = checkIfSignedUp(user.email);
       const data = organizeTeamData(user.email);
       dispatch({type:'UPDATE',payload: data}); 
-      return ifValid ? history.push('/weighIn'): history.push('/signUp');     
+      return ifValid ? history.push('/ranking'): history.push('/signUp');     
     } 
   }, [isAuthenticated, user, dispatch, history]);
 
@@ -52,20 +52,27 @@ const App = () => {
   const organizeTeamData = (userEmail) => {
     let displayTeams = []; // Array of teams
     let playerTeams = []; // Names of the team the player is on
+
     const currentUser = Users.find(player => player.email === userEmail); // Find current player from database of players
     
     playerTeams = currentUser.teams; // Get current player array of teams
 
     // Create array of array of players by team name
     playerTeams.forEach(team => {
+      let teamDetails = {};
+      teamDetails.teamName = team;
+      teamDetails.currentWeek = 1;
       let teamOfPlayers = [];
       Users.forEach(player => {
         const checkIfOnSameTeam = player.teams.includes(team);
         if(checkIfOnSameTeam){
+          /*TODO: Strip all players of  un-needed data*/
           teamOfPlayers.push(player);
         }
       });
-      displayTeams.push(teamOfPlayers);// Add teams of players to array of teams
+      teamDetails.players = teamOfPlayers; // Add teams of players to array of teams
+
+      displayTeams.push(teamDetails);// Add teams of players to array of teams
     })
     console.log(displayTeams);
     return displayTeams;
