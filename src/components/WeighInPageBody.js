@@ -15,12 +15,16 @@ const WeighInPageBody = () => {
 
     const [newWeight, setNewWeight] = useState(0);
 
-    /*FOR TESTING ONLY */
-    const test = () =>{
-        dispatch({type:'UPDATEWEIGHT',payload: newWeight}); // 
+    // when the submit button is clicked, the user weight is updated in the global state and database
+    const saveNewWeight = () =>{
+        const userData = {
+            weight: newWeight,
+            userEmail:user.email,
+        }
+        dispatch({type:'UPDATEWEIGHT',payload: userData}); // 
     }
 
-    // Update the user weight in the component state, global state, and database
+    // Update the user weight in the component state
     const updateWeight = (e) => {
         setNewWeight(e.target.value);
     }
@@ -39,7 +43,7 @@ const WeighInPageBody = () => {
                 </Col>
                 <Col xs={12} sm={{ span: 6, offset: 3 }} md={{ span: 4, offset: 4 }} className="centerElements weighInWhiteSpaceAbove">
                     <Link to="/ranking">
-                        <BlueButton buttonType="light" action={test} title="Submit New Weight" flat={true} wide={true}/>
+                        <BlueButton buttonType="light" action={saveNewWeight} title="Submit New Weight" flat={true} wide={true}/>
                     </Link>
                 </Col>
                 <QuoteMonster />

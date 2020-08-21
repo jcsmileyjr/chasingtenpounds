@@ -76,7 +76,7 @@ const App = () => {
 
       displayTeams.push(teamDetails);// Add teams of players to array of teams
     })
-    console.log(displayTeams);
+//console.log(displayTeams);
     return displayTeams;
   }
 
