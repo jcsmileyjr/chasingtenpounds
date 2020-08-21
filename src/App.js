@@ -17,28 +17,9 @@ const App = () => {
   const globalState = useContext(store);
   const { dispatch } = globalState;
 
-  const {isAuthenticated, loginWithRedirect, user, logout} = useAuth0();
+  const {isAuthenticated, user} = useAuth0();
 
   // Check if the user is authenenticated every time the page is loaded, if so logs user information and true/false
-  useEffect(() => {
-    if (isAuthenticated) {
-      //isAuthenticatedUser(user.email);
-      const ifValid = checkIfSignedUp(user.email);
-      const data = organizeTeamData(user.email);
-      dispatch({type:'TEST',payload: data});
-      
-    } 
-    
-    //const data = organizeTeamData('jcsmileyjr@gmail.com');
-    //dispatch({type:'UPDATE1',payload: data});
-    //console.log(globalState);
-  }, [isAuthenticated, user, dispatch]);
-
-  // Use Auth0 to log in the user
-  const logUserIn = () => {
-    loginWithRedirect();
-  }
-
   /**
    * Simuating Login API call to serverless function that make database call for all data once a user is authenticated. Then: check if the user is a valid. 
    * If not, send to sign-up by returning false
@@ -46,12 +27,15 @@ const App = () => {
    * 1. Organize data into an array of teams of players based on teams the current player is competing with and return
    * 2. Pass that data into global data (local storage or React Context)
   */
-  const isAuthenticatedUser = (value) => {
-    const ifValid = checkIfSignedUp(value);
-    const data = organizeTeamData(value);
-    dispatch({type:'TEST',payload: data});
-    //return ifValid ? history.push('/weighIn'): history.push('/signUp');
-  }
+  useEffect(() => {
+    if (isAuthenticated) {
+      //isAuthenticatedUser(user.email);
+      const ifValid = checkIfSignedUp(user.email);
+      const data = organizeTeamData(user.email);
+      dispatch({type:'UPDATE',payload: data}); 
+      return ifValid ? history.push('/weighIn'): history.push('/signUp');     
+    } 
+  }, [isAuthenticated, user, dispatch, history]);
 
   const checkIfSignedUp = (value) => {
     let signedUp = false;
@@ -92,7 +76,7 @@ const App = () => {
       <Route
         exact
         path="/"
-        render={(props) => <LandingPage logUser={() => logUserIn()} />}
+        render={(props) => <LandingPage />}
       />
       <Route path="/logIn" component={LogInPage} />
       <Route path="/signUp" component={SignUpPage} />
