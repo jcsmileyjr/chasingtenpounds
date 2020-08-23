@@ -7,6 +7,7 @@ import QuoteMonster from './QuoteMonster';
 import { Link } from "react-router-dom";
 import { useAuth0 } from '@auth0/auth0-react';
 import { store } from '../Context/store';
+import axios from 'axios';
 
 const WeighInPageBody = () => {
     const {user} = useAuth0(); // Using the auth0 Single Page SDK, updates itself when user is logged in
@@ -21,7 +22,14 @@ const WeighInPageBody = () => {
             weight: newWeight,
             userEmail:user.email,
         }
-        dispatch({type:'UPDATEWEIGHT',payload: userData}); // 
+
+        const url = 'api/UpdateWeight';
+        const updatedPlayerDetails = JSON.stringify(userData);
+        axios.post(url, updatedPlayerDetails)
+        .then(function(response){
+          const updatedState = response.data;
+          dispatch({type:'UPDATEWEIGHT',payload: updatedState}); // 
+        })        
     }
 
     // Update the user weight in the component state

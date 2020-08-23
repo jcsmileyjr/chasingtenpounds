@@ -72,8 +72,6 @@ exports.handler = function(event, context, callback) {
     return signedUp;
   }
 
-  
-  // TODO: SHOULD BE IN THE LOGIN API FUNCTION
   // Based on the current user, organize the data by their teams
   const organizeTeamData = (userEmail) => {
     let displayTeams = []; // Array of teams
@@ -100,6 +98,5 @@ exports.handler = function(event, context, callback) {
 
       displayTeams.push(teamDetails);// Add teams of players to array of teams
     })
-//console.log(displayTeams);
     return displayTeams;
   }
