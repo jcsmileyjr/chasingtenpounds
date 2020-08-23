@@ -13,11 +13,11 @@ import { store } from './Context/store';
 import Users from './data.js';
 
 const App = () => {
-  const history = useHistory()
-  const globalState = useContext(store);
-  const { dispatch } = globalState;
+  const history = useHistory() // Use to route user between pages
+  const globalState = useContext(store); // Store data into the global 'Context' and share with the entire app
+  const { dispatch } = globalState; // Update data to the global 'Context' state
 
-  const {isAuthenticated, user} = useAuth0();
+  const {isAuthenticated, user} = useAuth0(); // Using the auth0 Single Page SDK, updates itself when user is logged in
 
   // Check if the user is authenenticated every time the page is loaded, if so logs user information and true/false
   /**
@@ -30,13 +30,14 @@ const App = () => {
   */
   useEffect(() => {
     if (isAuthenticated) {
-      const ifValid = checkIfSignedUp(user.email);
-      const data = organizeTeamData(user.email);
-      dispatch({type:'UPDATE',payload: data}); 
-      return ifValid ? history.push('/ranking'): history.push('/signUp');     
+      const ifValid = checkIfSignedUp(user.email); // TODO: SHOULD BE IN THE LOGIN API FUNCTION
+      const data = organizeTeamData(user.email); // TODO: SHOULD BE IN THE LOGIN API FUNCTION, 
+      dispatch({type:'LOGIN',payload: data}); // When the data has returned, update the Context global state with data
+      return ifValid ? history.push('/weighIn'): history.push('/signUp'); // Route user to weighIn screen if signedUp else to sign up screen     
     } 
   }, [isAuthenticated, user, dispatch, history]);
 
+  // TODO: SHOULD BE IN THE LOGIN API FUNCTION
   // Method to check if the user.email from auth0 is matches an email in our database (current is a demo database)
   const checkIfSignedUp = (value) => {
     let signedUp = false;
@@ -48,6 +49,7 @@ const App = () => {
     return signedUp;
   }
 
+  // TODO: SHOULD BE IN THE LOGIN API FUNCTION
   // Based on the current user, organize the data by their teams
   const organizeTeamData = (userEmail) => {
     let displayTeams = []; // Array of teams
@@ -61,7 +63,7 @@ const App = () => {
     playerTeams.forEach(team => {
       let teamDetails = {};
       teamDetails.teamName = team;
-      teamDetails.currentWeek = 1;
+      teamDetails.currentWeek = 1;/**TODO: Functionality & data to dynamically get current week */
       let teamOfPlayers = [];
       Users.forEach(player => {
         const checkIfOnSameTeam = player.teams.includes(team);
@@ -74,7 +76,7 @@ const App = () => {
 
       displayTeams.push(teamDetails);// Add teams of players to array of teams
     })
-    console.log(displayTeams);
+//console.log(displayTeams);
     return displayTeams;
   }
 
