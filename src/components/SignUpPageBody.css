@@ -9,3 +9,12 @@
     padding-right: 10px
 }
 
+/*center a text*/
+.centerElements {
+    text-align: center;
+}
+
+/*Make label match left margin of input field*/
+.indentLabel {
+    margin-left: 14px;
+}

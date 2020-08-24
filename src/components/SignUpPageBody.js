@@ -19,9 +19,9 @@ const SignUpPageBody = () => {
             <Row className="whiteSpaceAbove">                
                 <Col xs={12} sm={{ span: 6, offset: 3 }}>
                     <Form className="blueBorder">
-                        <h1>Hello {user.name}</h1>
-                        <Form.Group controlId="UserInitialWeight">
-                            <Form.Label>Initial Weight</Form.Label>
+                        <h1 className="centerElements">Hello {user.name}</h1>
+                        <Form.Group controlId="UserInitialWeight" className="whiteSpaceAbove">
+                            <Form.Label className="indentLabel">Initial Weight</Form.Label>
                             <Form.Control type="number" placeholder="Enter weight" required />
                         </Form.Group>
                     </Form>
