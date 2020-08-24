@@ -52,11 +52,11 @@ const App = () => {
         path="/"
         render={(props) => <LandingPage />}
       />
-      <Route path="/logIn" component={LogInPage} />
-      <Route path="/signUp" component={SignUpPage} />
+      <Route path="/logIn" component={LogInPage} />      
+      <Route path="/ranking" component={RankingPage} />
       <Route path="/weighIn" component={WeighInPage} />
       <Route path="/team" component={TeamPage} />
-      <Route path="/ranking" component={RankingPage} />
+      <Route path="/signUp" component={SignUpPage} />
     </div>
   );
 };
