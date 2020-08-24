@@ -8,9 +8,9 @@ import TeamPage from './pages/TeamPage'
 import RankingPage from './pages/RankingPage';
 import './App.css';
 import { useAuth0 } from '@auth0/auth0-react';
+import axios from 'axios';
 
 import { store } from './Context/store';
-import Users from './data.js';
 
 const App = () => {
   const history = useHistory() // Use to route user between pages
@@ -30,55 +30,20 @@ const App = () => {
   */
   useEffect(() => {
     if (isAuthenticated) {
-      const ifValid = checkIfSignedUp(user.email); // TODO: SHOULD BE IN THE LOGIN API FUNCTION
-      const data = organizeTeamData(user.email); // TODO: SHOULD BE IN THE LOGIN API FUNCTION, 
-      dispatch({type:'LOGIN',payload: data}); // When the data has returned, update the Context global state with data
-      return ifValid ? history.push('/weighIn'): history.push('/signUp'); // Route user to weighIn screen if signedUp else to sign up screen     
+      //const ifValid = checkIfSignedUp(user.email); // TODO: SHOULD BE IN THE LOGIN API FUNCTION
+      //const data = organizeTeamData(user.email); // TODO: SHOULD BE IN THE LOGIN API FUNCTION, 
+      const url = 'api/Login';
+      const userEmail = JSON.stringify(user.email)
+      axios.post(url, userEmail)
+        .then(function(response){
+          const data = response.data;
+          dispatch({type:'LOGIN',payload: data.teamData}); // When the data has returned, update the Context global state with data
+          data.validUser ? history.push('/weighIn'): history.push('/signUp'); // Route user to weighIn screen if signedUp else to sign up screen
+        })     
     } 
   }, [isAuthenticated, user, dispatch, history]);
 
-  // TODO: SHOULD BE IN THE LOGIN API FUNCTION
-  // Method to check if the user.email from auth0 is matches an email in our database (current is a demo database)
-  const checkIfSignedUp = (value) => {
-    let signedUp = false;
-    Users.forEach((player) => {
-      if(player.email === value){
-        signedUp = true;
-      }
-    })
-    return signedUp;
-  }
-
-  // TODO: SHOULD BE IN THE LOGIN API FUNCTION
-  // Based on the current user, organize the data by their teams
-  const organizeTeamData = (userEmail) => {
-    let displayTeams = []; // Array of teams
-    let playerTeams = []; // Names of the team the player is on
-
-    const currentUser = Users.find(player => player.email === userEmail); // Find current player from database of players
-    
-    playerTeams = currentUser.teams; // Get current player array of teams
-
-    // Create array of array of players by team name
-    playerTeams.forEach(team => {
-      let teamDetails = {};
-      teamDetails.teamName = team;
-      teamDetails.currentWeek = 1;/**TODO: Functionality & data to dynamically get current week */
-      let teamOfPlayers = [];
-      Users.forEach(player => {
-        const checkIfOnSameTeam = player.teams.includes(team);
-        if(checkIfOnSameTeam){
-          /*TODO: Strip all players of  un-needed data*/
-          teamOfPlayers.push(player);
-        }
-      });
-      teamDetails.players = teamOfPlayers; // Add teams of players to array of teams
-
-      displayTeams.push(teamDetails);// Add teams of players to array of teams
-    })
-//console.log(displayTeams);
-    return displayTeams;
-  }
+  
 
   return (
     <div>
