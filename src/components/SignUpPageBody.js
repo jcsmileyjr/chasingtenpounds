@@ -24,7 +24,6 @@ const SignUpPageBody = () => {
         }else{
             alert("Please type in a weight");
         }
-
     }
 
     const {user} = useAuth0();
