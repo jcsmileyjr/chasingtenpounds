@@ -10,6 +10,9 @@ const StateProvider = ( { children } ) => {
       case 'LOGIN':
         const newState = action.payload;
         return newState;
+      case 'SIGNUP':
+        const newUserData = action.payload;
+        return newUserData;
       case 'UPDATEWEIGHT':
         const userData = action.payload;
         return userData;

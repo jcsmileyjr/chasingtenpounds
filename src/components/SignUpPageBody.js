@@ -6,7 +6,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 import './SignUpPageBody.css';
 import BlueButton from '../components/BlueButton';
 
-
 const SignUpPageBody = () => {
     const [initialWeight, setInitialWeight] = useState(0);
     const history = useHistory();
@@ -15,12 +14,12 @@ const SignUpPageBody = () => {
     const setWeight = (e) => {
         setInitialWeight(e.target.value)
     }
+    
     /*Save the weight to session storage to use later in signing user up */
     const saveWeight = () =>{
         if(initialWeight > 0){
             sessionStorage.setItem('userInitialWeight', initialWeight);
             history.push('/team');
-            console.log(`Initial weight is ${initialWeight}`);
         }else{
             alert("Please type in a weight");
         }

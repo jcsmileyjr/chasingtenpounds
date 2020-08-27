@@ -16,10 +16,6 @@ import MonsterSteps from '../components/MonsterSteps';
 
 /*Landing page that a guest will first see */
 const LandingPageBody = () => {
-    /*FOR TESTING ONLY */
-    const test = () =>{
-        console.log("WIP: Testing that the button works!");
-    }
 
     const {loginWithRedirect} = useAuth0();
 

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import './WeighInPageBody.css'
 import {Container, Row, Col, Form} from 'react-bootstrap';
 import BlueButton from '../components/BlueButton';
@@ -6,11 +6,16 @@ import Footer from '../components/LandingPageFooter';
 import QuoteMonster from './QuoteMonster';
 import { useAuth0 } from '@auth0/auth0-react';
 import {useHistory } from "react-router-dom";
+import axios from 'axios';
+import { store } from '../Context/store';
 
 const TeamPageBody = () => {
     const [joinTeamName, setJoinTeamName] = useState('');
+
     const {user} = useAuth0();
     const history = useHistory();
+    const globalState = useContext(store); // Store data into the global 'Context' and share with the entire app
+    const { dispatch } = globalState; // Update data to the global 'Context' state
 
     const joinTeam = (e) => {
         setJoinTeamName(e.target.value);
@@ -20,13 +25,18 @@ const TeamPageBody = () => {
      * TODO: If user is already signned in & authenicated but want to join a new team.
      */
     /*Create an user data object to be saved to database, API call to update app's data, and route user to ranking page */
-    const saveUserWithNewTeam = () =>{
+    const saveUserWithNewTeam = async() =>{
         if(joinTeamName !== ''){
-            const createdUser = createUser();
-            // Sign-up API call to create a user, get all data, and update ranking
+            const createdUser = JSON.stringify(createUser());
+            const url = 'api/SignUp';
 
-            history.push('/ranking');
-            console.log(`Team name is ${joinTeamName}`);
+            // Sign-up API call to create a user, get all data, and update ranking
+            axios.post(url, createdUser)
+                .then(function(response){
+                const data = response.data;
+                dispatch({type:'SIGNUP',payload: data.teamData}); // When the data has returned, update the Context global state with data
+                history.push('/ranking');
+            }) 
         }else{
             alert("Please type in a team name");
         }
@@ -42,13 +52,15 @@ const TeamPageBody = () => {
         newUser.weightLoss = 0;
         newUser.playerName = user.name;
         newUser.email = user.email;
+        //newUser.playerName = "John Smith"; // For testing sign up
+        //newUser.email = "jsmith@test.com"; // For testing sign up
         newUser.winner = false;
         newUser.lastUpdate = '8/24/2020' /*TODO*/
         newUser.teams = [joinTeamName];
-console.log(newUser)
+
         return newUser;
     }
-    
+
     return (
         <Container fluid={true} className="weighInPageLayout">
             <Row className="weighInBody">
