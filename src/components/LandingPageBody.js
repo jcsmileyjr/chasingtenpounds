@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {Container, Row, Col, Image} from 'react-bootstrap';
 import "./LandingPageBody.css";
 import BlueButton from '../components/BlueButton';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import monster from '../assets/images/monster3.png';
 import winnerVideo from '../assets/images/10MON-old-v1.gif';
@@ -19,6 +20,9 @@ const LandingPageBody = () => {
     const test = () =>{
         console.log("WIP: Testing that the button works!");
     }
+
+    const {loginWithRedirect} = useAuth0();
+
     return (
         <Container fluid>
             <Row className="hideMonsterBug">
@@ -41,7 +45,7 @@ const LandingPageBody = () => {
                 <Col xs={12} sm={true} md={true} lg={true} xl={4} className="centerContent">
                 <h2 className="centerElements">Quick & Simple to Use, Only Show Weight Loss</h2>
                     <Link to="/signUp">
-                        <BlueButton buttonType="light" action={test} title="Sign Up Today" flat={false} wide={true}  /> 
+                        <BlueButton buttonType="light" action={loginWithRedirect} title="Sign Up Today" flat={false} wide={true}  /> 
                     </Link>
                 </Col>
                 <Col xs={12} sm={true} md={true} lg={true} xl={8} >
@@ -57,7 +61,7 @@ const LandingPageBody = () => {
                 <MonsterSteps monster1={monsterParty}  textA="Step 3: See Who's Winning" textB=".....Ready, Set, GO!!!!!" />
                 <Col xs={12} className="centerElements minorWhiteSpace">
                     <Link to="/signUp">
-                        <BlueButton buttonType="light" action={test} title="Sign Up" flat={false} />
+                        <BlueButton buttonType="light" action={loginWithRedirect} title="Sign Up" flat={false} />
                     </Link>
                 </Col>
             </Row>

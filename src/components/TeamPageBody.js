@@ -48,6 +48,7 @@ const TeamPageBody = () => {
 console.log(newUser)
         return newUser;
     }
+    
     return (
         <Container fluid={true} className="weighInPageLayout">
             <Row className="weighInBody">
@@ -60,7 +61,8 @@ console.log(newUser)
                 </Col>
                 <Col xs={12} sm={{ span: 6, offset: 3 }}  className="centerElements weighInWhiteSpaceAbove">
                     <BlueButton buttonType="light" action={saveUserWithNewTeam} title="Join Team" flat={true} wide={true}/>
-                </Col>               
+                </Col>  
+                <QuoteMonster />             
             </Row>
             {/** 
             <Row><Col xs={12} sm={{ span: 6, offset: 3 }} className="line"></Col></Row>
