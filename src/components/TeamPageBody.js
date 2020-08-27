@@ -20,7 +20,7 @@ const TeamPageBody = () => {
      * TODO: If user is already signned in & authenicated but want to join a new team.
      */
     /*Create an user data object to be saved to database, API call to update app's data, and route user to ranking page */
-    const saveJoinTeamName = () =>{
+    const saveUserWithNewTeam = () =>{
         if(joinTeamName !== ''){
             const createdUser = createUser();
             // Sign-up API call to create a user, get all data, and update ranking
@@ -59,10 +59,12 @@ console.log(newUser)
                     </Form.Group>
                 </Col>
                 <Col xs={12} sm={{ span: 6, offset: 3 }}  className="centerElements weighInWhiteSpaceAbove">
-                    <BlueButton buttonType="light" action={test} title="Join Team" flat={true} wide={true}/>
+                    <BlueButton buttonType="light" action={saveUserWithNewTeam} title="Join Team" flat={true} wide={true}/>
                 </Col>               
             </Row>
+            {/** 
             <Row><Col xs={12} sm={{ span: 6, offset: 3 }} className="line"></Col></Row>
+            
             <Row className="weighInBody">
                 <Col xs={12} sm={{ span: 6, offset: 3 }} >
                     <h4 className="centerElements weighInWhiteSpaceAbove">Create Team</h4>
@@ -83,6 +85,7 @@ console.log(newUser)
                 </Col>
                 <QuoteMonster />
             </Row>
+            */}
             <Row>
                 <Footer />
             </Row>
