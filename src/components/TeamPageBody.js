@@ -58,7 +58,7 @@ const TeamPageBody = () => {
         //newUser.email = "jsmith@test.com"; // For testing sign up
         newUser.winner = false;
         newUser.lastUpdate = convertedDate
-        newUser.teams = [joinTeamName];
+        newUser.teams = joinTeamName;
 
         return newUser;
     }

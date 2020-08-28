@@ -1,48 +1,20 @@
-const Users = [
-  {
-      email:"jcsmileyjr@gmail.com",
-      playerName:"JC Smiley",
-      teams:[
-          'MGC',
-          'Smiley Family',
-      ],
-      startWeight: 200,
-      weightLoss: 2.4,
-      winner: false,
-      lastUpdate: '8/15/2020'
-  },
-  {
-      email:"jsmiley@bellsouth.net",
-      playerName:"JC Smiley Sr.",
-      teams:[
-          'Smiley Family'
-      ],
-      startWeight: 160,
-      weightLoss: 3.6,
-      winner: false,
-      lastUpdate: '8/10/2020'
-  },
-  {
-      email:"bHadley.mgc.state.ms.us",
-      playerName:"Beckett Hadley",
-      teams:[
-          'MGC'
-      ],
-      startWeight: 160,
-      weightLoss: 3.6,
-      winner: false,
-      lastUpdate: '8/10/2020'
-  }
-  ];
+var Airtable = require('airtable');
+const {key, baseId} = process.env; // Get the enviroment values defined in netlify site 
+var base = new Airtable({apiKey:key}).base(baseId);
 
+const table = base('monsters');
 
-exports.handler = function(event, context, callback) {
+const getRecords = async () => {
+  const records = await table.select().firstPage();// Get all records from the database
+  return (records);
+}
+
+exports.handler = async function(event, context, callback) {
     const userEmail = JSON.parse(event.body);
-
-    // Make API call to database and get all users. Simuate with Users in data.js
-
-    const ifValid = checkIfSignedUp(userEmail); // 
-    const data = organizeTeamData(userEmail); //  
+    
+    const Users = await getRecords(); // Make API call to database and get all users.
+    const ifValid = checkIfSignedUp(userEmail, Users); // Check if the authenicated user is a valid player
+    const data = organizeTeamData(userEmail, Users); //  TODO: WHAT IF USER IS FALSE
 
     const loginData = {
       validUser: ifValid,
@@ -62,10 +34,10 @@ exports.handler = function(event, context, callback) {
   };
 
 // Method to check if the user.email from auth0 is matches an email in our database (current is a demo database)
-  const checkIfSignedUp = (value) => {
+  const checkIfSignedUp = (value, Users) => {
     let signedUp = false;
     Users.forEach((player) => {
-      if(player.email === value){
+      if(player.fields.email === value){
         signedUp = true;
       }
     })
@@ -73,13 +45,13 @@ exports.handler = function(event, context, callback) {
   }
 
   // Based on the current user, organize the data by their teams
-  const organizeTeamData = (userEmail) => {
+  const organizeTeamData = (userEmail, Users) => {
     let displayTeams = []; // Array of teams
     let playerTeams = []; // Names of the team the player is on
 
-    const currentUser = Users.find(player => player.email === userEmail); // Find current player from database of players
+    const currentUser = Users.find(player => player.fields.email === userEmail); // Find current player from database of players
     
-    playerTeams = currentUser.teams; // Get current player array of teams
+    playerTeams = currentUser.fields.teams.split(','); // Get current player teams and convert into an array
 
     // Create array of array of players by team name
     playerTeams.forEach(team => {
@@ -88,14 +60,14 @@ exports.handler = function(event, context, callback) {
       teamDetails.currentWeek = 1;/**TODO: Functionality & data to dynamically get current week */
       let teamOfPlayers = [];
       Users.forEach(player => {
-        const checkIfOnSameTeam = player.teams.includes(team);
+        const checkIfOnSameTeam = player.fields.teams.includes(team);
         if(checkIfOnSameTeam){
           /*Strip all players of un-needed data*/
           const sanitizedPlayer = {};
-          sanitizedPlayer.playerName = player.playerName;
-          sanitizedPlayer.weightLoss = player.weightLoss;
-          sanitizedPlayer.winner = player.winner;
-          sanitizedPlayer.lastUpdate = player.lastUpdate
+          sanitizedPlayer.playerName = player.fields.playerName;
+          sanitizedPlayer.weightLoss = player.fields.weightLoss;
+          sanitizedPlayer.winner = player.fields.winner;
+          sanitizedPlayer.lastUpdate = player.fields.lastUpdate
           teamOfPlayers.push(sanitizedPlayer);
         }
       });
