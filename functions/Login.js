@@ -21,7 +21,7 @@ exports.handler = async function(event, context, callback) {
       validUser: ifValid,
       teamData: data,
     }
-    
+console.log(Users);    
     callback(null, {
       statusCode: 200,
       headers: {
