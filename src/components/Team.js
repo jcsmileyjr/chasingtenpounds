@@ -38,8 +38,13 @@ const TeamMember = (props) => {
     <Row className="rowContentStyle blueBorder1 teamMemberStyle ">
       <Col xs={2} className="alignTeamTitle rankStyle">{props.rank}</Col>
       <Col xs={4}>{props.player}</Col>
-      <Col xs={3}>{props.weightLoss} lbs</Col>
-      <Col xs={true}>{props.winner && "WINNER"}</Col>
+      <Col xs={3}>{props.weightLoss} lbs</Col>      
+      {props.winner === 'true' &&
+        <Col xs={true} className="winner">WINNER</Col>
+      }
+      {props.winner === 'false' &&
+        <Col xs={true}></Col>
+      }
     </Row>
   );
 };

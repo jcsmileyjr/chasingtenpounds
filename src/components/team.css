@@ -42,3 +42,7 @@
 .rankStyle {
     padding-left:5px;
 }
+
+.winner {
+    color: 'gold';
+}
