@@ -14,9 +14,7 @@ const LogInPageBody = () => {
         console.log("WIP: Testing that the button works!");
     }
 
-    const {
-        loginWithRedirect,
-      } = useAuth0();
+    const {loginWithRedirect} = useAuth0();
 
     return(
         <Container fluid={true} className="logInPageLayout">            

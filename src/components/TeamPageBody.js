@@ -1,15 +1,68 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import './WeighInPageBody.css'
 import {Container, Row, Col, Form} from 'react-bootstrap';
 import BlueButton from '../components/BlueButton';
 import Footer from '../components/LandingPageFooter';
 import QuoteMonster from './QuoteMonster';
+import { useAuth0 } from '@auth0/auth0-react';
+import {useHistory } from "react-router-dom";
+import axios from 'axios';
+import { store } from '../Context/store';
 
 const TeamPageBody = () => {
-    /*FOR TESTING ONLY */
-    const test = () =>{
-        console.log("WIP: Testing that the button works!");
+    const [joinTeamName, setJoinTeamName] = useState('');
+
+    const {user} = useAuth0();
+    const history = useHistory();
+    const globalState = useContext(store); // Store data into the global 'Context' and share with the entire app
+    const { dispatch } = globalState; // Update data to the global 'Context' state
+
+    const joinTeam = (e) => {
+        setJoinTeamName(e.target.value);
     }
+
+    /**
+     * TODO: If user is already signned in & authenicated but want to join a new team.
+     */
+    /*Create an user data object to be saved to database, API call to update app's data, and route user to ranking page */
+    const saveUserWithNewTeam = async() =>{
+        if(joinTeamName !== ''){
+            const createdUser = JSON.stringify(createUser());
+            const url = 'api/SignUp';
+
+            // Sign-up API call to create a user, get all data, and update ranking
+            axios.post(url, createdUser)
+                .then(function(response){
+                const data = response.data;
+                dispatch({type:'SIGNUP',payload: data.teamData}); // When the data has returned, update the Context global state with data
+                history.push('/ranking');
+            }) 
+        }else{
+            alert("Please type in a team name");
+        }
+    }
+
+    /**
+     * Function to create a standard user based on user initial weight and inputted team name
+     */
+    const createUser = () => {
+        const todayDate = new Date();
+        var convertedDate = todayDate.toLocaleDateString();
+
+        let newUser = {};
+        newUser.startWeight = sessionStorage.getItem('userInitialWeight');
+        newUser.weightLoss = 0;
+        newUser.playerName = user.name;
+        newUser.email = user.email;
+        //newUser.playerName = "John Smith"; // For testing sign up
+        //newUser.email = "jsmith@test.com"; // For testing sign up
+        newUser.winner = false;
+        newUser.lastUpdate = convertedDate
+        newUser.teams = [joinTeamName];
+
+        return newUser;
+    }
+
     return (
         <Container fluid={true} className="weighInPageLayout">
             <Row className="weighInBody">
@@ -17,14 +70,17 @@ const TeamPageBody = () => {
                     <h4 className="centerElements weighInWhiteSpaceAbove">Join Team</h4>
                     <Form.Group controlId="JoinTeamName">
                     <Form.Label>Type in the name of a Team to Join</Form.Label>
-                        <Form.Control type="text" placeholder="Team Name" />
+                        <Form.Control type="text" placeholder="Team Name" onChange={joinTeam} />
                     </Form.Group>
                 </Col>
                 <Col xs={12} sm={{ span: 6, offset: 3 }}  className="centerElements weighInWhiteSpaceAbove">
-                    <BlueButton buttonType="light" action={test} title="Join Team" flat={true} wide={true}/>
-                </Col>               
+                    <BlueButton buttonType="light" action={saveUserWithNewTeam} title="Join Team" flat={true} wide={true}/>
+                </Col>  
+                <QuoteMonster />             
             </Row>
+            {/** 
             <Row><Col xs={12} sm={{ span: 6, offset: 3 }} className="line"></Col></Row>
+            
             <Row className="weighInBody">
                 <Col xs={12} sm={{ span: 6, offset: 3 }} >
                     <h4 className="centerElements weighInWhiteSpaceAbove">Create Team</h4>
@@ -45,6 +101,7 @@ const TeamPageBody = () => {
                 </Col>
                 <QuoteMonster />
             </Row>
+            */}
             <Row>
                 <Footer />
             </Row>

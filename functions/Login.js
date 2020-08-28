@@ -90,8 +90,13 @@ exports.handler = function(event, context, callback) {
       Users.forEach(player => {
         const checkIfOnSameTeam = player.teams.includes(team);
         if(checkIfOnSameTeam){
-          /*TODO: Strip all players of  un-needed data*/
-          teamOfPlayers.push(player);
+          /*Strip all players of un-needed data*/
+          const sanitizedPlayer = {};
+          sanitizedPlayer.playerName = player.playerName;
+          sanitizedPlayer.weightLoss = player.weightLoss;
+          sanitizedPlayer.winner = player.winner;
+          sanitizedPlayer.lastUpdate = player.lastUpdate
+          teamOfPlayers.push(sanitizedPlayer);
         }
       });
       teamDetails.players = teamOfPlayers; // Add teams of players to array of teams

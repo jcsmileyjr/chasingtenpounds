@@ -21,7 +21,7 @@ const App = () => {
 
   // Check if the user is authenenticated every time the page is loaded, if so logs user information and true/false
   /**
-   * Simuating Login API call to serverless function that make database call for all data once a user is authenticated. 
+   * Login API call to serverless function that make database call for all data once a user is authenticated. 
    * Check if the user is a valid. 
    * If not, send to sign-up by returning false
    * If valid:
@@ -30,8 +30,6 @@ const App = () => {
   */
   useEffect(() => {
     if (isAuthenticated) {
-      //const ifValid = checkIfSignedUp(user.email); // TODO: SHOULD BE IN THE LOGIN API FUNCTION
-      //const data = organizeTeamData(user.email); // TODO: SHOULD BE IN THE LOGIN API FUNCTION, 
       const url = 'api/Login';
       const userEmail = JSON.stringify(user.email)
       axios.post(url, userEmail)
@@ -52,11 +50,11 @@ const App = () => {
         path="/"
         render={(props) => <LandingPage />}
       />
-      <Route path="/logIn" component={LogInPage} />
-      <Route path="/signUp" component={SignUpPage} />
+      <Route path="/logIn" component={LogInPage} />      
+      <Route path="/ranking" component={RankingPage} />
       <Route path="/weighIn" component={WeighInPage} />
       <Route path="/team" component={TeamPage} />
-      <Route path="/ranking" component={RankingPage} />
+      <Route path="/signUp" component={SignUpPage} />
     </div>
   );
 };

@@ -37,13 +37,16 @@ const Users = [
   
   
   exports.handler = function(event, context, callback) {
-      const userData = JSON.parse(event.body);
-
-      //TODO: Make API call to database and get all users. Simuate with Users in data.js
+      const newUser = JSON.parse(event.body);
   
-      const updatedData = updateUserWeight(userData); 
-
-      //TODO: Make API call to update player information
+      // Make API call to database and get all users. Simuate with Users in data.js
+      signUpNewUser(newUser);
+   
+      const data = organizeTeamData(newUser.email); // Organize the data to be view in ranking
+  
+      const teamData = {
+        teamData: data,
+      }
       
       callback(null, {
         statusCode: 200,
@@ -53,31 +56,15 @@ const Users = [
           /* Required for cookies, authorization headers with HTTPS */
           'Access-Control-Allow-Credentials': true
         },
-        body: JSON.stringify(updatedData),
+        body: JSON.stringify(teamData),
       });
     };
   
-/**
- * Get the new weight of user.
- * New API call to database to get all users
- * Based on the user's email, find the user in the data and update weight
- * Return new state to global state
- * Then make API call to update database
- */
-const updateUserWeight = (newUserData) => {
-    const updatedUsers = Users.map((player) => {
-      if(player.email === newUserData.userEmail){
-        player.weightLoss = player.startWeight - newUserData.weight;
-      }
-      return player
-    });
+  // add new user to database (current is a demo database)
+    const signUpNewUser = (user) => {
+      Users.push(user);
+    }
   
-    const updatedState = organizeTeamData(newUserData.userEmail, updatedUsers);
-  //console.log(updatedState);
-    return updatedState;
-  }
-  
-    
     // Based on the current user, organize the data by their teams
     const organizeTeamData = (userEmail) => {
       let displayTeams = []; // Array of teams
