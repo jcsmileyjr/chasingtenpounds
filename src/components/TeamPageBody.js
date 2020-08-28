@@ -44,9 +44,11 @@ const TeamPageBody = () => {
 
     /**
      * Function to create a standard user based on user initial weight and inputted team name
-     * TODO: Today Date functionailty for last Update
      */
     const createUser = () => {
+        const todayDate = new Date();
+        var convertedDate = todayDate.toLocaleDateString();
+
         let newUser = {};
         newUser.startWeight = sessionStorage.getItem('userInitialWeight');
         newUser.weightLoss = 0;
@@ -55,7 +57,7 @@ const TeamPageBody = () => {
         //newUser.playerName = "John Smith"; // For testing sign up
         //newUser.email = "jsmith@test.com"; // For testing sign up
         newUser.winner = false;
-        newUser.lastUpdate = '8/24/2020' /*TODO*/
+        newUser.lastUpdate = convertedDate
         newUser.teams = [joinTeamName];
 
         return newUser;
