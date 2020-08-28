@@ -51,12 +51,12 @@ const TeamPageBody = () => {
 
         let newUser = {};
         newUser.startWeight = sessionStorage.getItem('userInitialWeight');
-        newUser.weightLoss = 0;
+        newUser.weightLoss = '0';
         newUser.playerName = user.name;
         newUser.email = user.email;
         //newUser.playerName = "John Smith"; // For testing sign up
         //newUser.email = "jsmith@test.com"; // For testing sign up
-        newUser.winner = false;
+        newUser.winner = 'false';
         newUser.lastUpdate = convertedDate
         newUser.teams = joinTeamName;
 
