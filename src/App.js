@@ -49,8 +49,7 @@ const App = () => {
         exact
         path="/"
         render={(props) => <LandingPage />}
-      />
-      <Route path="/logIn" component={LogInPage} />      
+      />     
       <Route path="/ranking" component={RankingPage} />
       <Route path="/weighIn" component={WeighInPage} />
       <Route path="/team" component={TeamPage} />
