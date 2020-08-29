@@ -21,8 +21,6 @@ exports.handler = async function(event, context, callback) {
   // Make API call to database and get all users. Simuate with Users in data.js
   const Users = await getRecords(); // Make API call to database and get all users.
 
-  //signUpNewUser(newUser, Users);
-
   const data = organizeTeamData(newUser.email, Users); // Organize the data to be view in ranking
 
   const teamData = {
@@ -40,11 +38,6 @@ exports.handler = async function(event, context, callback) {
     body: JSON.stringify(teamData),
   });
 };
-
-// add new user to database (current is a demo database)
-  const signUpNewUser = (player, Users) => {
-    Users.push(player);
-  }
 
   // Based on the current user, organize the data by their teams
   const organizeTeamData = (userEmail, Users) => {

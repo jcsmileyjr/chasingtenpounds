@@ -14,14 +14,13 @@ exports.handler = async function(event, context, callback) {
     
     const Users = await getRecords(); // Make API call to database and get all users.
     const ifValid = checkIfSignedUp(userEmail, Users); // Check if the authenicated user is a valid player
-    //const data = organizeTeamData(userEmail, Users); //  TODO: WHAT IF USER IS FALSE
     const data = ifValid ? organizeTeamData(userEmail, Users) : [];
 
     const loginData = {
       validUser: ifValid,
       teamData: data,
     }
-    
+console.log(Users);    
     callback(null, {
       statusCode: 200,
       headers: {
