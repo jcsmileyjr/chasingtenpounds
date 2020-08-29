@@ -7,7 +7,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 import monster from '../assets/images/monster3.png';
 import winnerVideo from '../assets/images/10MON-old-v1.gif';
-import awardRibbon from '../assets/images/award-ribbon.png';
 import monsterA from '../assets/images/monster-A1.png';
 import monsterB from '../assets/images/monster-B1.png';
 import monsterC from '../assets/images/monster-C1.png';
@@ -22,7 +21,7 @@ const LandingPageBody = () => {
     return (
         <Container fluid>
             <Row className="hideMonsterBug">
-                <Col xs={12}  className="centerContent whiteSpaceAboveRow">
+                <Col xs={12}  className="centerContent minorWhiteSpace">
                     <h1>Do you want to Chase the <span style={{color:"#FF0000"}}>10 Pound </span>Monster?</h1>
                     <p>Challenge Family, Friends, & Co-Workers to see who can <span style={{color:"#FF0000", fontWeight:500}}>lose 10 lbs the Fastest.</span></p>
                     <p className="limitChars">10 pounds is an attainable, measureable, and visible fitness goal. 
