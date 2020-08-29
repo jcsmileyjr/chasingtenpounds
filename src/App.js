@@ -1,7 +1,6 @@
 import React, {useEffect, useContext} from 'react';
 import {Route, useHistory} from "react-router-dom";
 import LandingPage from './pages/LandingPage1';
-import LogInPage from './pages/LogInPage';
 import SignUpPage from './pages/SignUpPage';
 import WeighInPage from './pages/WeighInPage';
 import TeamPage from './pages/TeamPage'
