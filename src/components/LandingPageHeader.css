@@ -2,6 +2,8 @@
 .background {
     background-color:#A3C3F7 ;/*Primary light blue color of app*/
     border-bottom: 1px solid #0707f8;/*App official dark blue color*/ ;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
 }
 
 /*Styling for the monster logo*/

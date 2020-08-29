@@ -16,10 +16,10 @@ const LandingPageHeader = (props) => {
     return (
         <Container fluid={true} className="background">
             <Row className="content">
-                <Col xs={4} sm={2} md={2} lg={true} xl={true}>
+                <Col xs={true} sm={true} md={true} lg={true} xl={true}>
                     <Image src={monster} fluid className="imageStyle"/>
                 </Col>
-                <Col xs={8} sm={5} md={6} lg={6} xl={6}>
+                <Col xs={true} sm={true} md={6} lg={6} xl={6}>
                     <Link to="/">
                         <h1 className="mobileTitleTextSize TabletTitleTextSize textColor">
                             Chasing the <span className="redText">10 Pound</span> Monster
@@ -27,12 +27,12 @@ const LandingPageHeader = (props) => {
                     </Link>
                 </Col>
                 {props.type === "landing" && !isAuthenticated && 
-                    <Col xs={12} sm={true} md={true} lg={true} xl={true} className="rightAlignButtons">                        
+                    <Col xs={true} sm={true} md={true} lg={true} xl={true} className="rightAlignButtons">                        
                         <BlueButton buttonType="dark" action={loginWithRedirect} title="Log In" />                        
                     </Col>
                 }
                 {props.type === "landing" && isAuthenticated && 
-                    <Col xs={12} sm={true} md={true} lg={true} xl={true} className="rightAlignButtons">                        
+                    <Col xs={true} sm={true} md={true} lg={true} xl={true} className="rightAlignButtons">                        
                         <BlueButton buttonType="dark" action={ ()=>logout()} title="Log out" />                        
                     </Col>
                 }                
