@@ -22,10 +22,7 @@ const LandingPageBody = () => {
     return (
         <Container fluid>
             <Row className="hideMonsterBug">
-                <Col xs={{span:12, order:2}} sm={{order:1}} md={{order:1}} lg={{order:1}} xl={{span: 4,order:1}} className="landingPageBodyImageContainerStyle">
-                    <Image src={awardRibbon} fluid className="landingBodyImage"/>                    
-                </Col>
-                <Col xs={{span:12, order:1}} sm={{order:2}} md={{order:2}} lg={{order:2}} xl={{span: 8,order:2}} className="centerContent">
+                <Col xs={12}  className="centerContent whiteSpaceAboveRow">
                     <h1>Do you want to Chase the <span style={{color:"#FF0000"}}>10 Pound </span>Monster?</h1>
                     <p>Challenge Family, Friends, & Co-Workers to see who can <span style={{color:"#FF0000", fontWeight:500}}>lose 10 lbs the Fastest.</span></p>
                     <p className="limitChars">10 pounds is an attainable, measureable, and visible fitness goal. 
