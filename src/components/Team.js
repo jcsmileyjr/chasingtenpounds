@@ -12,11 +12,10 @@ const Team = (props) => {
             Week {props.currentWeek}
         </Col>
       </Row>
-      <Row className="rowContentStyle teamTitle blueBorder1">
+      <Row className="rowContentStyle teamTitle">
         <Col xs={2} className="alignTeamTitle rankStyle">Rank</Col>
-        <Col xs={4}>Player</Col>
-        <Col xs={5}>Total Weight Loss</Col>
-        <Col xs={true}></Col>
+        <Col xs={5}>Player</Col>
+        <Col xs={5}>Weight Loss</Col>
       </Row>
         {
             props.players.map((player, index) => {
@@ -35,10 +34,10 @@ const Team = (props) => {
 
 const TeamMember = (props) => {
   return (
-    <Row className="rowContentStyle blueBorder1 teamMemberStyle ">
+    <Row className="rowContentStyle teamMemberStyle ">
       <Col xs={2} className="alignTeamTitle rankStyle">{props.rank}</Col>
-      <Col xs={4}>{props.player}</Col>
-      <Col xs={3}>{props.weightLoss} lbs</Col>      
+      <Col xs={5}>{props.player}</Col>
+      <Col xs={5}>{props.weightLoss} lbs</Col>      
       {props.winner === 'true' &&
         <Col xs={true} className="winner">WINNER</Col>
       }
