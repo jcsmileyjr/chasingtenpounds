@@ -88,6 +88,9 @@ const updateUserWeight = (newUserData, Users) => {
       let teamOfPlayers = [];
       Users.forEach(player => {
         const checkIfOnSameTeam = player.fields.teams.includes(team);
+        const minutesInADay = 1440;
+        const daysSinceLastUpdate = Math.round(Math.abs((Date.parse(new Date()) - Date.parse(player.fields.lastUpdate))/minutesInADay))
+        console.log(`${player.fields.playerName} last update is ${daysSinceLastUpdate}`);
         if(checkIfOnSameTeam){
           /*Strip all players of un-needed data*/
           const sanitizedPlayer = {};
