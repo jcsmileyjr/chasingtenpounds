@@ -51,5 +51,6 @@
 }
 
 .winner {
-    color: 'gold';
+    color: rgb(255, 103, 2);
+    font-weight: bold;
 }
