@@ -17,12 +17,17 @@ const SignUpPageBody = () => {
     
     /*Save the weight to session storage to use later in signing user up */
     const saveWeight = () =>{
-        if(initialWeight > 0){
-            sessionStorage.setItem('userInitialWeight', initialWeight);
-            history.push('/team');
+        if(/[0-9]/g.test(initialWeight) && isNaN(initialWeight) === false){
+            if(initialWeight > 0){
+                sessionStorage.setItem('userInitialWeight', initialWeight);
+                history.push('/team');
+            }else{
+                alert("Please type in a weight");
+            }
         }else{
-            alert("Please type in a weight");
+            alert("Please enter a number only")
         }
+
     }
 
     const {user} = useAuth0();

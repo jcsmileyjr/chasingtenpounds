@@ -4,7 +4,7 @@ import {Container, Row, Col, Form} from 'react-bootstrap';
 import BlueButton from '../components/BlueButton';
 import Footer from '../components/LandingPageFooter';
 import QuoteMonster from './QuoteMonster';
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useAuth0 } from '@auth0/auth0-react';
 import { store } from '../Context/store';
 import axios from 'axios';
@@ -13,30 +13,36 @@ const WeighInPageBody = () => {
     const {user} = useAuth0(); // Using the auth0 Single Page SDK, updates itself when user is logged in
     const globalState = useContext(store);
     const { dispatch } = globalState;
+    const history = useHistory();
 
-    const [newWeight, setNewWeight] = useState(0);
+    const [newWeight, setNewWeight] = useState();
 
     // when the submit button is clicked, the user weight is updated in the global state and database
     const saveNewWeight = () =>{
-        const userData = {
-            weight: newWeight,
-            userEmail:user.email,
-        }
-
-        const url = 'api/UpdateWeight';
-        const updatedPlayerDetails = JSON.stringify(userData);
-        axios.post(url, updatedPlayerDetails)
-        .then(function(response){
-          const updatedState = response.data;
-          dispatch({type:'UPDATEWEIGHT',payload: updatedState}); // 
-        })        
+        if(/[0-9]/g.test(newWeight) && isNaN(newWeight) === false){
+            const userData = {
+                weight: newWeight,
+                userEmail:user.email,
+            }
+    
+            const url = 'api/UpdateWeight';
+            const updatedPlayerDetails = JSON.stringify(userData);
+            axios.post(url, updatedPlayerDetails)
+            .then(function(response){
+              const updatedState = response.data;
+              dispatch({type:'UPDATEWEIGHT',payload: updatedState}); 
+              history.push('/ranking');
+            }) 
+        }else{
+            alert("Numbers only")
+        } 
+       
     }
 
     // Update the user weight in the component state
-    const updateWeight = (e) => {
-        setNewWeight(e.target.value);
-    }
-
+    const updateWeight = (e) => {     
+        setNewWeight(e.target.value);  
+    }   
 
     return (
         <Container fluid={true} className="weighInPageLayout">
@@ -49,10 +55,8 @@ const WeighInPageBody = () => {
                         <Form.Control className="inputStyle" type="number" placeholder="Type in your weight" onChange={updateWeight} required  />
                     </Form.Group>
                 </Col>
-                <Col xs={12} sm={{ span: 6, offset: 3 }} md={{ span: 4, offset: 4 }} className="centerElements weighInWhiteSpaceAbove">
-                    <Link to="/ranking">
-                        <BlueButton buttonType="light" action={saveNewWeight} title="Submit New Weight" flat={true} wide={true}/>
-                    </Link>
+                <Col xs={12} sm={{ span: 6, offset: 3 }} md={{ span: 4, offset: 4 }} className="centerElements weighInWhiteSpaceAbove">                    
+                    <BlueButton buttonType="light" action={saveNewWeight} title="Submit New Weight" flat={true} wide={true}/>                    
                 </Col>
                 <QuoteMonster />
             </Row>
