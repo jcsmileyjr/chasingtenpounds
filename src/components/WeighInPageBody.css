@@ -33,3 +33,7 @@
 .line {
     border: 1px solid #0707f8;/*App official dark blue color*/ ;
 }
+
+.inputStyle {
+    border-color: grey;
+}
