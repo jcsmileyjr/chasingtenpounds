@@ -54,14 +54,14 @@ const updatePlayerInDatabase = async (userData, Users) => {
   updateRecord(updatedUser);
 }
   
-
-// Based on the user's email, find the user in the data and update weight then organize into teams
+// Based on the user's email, find the user in the data, update weight, update winner status, and then organize into teams
 const updateUserWeight = (newUserData, Users) => {
     const updatedUsers = Users.map((player) => {
       if(player.fields.email === newUserData.userEmail){
-        player.fields.weightLoss = String(player.fields.startWeight - newUserData.weight);
-      }
-      
+        const newWeghtLoss = player.fields.startWeight - newUserData.weight;
+        player.fields.weightLoss = String(newWeghtLoss);
+        player.fields.winner = newWeghtLoss >= 10 ? 'true':'false';
+      }      
       return player      
     });
 
