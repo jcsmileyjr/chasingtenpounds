@@ -16,8 +16,15 @@
 }
 
 .rowContentStyle {
-    font-size: 3vw;
+    font-size: 4vw;
     width: 100%;
+}
+
+/*For screens 575px or bigger, lower the font size*/
+@media screen and (min-width: 575px) {
+    .rowContentStyle {
+        font-size: 3vw;
+    }
 }
 
 .teamTitle {
@@ -44,5 +51,6 @@
 }
 
 .winner {
-    color: 'gold';
+    color: rgb(255, 103, 2);
+    font-weight: bold;
 }

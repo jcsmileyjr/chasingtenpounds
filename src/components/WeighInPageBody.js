@@ -46,7 +46,7 @@ const WeighInPageBody = () => {
                 </Col>
                 <Col xs={12} sm={{ span: 6, offset: 3 }} md={{ span: 4, offset: 4 }} className="centerElements weighInWhiteSpaceAbove">
                     <Form.Group controlId="UserPassword">
-                        <Form.Control type="number" placeholder="Type in your weight" onChange={updateWeight} required  />
+                        <Form.Control className="inputStyle" type="number" placeholder="Type in your weight" onChange={updateWeight} required  />
                     </Form.Group>
                 </Col>
                 <Col xs={12} sm={{ span: 6, offset: 3 }} md={{ span: 4, offset: 4 }} className="centerElements weighInWhiteSpaceAbove">
