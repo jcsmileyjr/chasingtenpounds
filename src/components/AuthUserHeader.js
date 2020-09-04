@@ -38,7 +38,7 @@ const AuthUserHeader = (props) => {
             </Row>
             <Modal show={showMenu} onHide={() => setShowMenu(false)} className="scoreboardBackground" >
                 <Modal.Header closeButton>
-                    <Row className="centerContent">
+                    <Row className="centerContent centerTitle">
                         <h3>Chasing the <span className="redText">10 Pound</span> Monster</h3>
                     </Row>
                 </Modal.Header>
