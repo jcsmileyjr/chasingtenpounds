@@ -56,13 +56,16 @@ exports.handler = async function(event, context, callback) {
       let teamOfPlayers = [];
       Users.forEach(player => {
         const checkIfOnSameTeam = player.fields.teams.includes(team);
+        const minutesInADay = 86400000; // Number of milliseconds in a day
+        // Today Date in milliseconds - minus the player last update date divide by minutes in a day
+        const daysSinceLastUpdate = Math.round(Math.abs((Date.parse(new Date()) - Date.parse(player.fields.lastUpdate))/minutesInADay))
         if(checkIfOnSameTeam){
           /*Strip all players of un-needed data*/
           const sanitizedPlayer = {};
           sanitizedPlayer.playerName = player.fields.playerName;
           sanitizedPlayer.weightLoss = player.fields.weightLoss;
           sanitizedPlayer.winner = player.fields.winner;
-          sanitizedPlayer.lastUpdate = player.fields.lastUpdate
+          sanitizedPlayer.lastUpdate = daysSinceLastUpdate;
           teamOfPlayers.push(sanitizedPlayer);
         }
       });
