@@ -43,7 +43,7 @@ const TeamMember = (props) => {
         <Col xs={true}>{props.weightLoss} lbs <span className="winner"> WINNER</span></Col>
       }
       {props.winner === 'false' &&
-        <Col xs={5}>{props.weightLoss} lbs  {props.lastUpdate} days ago</Col> 
+        <Col xs={5}>{props.weightLoss} lbs  <span className="showLastUpdateOnBigScreen">{props.lastUpdate} days ago</span></Col> 
       }
     </Row>
   );

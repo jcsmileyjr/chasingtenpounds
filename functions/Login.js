@@ -13,7 +13,7 @@ exports.handler = async function(event, context, callback) {
     
     const Users = await getRecords(); // Make API call to database and get all users.
     const ifValid = checkIfSignedUp(userEmail, Users); // Check if the authenicated user is a valid player
-    const data = ifValid ? organizeTeamData(userEmail, Users) : [];
+    const data = ifValid ? organizeTeamData(userEmail, Users) : [];// if user is valid, return organize teams else a blank array
 
     const loginData = {
       validUser: ifValid,
@@ -69,7 +69,7 @@ exports.handler = async function(event, context, callback) {
           sanitizedPlayer.playerName = player.fields.playerName;
           sanitizedPlayer.weightLoss = player.fields.weightLoss;
           sanitizedPlayer.winner = player.fields.winner;
-          sanitizedPlayer.lastUpdate = daysSinceLastUpdate
+          sanitizedPlayer.lastUpdate = daysSinceLastUpdate;
           teamOfPlayers.push(sanitizedPlayer);
         }
       });
