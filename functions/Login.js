@@ -8,12 +8,19 @@ const getRecords = async () => {
   return (records);
 }
 
+const teamTable = base('teams');
+
+const getTeamStartDates = async () => {
+  const teamStartDates = await teamTable.select().firstPage();
+  return teamStartDates;
+}
+
 exports.handler = async function(event, context, callback) {
     const userEmail = JSON.parse(event.body);
-    
+    const startDates = await getTeamStartDates(); // Make API call to database and get all users.
     const Users = await getRecords(); // Make API call to database and get all users.
     const ifValid = checkIfSignedUp(userEmail, Users); // Check if the authenicated user is a valid player
-    const data = ifValid ? organizeTeamData(userEmail, Users) : [];// if user is valid, return organize teams else a blank array
+    const data = ifValid ? organizeTeamData(userEmail, Users, startDates) : [];// if user is valid, return organize teams else a blank array
 
     const loginData = {
       validUser: ifValid,
@@ -43,8 +50,32 @@ exports.handler = async function(event, context, callback) {
     return signedUp;
   }
 
+  const getCurrentWeek = (startDates, userTeamName) => {
+    const currentTeam = startDates.find(team => team.fields.teamName === userTeamName);
+//console.log(currentTeam);
+//console.log(`The ${userTeamName} start date is ${currentTeam.fields.startDate}`);
+    if(currentTeam === undefined){
+      return 1;
+    }else{
+      const dateArray = currentTeam.fields.startDate.split('-');
+      const newDateArray = `${dateArray[1]}/${dateArray[2]}/${dateArray[0]}`
+      const todayDate = new Date();
+  //console.log(newDateArray)
+      const minutesInADay = 24*60*60*1000;
+      const officialTeamStartDate = new Date(newDateArray);
+      const numberOfDays = Math.round(Math.abs((todayDate.getTime() - officialTeamStartDate.getTime())/(minutesInADay)));
+
+      if(numberOfDays <= 7){
+        return 1; /*If challenge just started, it will output 1 instead of 0*/
+      }
+      else{
+        return Math.round(numberOfDays/7);/*round to nearest Interger the number of Days divided by 7*/
+      }
+    }
+  }
+
   // Based on the current user, organize the data by their teams
-  const organizeTeamData = (userEmail, Users) => {
+  const organizeTeamData = (userEmail, Users, startDates) => {
     let displayTeams = []; // Array of teams
     let playerTeams = []; // Names of the team the player is on
 
@@ -52,11 +83,15 @@ exports.handler = async function(event, context, callback) {
     
     playerTeams = currentUser.fields.teams.split(','); // Get current player teams and convert into an array
 
+    
+
     // Create array of array of players by team name
     playerTeams.forEach(team => {
       let teamDetails = {};
       teamDetails.teamName = team;
-      teamDetails.currentWeek = 1;/**TODO: Functionality & data to dynamically get current week */
+console.log(team);
+      teamDetails.currentWeek = getCurrentWeek(startDates, team);/**TODO: Functionality & data to dynamically get current week */
+console.log(teamDetails.currentWeek);
       let teamOfPlayers = [];
       Users.forEach(player => {
         const checkIfOnSameTeam = player.fields.teams.includes(team);
