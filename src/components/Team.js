@@ -23,7 +23,8 @@ const Team = (props) => {
                     <TeamMember rank={index} 
                                 player={player.playerName} 
                                 weightLoss={player.weightLoss} 
-                                winner={player.winner} 
+                                winner={player.winner}
+                                lastUpdate = {player.lastUpdate} 
                                 key={index} />
                 );
             })
@@ -42,7 +43,7 @@ const TeamMember = (props) => {
         <Col xs={true}>{props.weightLoss} lbs <span className="winner"> WINNER</span></Col>
       }
       {props.winner === 'false' &&
-        <Col xs={5}>{props.weightLoss} lbs</Col> 
+        <Col xs={5}>{props.weightLoss} lbs  {props.lastUpdate} days ago</Col> 
       }
     </Row>
   );
