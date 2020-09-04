@@ -3,6 +3,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-bottom-style: solid;
+    border-bottom-color:gray;
+    border-bottom-width: .5px;
 }
 
 .alignTeamTitle {
