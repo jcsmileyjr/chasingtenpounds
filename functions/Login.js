@@ -13,7 +13,7 @@ exports.handler = async function(event, context, callback) {
     
     const Users = await getRecords(); // Make API call to database and get all users.
     const ifValid = checkIfSignedUp(userEmail, Users); // Check if the authenicated user is a valid player
-    const data = ifValid ? organizeTeamData(userEmail, Users) : [];
+    const data = ifValid ? organizeTeamData(userEmail, Users) : [];// if user is valid, return organize teams else a blank array
 
     const loginData = {
       validUser: ifValid,
@@ -60,13 +60,16 @@ exports.handler = async function(event, context, callback) {
       let teamOfPlayers = [];
       Users.forEach(player => {
         const checkIfOnSameTeam = player.fields.teams.includes(team);
+        const minutesInADay = 86400000; // Number of milliseconds in a day
+        // Today Date in milliseconds - minus the player last update date divide by minutes in a day
+        const daysSinceLastUpdate = Math.round(Math.abs((Date.parse(new Date()) - Date.parse(player.fields.lastUpdate))/minutesInADay))
         if(checkIfOnSameTeam){
           /*Strip all players of un-needed data*/
           const sanitizedPlayer = {};
           sanitizedPlayer.playerName = player.fields.playerName;
           sanitizedPlayer.weightLoss = player.fields.weightLoss;
           sanitizedPlayer.winner = player.fields.winner;
-          sanitizedPlayer.lastUpdate = player.fields.lastUpdate
+          sanitizedPlayer.lastUpdate = daysSinceLastUpdate;
           teamOfPlayers.push(sanitizedPlayer);
         }
       });

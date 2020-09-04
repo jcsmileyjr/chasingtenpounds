@@ -20,10 +20,20 @@
     width: 100%;
 }
 
+
+.showLastUpdateOnBigScreen {
+    display: none;
+}
+
 /*For screens 575px or bigger, lower the font size*/
 @media screen and (min-width: 575px) {
     .rowContentStyle {
         font-size: 3vw;
+    }
+
+    .showLastUpdateOnBigScreen {
+        display: inline-block;
+        margin-left: 5vw;
     }
 }
 
