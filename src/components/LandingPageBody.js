@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import {Container, Row, Col, Image} from 'react-bootstrap';
 import "./LandingPageBody.css";
 import BlueButton from '../components/BlueButton';
