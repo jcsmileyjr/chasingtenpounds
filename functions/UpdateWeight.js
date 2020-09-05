@@ -2,18 +2,18 @@ var Airtable = require('airtable');
 const {key, baseId} = process.env; // Get the enviroment values defined in netlify site 
 var base = new Airtable({apiKey:key}).base(baseId);
 
-const table = base('monsters');
+const userTable = base('monsters'); // connect to monster, aka 'users' database
 
 const getRecords = async () => {
-  const records = await table.select().firstPage();// Get all records from the database
+  const records = await userTable.select().firstPage();// Get all records from the database
   return (records);
 }
 
 const updateRecord = async (fields) => {
-  await table.update([fields]);
+  await userTable.update([fields]);
 }
 
-const teamTable = base('teams');
+const teamTable = base('teams'); //connect to teams database
 
 const getTeamStartDates = async () => {
   const teamStartDates = await teamTable.select().firstPage();
@@ -26,9 +26,9 @@ exports.handler = async function(event, context, callback) {
   const Users = await getRecords(); // Make API call to database and get all users.
   const startDates = await getTeamStartDates(); // Make API call to database and get teams names/start dates.
   
-  updatePlayerInDatabase(userData, Users); // Make API call to update player information in the database
+  updatePlayerInDatabase(userData, Users); // Make API call to update player information in the airtable.com database
 
-  const updatedData = updateUserWeight(userData, Users, startDates);// Update user weight loss and organize all users into teams 
+  const updatedData = updateUserWeight(userData, Users, startDates);// Update user weight loss inside the local Users data and organize all users into teams 
   
   callback(null, {
     statusCode: 200,
