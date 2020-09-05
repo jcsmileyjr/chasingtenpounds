@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import {Container, Row, Col, Image} from 'react-bootstrap';
 import "./LandingPageBody.css";
 import BlueButton from '../components/BlueButton';
@@ -36,9 +35,7 @@ const LandingPageBody = () => {
             <Row className="whiteSpaceAboveRow pinkBG">
                 <Col xs={12} sm={true} md={true} lg={true} xl={4} className="centerContent">
                 <h2 className="centerElements">Quick & Simple to Use, Only Show Weight Loss</h2>
-                    <Link to="/signUp">
-                        <BlueButton buttonType="light" action={loginWithRedirect} title="Sign Up Today" flat={false} wide={true}  /> 
-                    </Link>
+                    <BlueButton buttonType="light" action={loginWithRedirect} title="Sign Up Today" flat={false} wide={true}  />                    
                 </Col>
                 <Col xs={12} sm={true} md={true} lg={true} xl={8} >
                     <Image src={winnerVideo} fluid />
@@ -51,10 +48,8 @@ const LandingPageBody = () => {
                 <MonsterSteps monster1={monsterA} textA="Step 1: Sign Up" textB="I'm Ready" />
                 <MonsterSteps monster1={monsterB} monster2={monsterC} textA="Step 2: Join or Create a Team" textB="Join the FUN!!!" />
                 <MonsterSteps monster1={monsterParty}  textA="Step 3: See Who's Winning" textB=".....Ready, Set, GO!!!!!" />
-                <Col xs={12} className="centerElements minorWhiteSpace">
-                    <Link to="/signUp">
-                        <BlueButton buttonType="light" action={loginWithRedirect} title="Sign Up" flat={false} />
-                    </Link>
+                <Col xs={12} className="centerElements minorWhiteSpace">                    
+                    <BlueButton buttonType="light" action={loginWithRedirect} title="Sign Up" flat={false} />                    
                 </Col>
             </Row>
         </Container>

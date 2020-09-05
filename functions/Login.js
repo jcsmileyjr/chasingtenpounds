@@ -1,14 +1,14 @@
 var Airtable = require('airtable');
 var base = new Airtable({apiKey:process.env.key}).base(process.env.baseId);
 
-const table = base('monsters');
+const userTable = base('monsters'); // connect to monster, aka 'users' database
 
 const getRecords = async () => {
-  const records = await table.select().firstPage();// Get all records from the database
+  const records = await userTable.select().firstPage();// Get all records from the database
   return (records);
 }
 
-const teamTable = base('teams');
+const teamTable = base('teams'); //connect to teams database
 
 const getTeamStartDates = async () => {
   const teamStartDates = await teamTable.select().firstPage();
