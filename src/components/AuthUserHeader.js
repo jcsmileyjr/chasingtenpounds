@@ -23,11 +23,9 @@ const AuthUserHeader = (props) => {
                     <Image src={monster} fluid className="imageStyle"/>
                 </Col>
                 <Col xs={6} >
-                    <Link to="/">
-                        <h1 className="mobileTitleTextSize TabletTitleTextSize textColor">
-                            Chasing the <span className="redText">10 Pound</span> Monster
-                        </h1>
-                    </Link>
+                    <h1 className="mobileTitleTextSize TabletTitleTextSize textColor">
+                        Chasing the <span className="redText">10 Pound</span> Monster
+                    </h1>
                 </Col>
                 <Col xs={3} className="rightAlignButtons">
                     <Image src={menu} fluid className="menu" onClick={() => openMenu()}/>
