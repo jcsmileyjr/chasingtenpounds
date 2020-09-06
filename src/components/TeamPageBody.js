@@ -29,7 +29,7 @@ const TeamPageBody = () => {
     const saveUserWithNewTeam = async() =>{
         if(joinTeamName !== ''){
             const createdUser = JSON.stringify(createUser());
-            const url = 'api/SignUp';
+            const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/SignUp';
 
             // Sign-up API call to create a user, get all data, and update ranking
             axios.post(url, createdUser)
