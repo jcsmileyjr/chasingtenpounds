@@ -8,6 +8,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import {useHistory } from "react-router-dom";
 import axios from 'axios';
 import { store } from '../Context/store';
+import swal from 'sweetalert';
 
 const TeamPageBody = () => {
     const [joinTeamName, setJoinTeamName] = useState('');
@@ -38,7 +39,7 @@ const TeamPageBody = () => {
                 history.push('/ranking');
             }) 
         }else{
-            alert("Please type in a team name");
+            swal("Please type in a team name");
         }
     }
 

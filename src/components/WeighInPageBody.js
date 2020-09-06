@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 import { useAuth0 } from '@auth0/auth0-react';
 import { store } from '../Context/store';
 import axios from 'axios';
+import swal from 'sweetalert';
 
 const WeighInPageBody = () => {
     const {user} = useAuth0(); // Using the auth0 Single Page SDK, updates itself when user is logged in
@@ -34,7 +35,7 @@ const WeighInPageBody = () => {
               history.push('/ranking');
             }) 
         }else{
-            alert("Numbers only")
+            swal("Numbers only")
         } 
        
     }

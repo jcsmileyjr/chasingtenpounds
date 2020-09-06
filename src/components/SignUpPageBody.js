@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import {useHistory } from "react-router-dom";
 import {Container, Row, Col, Form} from 'react-bootstrap';
 import { useAuth0 } from '@auth0/auth0-react';
+import swal from 'sweetalert';
 
 import './SignUpPageBody.css';
 import BlueButton from '../components/BlueButton';
@@ -22,10 +23,10 @@ const SignUpPageBody = () => {
                 sessionStorage.setItem('userInitialWeight', initialWeight);
                 history.push('/team');
             }else{
-                alert("Please type in a weight");
+                swal("Please type in a weight");
             }
         }else{
-            alert("Please enter a number only")
+            swal("Please enter a number only")
         }
 
     }
