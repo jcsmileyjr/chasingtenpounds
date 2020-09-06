@@ -5,7 +5,7 @@ import BlueButton from '../components/BlueButton';
 import { useAuth0 } from '@auth0/auth0-react';
 
 import monster from '../assets/images/monster3.png';
-import winnerVideo from '../assets/images/10MON-old-v1.gif';
+import winnerVideo from '../assets/images/monster-4a.gif';
 import monsterA from '../assets/images/monster-A1.png';
 import monsterB from '../assets/images/monster-B1.png';
 import monsterC from '../assets/images/monster-C1.png';
