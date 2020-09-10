@@ -24,21 +24,40 @@ const TeamPageBody = () => {
 
     /**
      * TODO: If user is already signned in & authenicated but want to join a new team.
+     * check if user is already signned in
      */
     /*Create an user data object to be saved to database, API call to update app's data, and route user to ranking page */
     const saveUserWithNewTeam = async() =>{
         if(joinTeamName !== ''){
-            const createdUser = JSON.stringify(createUser());
-            sessionStorage.removeItem('userInitialWeight');
-            const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/SignUp';
+            if(sessionStorage.getItem('loggedIn')){
+                const joinTeam = {}
+                joinTeam.userEmail = user.email;
+                joinTeam.newTeamName = joinTeamName;
 
-            // Sign-up API call to create a user, get all data, and update ranking
-            axios.post(url, createdUser)
+                const updatedPlayerDetails = JSON.stringify(joinTeam);
+                //const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/JoinTeam';
+                const url = 'api/JoinTeam';
+
+                //API call to update current user's list of teams they have joined
+                axios.post(url, updatedPlayerDetails)
                 .then(function(response){
-                const data = response.data;
-                dispatch({type:'SIGNUP',payload: data.teamData}); // When the data has returned, update the Context global state with data
-                history.push('/ranking');
-            }) 
+                    const data = response.data;
+                    dispatch({type:'UPDATETEAMNAME',payload: data}); 
+                    history.push('/ranking');
+                })
+            }else{            
+                const createdUser = JSON.stringify(createUser());
+                sessionStorage.removeItem('userInitialWeight');
+                const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/SignUp';
+
+                // Sign-up API call to create a user, get all data, and update ranking
+                axios.post(url, createdUser)
+                    .then(function(response){
+                    const data = response.data;
+                    dispatch({type:'SIGNUP',payload: data.teamData}); // When the data has returned, update the Context global state with data
+                    history.push('/ranking');
+                })
+            } 
         }else{
             swal("Please type in a team name");
         }
@@ -64,6 +83,15 @@ const TeamPageBody = () => {
 
         return newUser;
     }
+
+    //find this user
+    //const todayDate = new Date();
+    //var convertedDate = todayDate.toLocaleDateString();/
+    //newTeam.newTeamName = joinTeamName;
+    //newTeam.newTeamStartDate = convertedDate
+    //update his string of teams (name/date)
+    //update in databases teams and users
+    //update the client app
 
     return (
         <Container fluid={true} className="weighInPageLayout">

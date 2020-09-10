@@ -35,6 +35,7 @@ const App = () => {
         .then(function(response){
           const data = response.data;
           dispatch({type:'LOGIN',payload: data.teamData}); // When the data has returned, update the Context global state with data
+          sessionStorage.setItem('loggedIn', true);
           data.validUser ? history.push('/weighIn'): history.push('/signUp'); // Route user to weighIn screen if signedUp else to sign up screen
         })     
     } 
