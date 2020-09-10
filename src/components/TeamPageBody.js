@@ -35,8 +35,7 @@ const TeamPageBody = () => {
                 joinTeam.newTeamName = joinTeamName;
 
                 const updatedPlayerDetails = JSON.stringify(joinTeam);
-                //const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/JoinTeam';
-                const url = 'api/JoinTeam';
+                const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/JoinTeam';
 
                 //API call to update current user's list of teams they have joined
                 axios.post(url, updatedPlayerDetails)
@@ -83,15 +82,6 @@ const TeamPageBody = () => {
 
         return newUser;
     }
-
-    //find this user
-    //const todayDate = new Date();
-    //var convertedDate = todayDate.toLocaleDateString();/
-    //newTeam.newTeamName = joinTeamName;
-    //newTeam.newTeamStartDate = convertedDate
-    //update his string of teams (name/date)
-    //update in databases teams and users
-    //update the client app
 
     return (
         <Container fluid={true} className="weighInPageLayout">

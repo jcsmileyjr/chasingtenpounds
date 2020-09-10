@@ -45,7 +45,7 @@ const AuthUserHeader = (props) => {
                     <Row><Link to="/weighIn"><h2>Weigh In</h2></Link></Row>
                     <Row><Link to="/team"><h2>Team</h2></Link></Row>
                     <Row className='centerContent'>
-                        <BlueButton buttonType="dark" action={ ()=>logout({ returnTo: "http://localhost:8888/" })} title="Log out" /> 
+                        <BlueButton buttonType="dark" action={ ()=>logout({ returnTo: "https://chasingtenpounds.netlify.app/" })} title="Log out" /> 
                     </Row>
                 </Modal.Body>
             </Modal>            
