@@ -16,6 +16,9 @@ const StateProvider = ( { children } ) => {
       case 'UPDATEWEIGHT':
         const userData = action.payload;
         return userData;
+      case 'UPDATETEAMNAME':
+        const userTeamData = action.payload;
+        return userTeamData;
       default:
         return initialState
     };

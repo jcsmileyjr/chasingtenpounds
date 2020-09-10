@@ -33,7 +33,7 @@ const LandingPageHeader = (props) => {
                 }
                 {props.type === "landing" && isAuthenticated && 
                     <Col xs={true} sm={true} md={true} lg={true} xl={true} className="rightAlignButtons">                        
-                        <BlueButton buttonType="dark" action={ ()=>logout({ returnTo: "https://chasingtenpounds.netlify.app/" })} title="Log out" />                        
+                        <BlueButton buttonType="dark" action={ ()=>logout({ returnTo: "http://localhost:8888/" })} title="Log out" />                        
                     </Col>
                 }                
                 {props.type === "login" && 
