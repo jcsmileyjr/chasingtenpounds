@@ -12,6 +12,7 @@ import swal from 'sweetalert';
 
 const TeamPageBody = () => {
     const [joinTeamName, setJoinTeamName] = useState('');
+    const [newWeight, setNewWeight] = useState('');
 
     const {user} = useAuth0();
     const history = useHistory();
@@ -20,6 +21,10 @@ const TeamPageBody = () => {
 
     const joinTeam = (e) => {
         setJoinTeamName(e.target.value);
+    }
+
+    const updateWeight = (e) => {
+        setNewWeight(e.target.value);
     }
 
     /**
@@ -32,7 +37,7 @@ const TeamPageBody = () => {
             if(sessionStorage.getItem('loggedIn')){
                 const joinTeam = {}
                 joinTeam.userEmail = user.email;
-                joinTeam.newTeamName = joinTeamName;
+                joinTeam.newTeamName = `${joinTeamName}-${newWeight}`;// Include team name and most up to date start weight
 
                 const updatedPlayerDetails = JSON.stringify(joinTeam);
                 const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/JoinTeam';
@@ -55,6 +60,7 @@ const TeamPageBody = () => {
                     const data = response.data;
                     dispatch({type:'SIGNUP',payload: data.teamData}); // When the data has returned, update the Context global state with data
                     history.push('/ranking');
+                    sessionStorage.setItem('loggedIn', true);
                 })
             } 
         }else{
@@ -78,7 +84,7 @@ const TeamPageBody = () => {
         //newUser.email = "jsmith@test.com"; // For testing sign up
         newUser.winner = 'false';
         newUser.lastUpdate = convertedDate
-        newUser.teams = joinTeamName;
+        newUser.teams = `${joinTeamName}-${sessionStorage.getItem('userInitialWeight')}`;
 
         return newUser;
     }
@@ -92,12 +98,23 @@ const TeamPageBody = () => {
                     <Form.Label>Type in the name of a Team to Join</Form.Label>
                         <Form.Control type="text" placeholder="Team Name" onChange={joinTeam} />
                     </Form.Group>
-                </Col>
-                <Col xs={12} sm={{ span: 6, offset: 3 }}  className="centerElements weighInWhiteSpaceAbove">
-                    <BlueButton buttonType="light" action={saveUserWithNewTeam} title="Join Team" flat={true} wide={true}/>
-                </Col>  
-                <QuoteMonster />             
+                </Col>             
             </Row>
+            {sessionStorage.getItem('loggedIn') &&
+                <Row className="weighInBody">
+                    <Col xs={12} sm={{ span: 6, offset: 3 }} >
+                        <h4 className="centerElements weighInWhiteSpaceAbove">Current Weight</h4>
+                        <Form.Group controlId="CurrentWeight">
+                        <Form.Label>Type current weight</Form.Label>
+                            <Form.Control type="text" placeholder="Current Weight" onChange={updateWeight} />
+                        </Form.Group>
+                    </Col>
+                    <Col xs={12} sm={{ span: 6, offset: 3 }}  className="centerElements weighInWhiteSpaceAbove">
+                        <BlueButton buttonType="light" action={saveUserWithNewTeam} title="Join Team" flat={true} wide={true}/>
+                    </Col>  
+                    <QuoteMonster />             
+                </Row> 
+            }
             {/** 
             <Row><Col xs={12} sm={{ span: 6, offset: 3 }} className="line"></Col></Row>
             

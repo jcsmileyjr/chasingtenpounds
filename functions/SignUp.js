@@ -74,13 +74,26 @@ exports.handler = async function(event, context, callback) {
     return Math.round(Math.abs((Date.parse(new Date()) - Date.parse(lastUpdate))/minutesInADay))
   }
 
+  // Function to create an array of  team names seperate with the start weight sanitize from it
+  const getPlayerTeams = currentUser => {
+    const teamNameOnly = currentUser.fields.teams.split(',')
+      .map(teamWithWeight => {
+        return teamWithWeight.split("-");
+      })
+      .map(teamWithoutWeight => {
+        return teamWithoutWeight[0]
+      })
+
+    return teamNameOnly
+  }
+
   // Based on the current user, organize the data by their teams
   const organizeTeamData = (userEmail, Users, startDates) => {
     let displayTeams = []; // Array of teams
     let playerTeams = []; // Names of the team the player is on
 
     const currentUser = Users.find(player => player.fields.email === userEmail); // Find current player from database of players    
-    playerTeams = currentUser.fields.teams.split(','); // Get current player teams and convert into an array
+    playerTeams = getPlayerTeams(currentUser) // Get current player teams and convert into an array
 
     // Create array of array of players by team name
     playerTeams.forEach(team => {
