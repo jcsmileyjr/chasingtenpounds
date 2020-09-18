@@ -115,7 +115,29 @@ const updateUserTeams = (newUserData, Users, startDates) => {
       })
 
     return teamNameOnly
-  }  
+  }
+  
+  // Function to update each player current weight
+  const getPlayerWeightLoss = (team, player) => {
+    // Convert string of team names and weights into an array
+    const playerTeamWeight = player.fields.teams.split(',')
+    
+    //Split the strings within each array spot into another array
+    .map(teamWithWeight => {
+      return teamWithWeight.split("-");
+    })
+
+    let startWeight = 0;
+
+    // Scroll through array of teams looking for a match, if found save start weight
+    playerTeamWeight.forEach(userTeam => {
+      if(userTeam[0] === team){
+        startWeight = userTeam[1]
+      }
+    })
+    
+    return (startWeight - player.fields.weightLoss).toFixed(1);
+  }
 
   // Based on the current user, organize the data by their teams
   const organizeTeamData = (userEmail, Users, startDates) => {
@@ -138,9 +160,10 @@ const updateUserTeams = (newUserData, Users, startDates) => {
         if(checkIfOnSameTeam){
           /*Strip all players of un-needed data*/
           const sanitizedPlayer = {};
-          sanitizedPlayer.playerName = player.fields.playerName;
-          sanitizedPlayer.weightLoss = player.fields.weightLoss;
-          sanitizedPlayer.winner = player.fields.winner;
+          const weightLoss = getPlayerWeightLoss(team, player); // Update this player weightloss based on this team start weight and current weight
+          sanitizedPlayer.playerName = player.fields.playerName;          
+          sanitizedPlayer.weightLoss = weightLoss
+          sanitizedPlayer.winner =  weightLoss >= 10 ? 'true':'false';
           sanitizedPlayer.lastUpdate = daysSinceLastUpdate;
           teamOfPlayers.push(sanitizedPlayer);
         }

@@ -136,9 +136,7 @@ const updateUserWeight = (newUserData, Users, startDates) => {
       }
     })
     
-//console.log(`${startWeight} and ${player.fields.weightLoss} = ${startWeight - player.fields.weightLoss}`)
     return (startWeight - player.fields.weightLoss).toFixed(1);
-
   }
 
   // Based on the current user, organize the data by their teams

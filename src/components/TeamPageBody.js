@@ -40,7 +40,8 @@ const TeamPageBody = () => {
                 joinTeam.newTeamName = `${joinTeamName}-${newWeight}`;// Include team name and most up to date start weight
 
                 const updatedPlayerDetails = JSON.stringify(joinTeam);
-                const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/JoinTeam';
+                //const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/JoinTeam';
+                const url = 'api/JoinTeam';
 
                 //API call to update current user's list of teams they have joined
                 axios.post(url, updatedPlayerDetails)
@@ -52,7 +53,8 @@ const TeamPageBody = () => {
             }else{            
                 const createdUser = JSON.stringify(createUser());
                 sessionStorage.removeItem('userInitialWeight');
-                const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/SignUp';
+                //const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/SignUp';
+                const url = 'api/SignUp'
 
                 // Sign-up API call to create a user, get all data, and update ranking
                 axios.post(url, createdUser)
@@ -77,11 +79,9 @@ const TeamPageBody = () => {
 
         let newUser = {};
         newUser.startWeight = sessionStorage.getItem('userInitialWeight');
-        newUser.weightLoss = '0';
+        newUser.weightLoss = sessionStorage.getItem('userInitialWeight');
         newUser.playerName = user.name;
         newUser.email = user.email;
-        //newUser.playerName = "John Smith"; // For testing sign up
-        //newUser.email = "jsmith@test.com"; // For testing sign up
         newUser.winner = 'false';
         newUser.lastUpdate = convertedDate
         newUser.teams = `${joinTeamName}-${sessionStorage.getItem('userInitialWeight')}`;
@@ -91,15 +91,6 @@ const TeamPageBody = () => {
 
     return (
         <Container fluid={true} className="weighInPageLayout">
-            <Row className="weighInBody">
-                <Col xs={12} sm={{ span: 6, offset: 3 }} >
-                    <h4 className="centerElements weighInWhiteSpaceAbove">Join Team</h4>
-                    <Form.Group controlId="JoinTeamName">
-                    <Form.Label>Type in the name of a Team to Join</Form.Label>
-                        <Form.Control type="text" placeholder="Team Name" onChange={joinTeam} />
-                    </Form.Group>
-                </Col>             
-            </Row>
             {sessionStorage.getItem('loggedIn') &&
                 <Row className="weighInBody">
                     <Col xs={12} sm={{ span: 6, offset: 3 }} >
@@ -108,13 +99,22 @@ const TeamPageBody = () => {
                         <Form.Label>Type current weight</Form.Label>
                             <Form.Control type="text" placeholder="Current Weight" onChange={updateWeight} />
                         </Form.Group>
-                    </Col>
-                    <Col xs={12} sm={{ span: 6, offset: 3 }}  className="centerElements weighInWhiteSpaceAbove">
-                        <BlueButton buttonType="light" action={saveUserWithNewTeam} title="Join Team" flat={true} wide={true}/>
-                    </Col>  
-                    <QuoteMonster />             
+                    </Col>            
                 </Row> 
             }
+            <Row className="weighInBody">
+                <Col xs={12} sm={{ span: 6, offset: 3 }} >
+                    <h4 className="centerElements weighInWhiteSpaceAbove">Join Team</h4>
+                    <Form.Group controlId="JoinTeamName">
+                    <Form.Label>Type in the name of a Team to Join</Form.Label>
+                        <Form.Control type="text" placeholder="Team Name" onChange={joinTeam} />
+                    </Form.Group>
+                </Col> 
+                <Col xs={12} sm={{ span: 6, offset: 3 }}  className="centerElements weighInWhiteSpaceAbove">
+                    <BlueButton buttonType="light" action={saveUserWithNewTeam} title="Join Team" flat={true} wide={true}/>
+                </Col>  
+                <QuoteMonster />                             
+            </Row>
             {/** 
             <Row><Col xs={12} sm={{ span: 6, offset: 3 }} className="line"></Col></Row>
             
