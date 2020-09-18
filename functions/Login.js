@@ -98,7 +98,6 @@ exports.handler = async function(event, context, callback) {
 
     const currentUser = Users.find(player => player.fields.email === userEmail); // Find current player from database of players    
     playerTeams = getPlayerTeams(currentUser) // Get current player teams and convert into an array
-console.log(playerTeams);
 
     // Create array of array of players by team name
     playerTeams.forEach(team => {

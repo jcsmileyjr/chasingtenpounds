@@ -26,7 +26,8 @@ const WeighInPageBody = () => {
                 userEmail:user.email,
             }
     
-            const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/UpdateWeight';
+            //const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/UpdateWeight';
+            const url = 'api/UpdateWeight';
             const updatedPlayerDetails = JSON.stringify(userData);
             axios.post(url, updatedPlayerDetails)
             .then(function(response){
