@@ -46,8 +46,9 @@ exports.handler = async function(event, context, callback) {
 // Update the current player's teams in the database
 const updatePlayerInDatabase = async (userData, Users) => {
   const currentUser = Users.find(player => player.fields.email === userData.userEmail); // Find current player from database of players
-  
-  const allTeams = `${currentUser.fields.teams},${userData.joinTeamName}`
+console.log(userData);
+console.log(userData.newTeamName)
+  const allTeams = `${currentUser.fields.teams},${userData.newTeamName}`
 
   // Create an object to update corrosponding object in database
   const updatedUser = {
