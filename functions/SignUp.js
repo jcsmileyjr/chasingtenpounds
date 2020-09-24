@@ -5,18 +5,18 @@ var base = new Airtable({apiKey:key}).base(baseId);
 const userTable = base('monsters'); // connect to monster, aka 'users' database
 
 const getRecords = async () => {
-  const records = await userTable.select().firstPage();// Get all records from the database
+  const records = await userTable.select().firstPage(); // Get all records from the database
   return (records);
 }
   
 const submitRecord = async (fields) => {
-  await userTable.create(fields);
+  await userTable.create(fields); // Submit record to airtable.com database
 }
 
 const teamTable = base('teams'); // connect to teams database
 
 const getTeamStartDates = async () => {
-  const teamStartDates = await teamTable.select().firstPage();
+  const teamStartDates = await teamTable.select().firstPage(); // Get all records from the database
   return teamStartDates;
 }
   
@@ -108,59 +108,7 @@ exports.handler = async function(event, context, callback) {
     
     return (startWeight - player.fields.weightLoss).toFixed(1);
   }
-/*
-  const getPlayerTeamStartWeight = (team, player) => {
-    // Convert string of team names and weights into an array
-    const playerTeamWeight = player.fields.teams.split(',')
-    
-    //Split the strings within each array spot into another array
-    .map(teamWithWeight => {
-      return teamWithWeight.split("-");
-    })
 
-    let startWeight = 0;
-
-    // Scroll through array of teams looking for a match, if found save start weight
-    playerTeamWeight.forEach(userTeam => {
-      if(userTeam[0] === team){
-        startWeight = userTeam[1]
-      }
-    })
-console.log(`${player.fields.playerName} start weight is ${startWeight}`);
-    return startWeight;
-  }
-
-  // Function based on weightloss attribute of data looking like 'MGC-200' and representing each team current weight.
-  const getPlayerTeamCurrentWeight = (team, player) => {
-    // Convert string of team names and weights into an array
-    const playerTeamWeight = player.fields.weightLoss.split(',')
-    
-    //Split the strings within each array spot into another array
-    .map(teamWithWeight => {
-      return teamWithWeight.split("-");
-    })
-
-    let currentWeight = 0;
-
-    // Scroll through array of teams looking for a match, if found save start weight
-    playerTeamWeight.forEach(userTeam => {
-      if(userTeam[0] === team){
-        currentWeight = userTeam[1]
-      }
-    })
-console.log(`${player.fields.playerName} current weight is ${currentWeight}`);
-    return currentWeight;
-  }
-
-
-  // Function to update each player current weight
-  const getPlayerWeightLoss = (team, player) => {
-    const startWeight = getPlayerTeamStartWeight(team, player);
-    //const currentWeight = getPlayerTeamCurrentWeight(team, player);
-    const currentWeight = player.fields.weightLoss;
-    return (startWeight - currentWeight).toFixed(1);
-  }
-*/
   // Based on the current user, organize the data by their teams
   const organizeTeamData = (userEmail, Users, startDates) => {
     let displayTeams = []; // Array of teams
@@ -173,7 +121,7 @@ console.log(`${player.fields.playerName} current weight is ${currentWeight}`);
       let teamDetails = {};
       teamDetails.teamName = team;
       teamDetails.currentWeek = getCurrentWeek(startDates, team);/**dynamically get current week */
-console.log(`${team} at week ${teamDetails.currentWeek}`)      
+   
       let teamOfPlayers = [];
       Users.forEach(player => {
         const checkIfOnSameTeam = player.fields.teams.includes(team);

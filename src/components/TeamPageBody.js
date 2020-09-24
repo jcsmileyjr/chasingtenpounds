@@ -10,40 +10,31 @@ import axios from 'axios';
 import { store } from '../Context/store';
 import swal from 'sweetalert';
 
+// Component allowing a player to join a team when they sign up (with a start weight) or if they all ready have an account
 const TeamPageBody = () => {
     const [joinTeamName, setJoinTeamName] = useState('');
-    //const [newWeight, setNewWeight] = useState('');
 
-    const {user} = useAuth0();
+    const {user} = useAuth0(); //Get the user basic information from Auth0
     const history = useHistory();
     const globalState = useContext(store); // Store data into the global 'Context' and share with the entire app
     const { dispatch } = globalState; // Update data to the global 'Context' state
 
+    // Function to get player input to save to component state
     const joinTeam = (e) => {
         setJoinTeamName(e.target.value);
     }
-/*
-    const updateWeight = (e) => {
-        setNewWeight(e.target.value);
-    }
-*/
-    /**
-     * TODO: If user is already signned in & authenicated but want to join a new team.
-     * check if user is already signned in
-     */
-    /*Create an user data object to be saved to database, API call to update app's data, and route user to ranking page */
+
+    // Create an user data object to be saved to database, API call to update app's data, and route user to ranking page 
     const saveUserWithNewTeam = async() =>{
         if(joinTeamName !== ''){
             if(sessionStorage.getItem('loggedIn')){
                 const joinTeam = {}
                 joinTeam.userEmail = user.email;
                 joinTeam.newTeamName = joinTeamName;// Include team name
-                //joinTeam.weightLoss =  `${joinTeamName}-${newWeight}`;// Include team name and most up to date start weight
-                //joinTeam.newTeamName = `${joinTeamName}-${newWeight}`;// Include team name and most up to date start weight
 
                 const updatedPlayerDetails = JSON.stringify(joinTeam);
-                //const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/JoinTeam';
-                const url = 'api/JoinTeam';
+                const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/JoinTeam';
+                //const url = 'api/JoinTeam'; // For TESTING
 
                 //API call to update current user's list of teams they have joined
                 axios.post(url, updatedPlayerDetails)
@@ -55,8 +46,8 @@ const TeamPageBody = () => {
             }else{            
                 const createdUser = JSON.stringify(createUser());
                 sessionStorage.removeItem('userInitialWeight');
-                //const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/SignUp';
-                const url = 'api/SignUp'
+                const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/SignUp';
+                //const url = 'api/SignUp' //FOR TESTING
 
                 // Sign-up API call to create a user, get all data, and update ranking
                 axios.post(url, createdUser)
@@ -72,16 +63,13 @@ const TeamPageBody = () => {
         }
     }
 
-    /**
-     * Function to create a standard user based on user initial weight and inputted team name
-     */
+    // Function to create a standard user based on user initial weight and inputted team name
     const createUser = () => {
         const todayDate = new Date();
-        var convertedDate = todayDate.toLocaleDateString();
+        var convertedDate = todayDate.toLocaleDateString(); // Convert a date object into a readable date string
 
         let newUser = {};
         newUser.startWeight = sessionStorage.getItem('userInitialWeight');
-        //newUser.weightLoss = `${joinTeamName}-${sessionStorage.getItem('userInitialWeight')}`;
         newUser.weightLoss = sessionStorage.getItem('userInitialWeight');
         newUser.playerName = user.name;
         newUser.email = user.email;

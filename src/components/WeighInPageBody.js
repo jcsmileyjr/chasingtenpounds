@@ -10,6 +10,7 @@ import { store } from '../Context/store';
 import axios from 'axios';
 import swal from 'sweetalert';
 
+// Component allowing a player to update their current weight
 const WeighInPageBody = () => {
     const {user} = useAuth0(); // Using the auth0 Single Page SDK, updates itself when user is logged in
     const globalState = useContext(store);
@@ -26,8 +27,8 @@ const WeighInPageBody = () => {
                 userEmail:user.email,
             }
     
-            //const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/UpdateWeight';
-            const url = 'api/UpdateWeight';
+            const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/UpdateWeight';
+            //const url = 'api/UpdateWeight'; // FOR TESTING
             const updatedPlayerDetails = JSON.stringify(userData);
             axios.post(url, updatedPlayerDetails)
             .then(function(response){

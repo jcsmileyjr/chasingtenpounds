@@ -10,7 +10,7 @@ const getRecords = async () => {
 }
 
 const updateRecord = async (fields) => {
-  await userTable.update([fields]);
+  await userTable.update([fields]); // Update record to airtable.com database
 }
 
 const teamTable = base('teams'); //connect to teams database
@@ -46,9 +46,7 @@ exports.handler = async function(event, context, callback) {
 // Update the current player's teams in the database
 const updatePlayerInDatabase = async (userData, Users) => {
   const currentUser = Users.find(player => player.fields.email === userData.userEmail); // Find current player from database of players
-console.log(userData);
   const newTeamStartDate = `${userData.newTeamName}-${currentUser.fields.weightLoss}` // Create a new team with the current weight
-console.log(newTeamStartDate)
   const allTeams = `${currentUser.fields.teams},${newTeamStartDate}`// Add new team with start weight to list of teams
 
   // Create an object to update corrosponding object in database
