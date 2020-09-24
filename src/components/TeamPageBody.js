@@ -10,32 +10,31 @@ import axios from 'axios';
 import { store } from '../Context/store';
 import swal from 'sweetalert';
 
+// Component allowing a player to join a team when they sign up (with a start weight) or if they all ready have an account
 const TeamPageBody = () => {
     const [joinTeamName, setJoinTeamName] = useState('');
 
-    const {user} = useAuth0();
+    const {user} = useAuth0(); //Get the user basic information from Auth0
     const history = useHistory();
     const globalState = useContext(store); // Store data into the global 'Context' and share with the entire app
     const { dispatch } = globalState; // Update data to the global 'Context' state
 
+    // Function to get player input to save to component state
     const joinTeam = (e) => {
         setJoinTeamName(e.target.value);
     }
 
-    /**
-     * TODO: If user is already signned in & authenicated but want to join a new team.
-     * check if user is already signned in
-     */
-    /*Create an user data object to be saved to database, API call to update app's data, and route user to ranking page */
+    // Create an user data object to be saved to database, API call to update app's data, and route user to ranking page 
     const saveUserWithNewTeam = async() =>{
         if(joinTeamName !== ''){
             if(sessionStorage.getItem('loggedIn')){
                 const joinTeam = {}
                 joinTeam.userEmail = user.email;
-                joinTeam.newTeamName = joinTeamName;
+                joinTeam.newTeamName = joinTeamName;// Include team name
 
                 const updatedPlayerDetails = JSON.stringify(joinTeam);
                 const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/JoinTeam';
+                //const url = 'api/JoinTeam'; // For TESTING
 
                 //API call to update current user's list of teams they have joined
                 axios.post(url, updatedPlayerDetails)
@@ -48,6 +47,7 @@ const TeamPageBody = () => {
                 const createdUser = JSON.stringify(createUser());
                 sessionStorage.removeItem('userInitialWeight');
                 const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/SignUp';
+                //const url = 'api/SignUp' //FOR TESTING
 
                 // Sign-up API call to create a user, get all data, and update ranking
                 axios.post(url, createdUser)
@@ -55,6 +55,7 @@ const TeamPageBody = () => {
                     const data = response.data;
                     dispatch({type:'SIGNUP',payload: data.teamData}); // When the data has returned, update the Context global state with data
                     history.push('/ranking');
+                    sessionStorage.setItem('loggedIn', true);
                 })
             } 
         }else{
@@ -62,23 +63,19 @@ const TeamPageBody = () => {
         }
     }
 
-    /**
-     * Function to create a standard user based on user initial weight and inputted team name
-     */
+    // Function to create a standard user based on user initial weight and inputted team name
     const createUser = () => {
         const todayDate = new Date();
-        var convertedDate = todayDate.toLocaleDateString();
+        var convertedDate = todayDate.toLocaleDateString(); // Convert a date object into a readable date string
 
         let newUser = {};
         newUser.startWeight = sessionStorage.getItem('userInitialWeight');
-        newUser.weightLoss = '0';
+        newUser.weightLoss = sessionStorage.getItem('userInitialWeight');
         newUser.playerName = user.name;
         newUser.email = user.email;
-        //newUser.playerName = "John Smith"; // For testing sign up
-        //newUser.email = "jsmith@test.com"; // For testing sign up
         newUser.winner = 'false';
         newUser.lastUpdate = convertedDate
-        newUser.teams = joinTeamName;
+        newUser.teams = `${joinTeamName}-${sessionStorage.getItem('userInitialWeight')}`;
 
         return newUser;
     }
@@ -92,11 +89,11 @@ const TeamPageBody = () => {
                     <Form.Label>Type in the name of a Team to Join</Form.Label>
                         <Form.Control type="text" placeholder="Team Name" onChange={joinTeam} />
                     </Form.Group>
-                </Col>
+                </Col> 
                 <Col xs={12} sm={{ span: 6, offset: 3 }}  className="centerElements weighInWhiteSpaceAbove">
                     <BlueButton buttonType="light" action={saveUserWithNewTeam} title="Join Team" flat={true} wide={true}/>
                 </Col>  
-                <QuoteMonster />             
+                <QuoteMonster />                             
             </Row>
             {/** 
             <Row><Col xs={12} sm={{ span: 6, offset: 3 }} className="line"></Col></Row>

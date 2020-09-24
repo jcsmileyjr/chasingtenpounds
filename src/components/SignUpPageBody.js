@@ -7,6 +7,7 @@ import swal from 'sweetalert';
 import './SignUpPageBody.css';
 import BlueButton from '../components/BlueButton';
 
+// Component allowing a player to give their starting weight
 const SignUpPageBody = () => {
     const [initialWeight, setInitialWeight] = useState(0);
     const history = useHistory();
@@ -16,7 +17,7 @@ const SignUpPageBody = () => {
         setInitialWeight(e.target.value)
     }
     
-    /*Save the weight to session storage to use later in signing user up */
+    // Save the weight to session storage to use later in signing user up. Test first that its a number
     const saveWeight = () =>{
         if(/[0-9]/g.test(initialWeight) && isNaN(initialWeight) === false){
             if(initialWeight > 0){
@@ -31,7 +32,7 @@ const SignUpPageBody = () => {
 
     }
 
-    const {user} = useAuth0();
+    const {user} = useAuth0(); //Get the user basic information from Auth0
     return(
         <Container fluid={true} >            
             <Row className="whiteSpaceAbove">                

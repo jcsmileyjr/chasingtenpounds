@@ -78,13 +78,49 @@ exports.handler = async function(event, context, callback) {
     return Math.round(Math.abs((Date.parse(new Date()) - Date.parse(lastUpdate))/minutesInADay))
   }
 
+  // Function to create an array of  team names seperate with the start weight sanitize from it
+  const getPlayerTeams = currentUser => {
+    const teamNameOnly = currentUser.fields.teams.split(',')
+      .map(teamWithWeight => {
+        return teamWithWeight.split("-");
+      })
+      .map(teamWithoutWeight => {
+        return teamWithoutWeight[0]
+      })
+
+    return teamNameOnly
+  }  
+
+  // Function to update each player current weight
+  const getPlayerWeightLoss = (team, player) => {
+    // Convert string of team names and weights into an array
+    const playerTeamWeight = player.fields.teams.split(',')
+    
+    //Split the strings within each array spot into another array
+    .map(teamWithWeight => {
+      return teamWithWeight.split("-");
+    })
+
+    let startWeight = 0;
+
+    // Scroll through array of teams looking for a match, if found save start weight
+    playerTeamWeight.forEach(userTeam => {
+      if(userTeam[0] === team){
+        startWeight = userTeam[1]
+      }
+    })
+    
+    return (startWeight - player.fields.weightLoss).toFixed(1);
+  }
+
   // Based on the current user, organize the data by their teams
   const organizeTeamData = (userEmail, Users, startDates) => {
     let displayTeams = []; // Array of teams
     let playerTeams = []; // Names of the team the player is on
 
     const currentUser = Users.find(player => player.fields.email === userEmail); // Find current player from database of players    
-    playerTeams = currentUser.fields.teams.split(','); // Get current player teams and convert into an array
+    playerTeams = getPlayerTeams(currentUser) // Get current player teams and convert into an array
+
 
     // Create array of array of players by team name
     playerTeams.forEach(team => {
@@ -98,9 +134,10 @@ exports.handler = async function(event, context, callback) {
         if(checkIfOnSameTeam){
           /*Strip all players of un-needed data*/
           const sanitizedPlayer = {};
-          sanitizedPlayer.playerName = player.fields.playerName;
-          sanitizedPlayer.weightLoss = player.fields.weightLoss;
-          sanitizedPlayer.winner = player.fields.winner;
+          const weightLoss = getPlayerWeightLoss(team, player); // Update this player weightloss based on this team start weight and current weight
+          sanitizedPlayer.playerName = player.fields.playerName;          
+          sanitizedPlayer.weightLoss = weightLoss
+          sanitizedPlayer.winner =  weightLoss >= 10 ? 'true':'false';
           sanitizedPlayer.lastUpdate = daysSinceLastUpdate;
           teamOfPlayers.push(sanitizedPlayer);
         }

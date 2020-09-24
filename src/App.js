@@ -28,20 +28,24 @@ const App = () => {
    * 2. Pass that data into global data React Context
   */
   useEffect(() => {
+    // If the user is valid then send to weigh in screen
+    const ifValidUser = ()=> {
+      sessionStorage.setItem('loggedIn', true);
+      history.push('/weighIn');
+    }
+
     if (isAuthenticated) {
-      const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/Login';
+      const url = 'api/Login'; //Testing
+      //const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/Login';
       const userEmail = JSON.stringify(user.email)
       axios.post(url, userEmail)
         .then(function(response){
           const data = response.data;
           dispatch({type:'LOGIN',payload: data.teamData}); // When the data has returned, update the Context global state with data
-          sessionStorage.setItem('loggedIn', true);
-          data.validUser ? history.push('/weighIn'): history.push('/signUp'); // Route user to weighIn screen if signedUp else to sign up screen
+          data.validUser ? ifValidUser(): history.push('/signUp'); // Route user to weighIn screen if signedUp else to sign up screen
         })     
     } 
   }, [isAuthenticated, user, dispatch, history]);
-
-  
 
   return (
     <div>
