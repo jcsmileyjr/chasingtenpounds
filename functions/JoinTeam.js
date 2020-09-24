@@ -47,8 +47,9 @@ exports.handler = async function(event, context, callback) {
 const updatePlayerInDatabase = async (userData, Users) => {
   const currentUser = Users.find(player => player.fields.email === userData.userEmail); // Find current player from database of players
 console.log(userData);
-console.log(userData.newTeamName)
-  const allTeams = `${currentUser.fields.teams},${userData.newTeamName}`
+  const newTeamStartDate = `${userData.newTeamName}-${currentUser.fields.weightLoss}` // Create a new team with the current weight
+console.log(newTeamStartDate)
+  const allTeams = `${currentUser.fields.teams},${newTeamStartDate}`// Add new team with start weight to list of teams
 
   // Create an object to update corrosponding object in database
   const updatedUser = {
@@ -65,7 +66,8 @@ console.log(userData.newTeamName)
 const updateUserTeams = (newUserData, Users, startDates) => {
     const updatedUsers = Users.map((player) => {
       if(player.fields.email === newUserData.userEmail){
-        const allTeams = `${player.fields.teams},${newUserData.newTeamName}`
+        const newTeamStartDate = `${newUserData.newTeamName}-${player.fields.weightLoss}` // Create a new team with the current weight
+        const allTeams = `${player.fields.teams},${newTeamStartDate}`
         player.fields.teams = allTeams;
       }      
       return player      

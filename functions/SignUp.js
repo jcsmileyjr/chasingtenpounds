@@ -108,21 +108,72 @@ exports.handler = async function(event, context, callback) {
     
     return (startWeight - player.fields.weightLoss).toFixed(1);
   }
+/*
+  const getPlayerTeamStartWeight = (team, player) => {
+    // Convert string of team names and weights into an array
+    const playerTeamWeight = player.fields.teams.split(',')
+    
+    //Split the strings within each array spot into another array
+    .map(teamWithWeight => {
+      return teamWithWeight.split("-");
+    })
 
+    let startWeight = 0;
+
+    // Scroll through array of teams looking for a match, if found save start weight
+    playerTeamWeight.forEach(userTeam => {
+      if(userTeam[0] === team){
+        startWeight = userTeam[1]
+      }
+    })
+console.log(`${player.fields.playerName} start weight is ${startWeight}`);
+    return startWeight;
+  }
+
+  // Function based on weightloss attribute of data looking like 'MGC-200' and representing each team current weight.
+  const getPlayerTeamCurrentWeight = (team, player) => {
+    // Convert string of team names and weights into an array
+    const playerTeamWeight = player.fields.weightLoss.split(',')
+    
+    //Split the strings within each array spot into another array
+    .map(teamWithWeight => {
+      return teamWithWeight.split("-");
+    })
+
+    let currentWeight = 0;
+
+    // Scroll through array of teams looking for a match, if found save start weight
+    playerTeamWeight.forEach(userTeam => {
+      if(userTeam[0] === team){
+        currentWeight = userTeam[1]
+      }
+    })
+console.log(`${player.fields.playerName} current weight is ${currentWeight}`);
+    return currentWeight;
+  }
+
+
+  // Function to update each player current weight
+  const getPlayerWeightLoss = (team, player) => {
+    const startWeight = getPlayerTeamStartWeight(team, player);
+    //const currentWeight = getPlayerTeamCurrentWeight(team, player);
+    const currentWeight = player.fields.weightLoss;
+    return (startWeight - currentWeight).toFixed(1);
+  }
+*/
   // Based on the current user, organize the data by their teams
   const organizeTeamData = (userEmail, Users, startDates) => {
     let displayTeams = []; // Array of teams
     let playerTeams = []; // Names of the team the player is on
-
     const currentUser = Users.find(player => player.fields.email === userEmail); // Find current player from database of players    
     playerTeams = getPlayerTeams(currentUser) // Get current player teams and convert into an array
-
 
     // Create array of array of players by team name
     playerTeams.forEach(team => {
       let teamDetails = {};
       teamDetails.teamName = team;
       teamDetails.currentWeek = getCurrentWeek(startDates, team);/**dynamically get current week */
+console.log(`${team} at week ${teamDetails.currentWeek}`)      
       let teamOfPlayers = [];
       Users.forEach(player => {
         const checkIfOnSameTeam = player.fields.teams.includes(team);

@@ -12,7 +12,7 @@ import swal from 'sweetalert';
 
 const TeamPageBody = () => {
     const [joinTeamName, setJoinTeamName] = useState('');
-    const [newWeight, setNewWeight] = useState('');
+    //const [newWeight, setNewWeight] = useState('');
 
     const {user} = useAuth0();
     const history = useHistory();
@@ -22,11 +22,11 @@ const TeamPageBody = () => {
     const joinTeam = (e) => {
         setJoinTeamName(e.target.value);
     }
-
+/*
     const updateWeight = (e) => {
         setNewWeight(e.target.value);
     }
-
+*/
     /**
      * TODO: If user is already signned in & authenicated but want to join a new team.
      * check if user is already signned in
@@ -37,7 +37,9 @@ const TeamPageBody = () => {
             if(sessionStorage.getItem('loggedIn')){
                 const joinTeam = {}
                 joinTeam.userEmail = user.email;
-                joinTeam.newTeamName = `${joinTeamName}-${newWeight}`;// Include team name and most up to date start weight
+                joinTeam.newTeamName = joinTeamName;// Include team name
+                //joinTeam.weightLoss =  `${joinTeamName}-${newWeight}`;// Include team name and most up to date start weight
+                //joinTeam.newTeamName = `${joinTeamName}-${newWeight}`;// Include team name and most up to date start weight
 
                 const updatedPlayerDetails = JSON.stringify(joinTeam);
                 //const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/JoinTeam';
@@ -79,6 +81,7 @@ const TeamPageBody = () => {
 
         let newUser = {};
         newUser.startWeight = sessionStorage.getItem('userInitialWeight');
+        //newUser.weightLoss = `${joinTeamName}-${sessionStorage.getItem('userInitialWeight')}`;
         newUser.weightLoss = sessionStorage.getItem('userInitialWeight');
         newUser.playerName = user.name;
         newUser.email = user.email;
@@ -91,17 +94,6 @@ const TeamPageBody = () => {
 
     return (
         <Container fluid={true} className="weighInPageLayout">
-            {sessionStorage.getItem('loggedIn') &&
-                <Row className="weighInBody">
-                    <Col xs={12} sm={{ span: 6, offset: 3 }} >
-                        <h4 className="centerElements weighInWhiteSpaceAbove">Current Weight</h4>
-                        <Form.Group controlId="CurrentWeight">
-                        <Form.Label>Type current weight</Form.Label>
-                            <Form.Control type="text" placeholder="Current Weight" onChange={updateWeight} />
-                        </Form.Group>
-                    </Col>            
-                </Row> 
-            }
             <Row className="weighInBody">
                 <Col xs={12} sm={{ span: 6, offset: 3 }} >
                     <h4 className="centerElements weighInWhiteSpaceAbove">Join Team</h4>
