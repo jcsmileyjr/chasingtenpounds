@@ -35,8 +35,8 @@ const App = () => {
     }
 
     if (isAuthenticated) {
-      const url = 'api/Login'; //Testing
-      //const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/Login';
+      //const url = 'api/Login'; //Testing
+      const url = 'https://chasingtenpounds.netlify.app/.netlify/functions/Login';
       const userEmail = JSON.stringify(user.email)
       axios.post(url, userEmail)
         .then(function(response){
