@@ -169,7 +169,7 @@ const updateUserWeight = (newUserData, Users, startDates) => {
         }
       });
 
-      teamOfPlayers.sort((a, b) =>(a.weightLoss > b.weightLoss)? 1 : -1); // Sort the players in the team  by weight loss
+      teamOfPlayers.sort((a, b) =>(Number(a.weightLoss) < Number(b.weightLoss))? 1 : -1); // Sort the players in the team  by weight loss
       teamDetails.players = teamOfPlayers; // Add teams of players to array of teams
       displayTeams.push(teamDetails);// Add teams of players to array of teams
     })
