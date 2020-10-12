@@ -138,6 +138,7 @@ exports.handler = async function(event, context, callback) {
         }
       });
 
+      teamOfPlayers.sort((a, b) =>(a.weightLoss > b.weightLoss)? 1 : -1); // Sort the players in the team  by weight loss
       teamDetails.players = teamOfPlayers; // Add teams of players to array of teams
       displayTeams.push(teamDetails);// Add teams of players to array of teams
     })
